@@ -10,14 +10,9 @@ int main()
 
     StackInit(&stack, 10);
 
-    for (int i = 0; i < stack.capacity; i++)
-    {
-        StackPush(&stack, i);
-    }
-
-    StackDump(&stack);
-
     StackTest(&stack);
+
+    StackPrint(&stack);
 
     StackDestroy(&stack);
 }

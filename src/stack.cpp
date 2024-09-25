@@ -22,7 +22,7 @@ StackCode StackInit(Stack_t* stack, int capacity)
 
 StackCode StackPush(Stack_t* stack, StackElem_t value)
 {
-    STACK_ASSERT(StackValid(stack));
+    STACK_ASSERT(StackValidator(stack));
 
     if (stack->size < stack->capacity)
     {
@@ -35,33 +35,35 @@ StackCode StackPush(Stack_t* stack, StackElem_t value)
         stack->data[stack->size++] = value;
     }
 
-    STACK_ASSERT(StackValid(stack));
+    STACK_ASSERT(StackValidator(stack));
 
     return EXECUTED;
 }
 
-StackCode StackPop(Stack_t* stack)
+StackElem_t StackPop(Stack_t* stack)
 {
-    STACK_ASSERT(StackValid(stack));
+    STACK_ASSERT(StackValidator(stack));
+
+    StackElem_t value = stack->data[--stack->size]; //TODO check for underflow
 
     if (stack->size < 1)
     {
         return FAILED;
     }
 
-    stack->size -= 1;
-
     if (stack->size <= stack->capacity / 4)
     {
-        RETURN_FAILED_IF(StackResize(stack, CUTTEN) == FAILED);
+        StackResize(stack, CUTTEN) == FAILED;
     }
 
-    return EXECUTED;
+    STACK_ASSERT(StackValidator(stack));
+
+    return value;
 }
 
 StackCode StackResize(Stack_t* stack, int mode)
 {
-    STACK_ASSERT(StackValid(stack));
+    STACK_ASSERT(StackValidator(stack));
 
     if (mode == WIDEN)
     {
@@ -80,14 +82,14 @@ StackCode StackResize(Stack_t* stack, int mode)
         stack->capacity = stack->capacity / 2;
     }
 
-    STACK_ASSERT(StackValid(stack));
+    STACK_ASSERT(StackValidator(stack));
 
     return EXECUTED;
 }
 
 StackCode StackDestroy(Stack_t* stack)
 {
-    STACK_ASSERT(StackValid(stack));
+    STACK_ASSERT(StackValidator(stack));
 
     free(stack->data);
 
@@ -102,24 +104,44 @@ StackCode StackDestroy(Stack_t* stack)
 
 StackCode StackTest(Stack_t* stack)
 {
+    for (int i = 0; i < stack->capacity; i++)
+    {
+        StackPush(stack, i);
+    }
+
     return EXECUTED;
 }
 
 StackCode StackDump(Stack_t* stack)
 {
-    STACK_ASSERT(StackValid(stack));
+    return EXECUTED;
+}
+
+StackCode StackPrint(Stack_t* stack)
+{
+    STACK_ASSERT(StackValidator(stack));
 
     for (int i = 0; i < stack->capacity; i++)
     {
         printf("[%d] = %d\n", i, stack->data[i]);
     }
 
+    printf("\n");
+
+    for (int i = stack->capacity - 1; i >= 0; i--)
+    {
+        printf("[%d] = %d\n", i, StackPop(stack));
+    }
+
     return EXECUTED;
 }
 
-StackCode StackValid(Stack_t* stack)
+StackCode StackValidator(Stack_t* stack)
 {
-    RETURN_STACK_INVALID_IF(stack == nullptr || stack->data == nullptr || stack->size > stack->capacity);
+    if (stack == nullptr || stack->data == nullptr || stack->size > stack->capacity)
+    {
+        return STACK_INVALID;
+    }
 
     return STACK_VALID;
 }
