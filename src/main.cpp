@@ -8,7 +8,7 @@ uint64_t err = NO_ERROR;
 
 int main()
 {
-    Stack_t stack = {STACK_INIT_PARAM};
+    Stack_t stack = {INIT(stack)};
 
     StackCtor(&stack, MIN_STACK_SIZE);
 
@@ -16,7 +16,7 @@ int main()
 
     StackDtor(&stack);
 
-//     Stack_t stack2 = {STACK_INIT_PARAM};
+//     Stack_t stack2 = {INIT(stack)};
 //
 //     StackCtor(&stack2, 10);
 //

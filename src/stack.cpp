@@ -43,10 +43,15 @@ StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
     }
     else
     {
-        if (StackResize(stack, stack->capacity * 2) == FAILED)
+        if (stack->capacity > MAX_STACK_SIZE)
         {
             err += STACK_OVERFLOW;
 
+            return FAILED;
+        }
+
+        if (StackResize(stack, stack->capacity * 2) == FAILED)
+        {
             return FAILED;
         }
 
@@ -54,12 +59,6 @@ StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
     }
 
     STACK_ASSERT(STACK_IS_VALID(stack));
-
-    #ifdef DEBUG
-
-    printf("StackPush: [%ld] = %ld\n", stack->size, stack->data[stack->size]);
-
-    #endif
 
     stack->size++;
 
@@ -81,16 +80,13 @@ StackElem_t StackPop(Stack_t* stack)
 
     StackElem_t value = stack->data[stack->size];
 
-    if (stack->size <= stack->capacity / 4)
+    if ((stack->size <= stack->capacity / 4) && (stack->capacity / 2 >= MIN_STACK_SIZE))
     {
-        StackResize(stack, stack->capacity / 2) == FAILED;
+        if (StackResize(stack, stack->capacity / 2) == FAILED)
+        {
+            return FAILED;
+        }
     }
-
-    #ifdef DEBUG
-
-    printf("StackPop:  [%ld] = %ld\n", stack->size, stack->data[stack->size]);
-
-    #endif
 
     stack->data[stack->size] = 0;
 
@@ -137,7 +133,7 @@ StackReturnCode StackDtor(Stack_t* stack)
 {
     STACK_ASSERT(STACK_IS_VALID(stack));
 
-    memset(stack->data, 0, stack->capacity);
+    // memset(stack->data, 0, stack->capacity);
 
     free(stack->data);
 
@@ -150,7 +146,7 @@ StackReturnCode StackDtor(Stack_t* stack)
     return EXECUTED;
 }
 
-StackReturnCode StackDump(Stack_t* stack, int line, const char* file, const char* function)
+StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
     FILE* DumpFile = fopen("dump.txt", "wb");
 
@@ -169,7 +165,9 @@ StackReturnCode StackDump(Stack_t* stack, int line, const char* file, const char
 
     TimeInfo = localtime(&RawTime);
 
-    fprintf(DumpFile, "dump.txt created at local time and date: %s\n", asctime(TimeInfo));
+    fprintf(DumpFile, "dump.txt created at local time and date: %s", asctime(TimeInfo));
+
+    fprintf(DumpFile, "%s\n", StackStrErr(err));
 
     if (!stack)
     {
@@ -180,8 +178,8 @@ StackReturnCode StackDump(Stack_t* stack, int line, const char* file, const char
         return EXECUTED;
     }
 
-    fprintf(DumpFile, "Stack_t[%p] failed at %s:%d in function %s\nBorn at %s:%d in function %s\n\n",
-            stack, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc);
+    ON_DEBUG(fprintf(DumpFile, "Stack_t[%p] name = %s failed at %s:%d in function %s\nBorn at %s:%d in function %s\n\n",
+            stack, stack->name, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc));
 
     fprintf(DumpFile, "capacity = %ld\n", stack->capacity);
 
@@ -214,7 +212,7 @@ StackReturnCode StackTest(Stack_t* stack)
 
     if (!UnitTestFile)
     {
-        err = INVALID_FILE_POINTER;
+        err += INVALID_FILE_POINTER;
 
         return FAILED;
     }
@@ -223,11 +221,13 @@ StackReturnCode StackTest(Stack_t* stack)
 
     int r = rand() % 100;
 
-    for (size_t i = 0; i < 2049; i++)
+    for (size_t i = 0; i < 32; i++)
     {
         fprintf(UnitTestFile, "%d\n", r);
 
         StackPush(stack, (int) r);
+
+        printf("StackPush: [%ld] = %ld\n", stack->size - 1, stack->data[stack->size - 1]);
 
         r = rand() % 100;
 
@@ -238,20 +238,26 @@ StackReturnCode StackTest(Stack_t* stack)
 
     for (size_t i = stack->size; i > 0; i--)
     {
-        StackPop(stack);
+        printf("StackPop:  [%ld] = %ld\n", stack->size, StackPop(stack));
+
         printf("Capacity = %ld\n", stack->capacity);
     }
 
     return EXECUTED;
 }
 
-bool StackIsValid(Stack_t* stack, int line, const char* file, const char* function)
+const char* StackStrErr (uint64_t code)
+{
+    return "";
+}
+
+bool StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
     if (!stack)
     {
         err += INVALID_STACK_POINTER;
 
-        StackDump(stack, line, file, function);
+        ON_DEBUG(StackDump(stack, line, file, function));
 
         return false;
     }
@@ -260,7 +266,7 @@ bool StackIsValid(Stack_t* stack, int line, const char* file, const char* functi
     {
         err += INVALID_DATA_POINTER;
 
-        StackDump(stack, line, file, function);
+        ON_DEBUG(StackDump(stack, line, file, function));
 
         return false;
     }
@@ -269,7 +275,7 @@ bool StackIsValid(Stack_t* stack, int line, const char* file, const char* functi
     {
         err += INVALID_SIZE;
 
-        StackDump(stack, line, file, function);
+        ON_DEBUG(StackDump(stack, line, file, function));
 
         return false;
     }

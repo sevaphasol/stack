@@ -3,22 +3,27 @@
 #ifndef STACK_H__
 #define STACK_H__
 
-/*
-    Made as a macro because of ease of use (you shouldn't write visibly line, file, func in your assert)
-*/
+#ifdef DEBUG
+
+#define ON_DEBUG(...) __VA_ARGS__
+
+#define INIT(name) __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, false, nullptr, 0, 0
 
 #define STACK_ASSERT(statement) StackAssert    (statement, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
 #define STACK_IS_VALID(stack)   StackIsValid   (stack,     __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
-/*
-    Made as a macro because of ease of use (you shouldn't write visibly this parametrs)
-*/
+#else
 
-#define STACK_INIT_PARAM                                                          \
-.BornFile    = __FILE__, .BornLine  = __LINE__, .BornFunc = __PRETTY_FUNCTION__,  \
-.initialized =    false, .ErrorCode =        0,                                   \
-.data        =  nullptr, .size      =        0, .capacity =                   0,  \
+#define ON_DEBUG(...)
+
+#define INIT(name) false, nullptr, 0, 0
+
+#define STACK_ASSERT(statement)
+
+#define STACK_IS_VALID(stack)
+
+#endif
 
 int const MIN_STACK_SIZE = 1024;
 
@@ -51,13 +56,12 @@ typedef uint64_t StackElem_t;
 
 struct Stack_t
 {
-    const char*   BornFile;
-    int           BornLine;
-    const char*   BornFunc;
+    ON_DEBUG(const char*   BornFile);
+    ON_DEBUG(int           BornLine);
+    ON_DEBUG(const char*   BornFunc);
+    ON_DEBUG(const char*   name);
 
     bool          initialized;
-
-    uint64_t      ErrorCode;
 
     StackElem_t*      data;
     uint64_t          size;
@@ -78,9 +82,11 @@ StackReturnCode   StackDtor           (Stack_t* stack);
 
 StackReturnCode   StackTest           (Stack_t* stack);
 
-StackReturnCode   StackDump           (Stack_t* stack,      int line, const char* file, const char* function);
+StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 
-bool              StackIsValid        (Stack_t* stack,      int line, const char* file, const char* function);
+const char*       StackStrErr         (uint64_t code);
+
+bool              StackIsValid        (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 
 void              StackAssert         (bool statement, int line, const char* file, const char* function);
 
