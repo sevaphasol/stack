@@ -2,15 +2,15 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#include "error_codes.h"
-
 #include "stack.h"
+
+uint64_t err = NO_ERROR;
 
 int main()
 {
     Stack_t stack = {STACK_INIT_PARAM};
 
-    StackCtor(&stack, 10);
+    StackCtor(&stack, MIN_STACK_SIZE);
 
     StackTest(&stack);
 
