@@ -1,17 +1,24 @@
 #include <stdio.h>
 #include <assert.h>
+#include <time.h>
 
 #include "stack.h"
 #include "error_codes.h"
 #include "stdlib.h"
 
-StackCode StackInit(Stack_t* stack, int capacity)
+StackCode StackCtor(Stack_t* stack, int capacity)
 {
-    RETURN_FAILED_IF(stack == nullptr);
+    if (!stack)
+    {
+        return FAILED;
+    }
 
     stack->data = (StackElem_t*) calloc(capacity, sizeof(StackElem_t));
 
-    RETURN_FAILED_IF(stack->data == nullptr);
+    if (!stack->data)
+    {
+        return FAILED;
+    }
 
     stack->size = 0;
 
@@ -22,74 +29,87 @@ StackCode StackInit(Stack_t* stack, int capacity)
 
 StackCode StackPush(Stack_t* stack, StackElem_t value)
 {
-    STACK_ASSERT(StackValidator(stack));
+    STACK_ASSERT(STACK_VALIDATOR(stack));
 
     if (stack->size < stack->capacity)
     {
-        stack->data[stack->size++] = value;
+        stack->data[stack->size] = value;
     }
     else
     {
-        RETURN_FAILED_IF(StackResize(stack, WIDEN) == FAILED);
+        if (StackResize(stack, stack->capacity * 2) == FAILED)
+        {
+            return FAILED;
+        }
 
-        stack->data[stack->size++] = value;
+        stack->data[stack->size] = value;
     }
 
-    STACK_ASSERT(StackValidator(stack));
+    STACK_ASSERT(STACK_VALIDATOR(stack));
+
+    #ifdef DEBUG
+
+    printf("StackPush: [%ld] = %lld\n", stack->size, stack->data[stack->size]);
+
+    #endif
+
+    stack->size++;
 
     return EXECUTED;
 }
 
 StackElem_t StackPop(Stack_t* stack)
 {
-    STACK_ASSERT(StackValidator(stack));
+    STACK_ASSERT(STACK_VALIDATOR(stack));
 
-    StackElem_t value = stack->data[--stack->size]; //TODO check for underflow
-
-    if (stack->size < 1)
+    if (stack->size == 0)
     {
         return FAILED;
     }
 
+    stack->size--;
+
+    StackElem_t value = stack->data[stack->size];
+
     if (stack->size <= stack->capacity / 4)
     {
-        StackResize(stack, CUTTEN) == FAILED;
+        StackResize(stack, stack->capacity / 2) == FAILED;
     }
 
-    STACK_ASSERT(StackValidator(stack));
+    #ifdef DEBUG
+
+    printf("StackPop:  [%ld] = %lld\n", stack->size, stack->data[stack->size]);
+
+    #endif
+
+    stack->data[stack->size] = 0;
+
+    STACK_ASSERT(STACK_VALIDATOR(stack));
 
     return value;
 }
 
-StackCode StackResize(Stack_t* stack, int mode)
+StackCode StackResize(Stack_t* stack, size_t newCapacity)
 {
-    STACK_ASSERT(StackValidator(stack));
+    STACK_ASSERT(STACK_VALIDATOR(stack));
 
-    if (mode == WIDEN)
+    stack->data = (StackElem_t*) realloc(stack->data, newCapacity * sizeof(StackElem_t));
+
+    if (!stack->data)
     {
-        stack->data = (StackElem_t*) realloc(stack->data, stack->capacity * 2 * sizeof(StackElem_t));
-
-        RETURN_FAILED_IF(stack->data == nullptr);
-
-        stack->capacity = stack->capacity * 2;
-    }
-    else if (mode == CUTTEN)
-    {
-        stack->data = (StackElem_t*) realloc(stack->data, stack->capacity / 2 * sizeof(StackElem_t));
-
-        RETURN_FAILED_IF(stack->data == nullptr);
-
-        stack->capacity = stack->capacity / 2;
+        return FAILED;
     }
 
-    STACK_ASSERT(StackValidator(stack));
+    stack->capacity = newCapacity;
+
+    STACK_ASSERT(STACK_VALIDATOR(stack));
 
     return EXECUTED;
 }
 
-StackCode StackDestroy(Stack_t* stack)
+StackCode StackDtor(Stack_t* stack)
 {
-    STACK_ASSERT(StackValidator(stack));
+    STACK_ASSERT(STACK_VALIDATOR(stack));
 
     free(stack->data);
 
@@ -102,44 +122,96 @@ StackCode StackDestroy(Stack_t* stack)
     return EXECUTED;
 }
 
+StackCode StackDump(Stack_t* stack, int line, const char* file, const char* function)
+{
+    FILE* fp = fopen("dump.txt", "wb");
+
+    if (!fp)
+    {
+        return FAILED;
+    }
+
+    time_t RawTime;
+
+    struct tm* TimeInfo;
+
+    time(&RawTime);
+
+    TimeInfo = localtime(&RawTime);
+
+    fprintf(fp, "dump.txt created at local time and date: %s\n", asctime(TimeInfo));
+
+    if (!stack)
+    {
+        fprintf(fp, "Lost stack pointer\n");
+
+        fclose(fp);
+
+        return EXECUTED;
+    }
+
+    fprintf(fp, "Stack_t[%p] failed at %s:%d in function %s\nBorn at %s:%d in function %s\n\n",
+            stack, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc);
+
+    fprintf(fp, "capacity = %ld\n", stack->capacity);
+
+    fprintf(fp, "size = %ld\n", stack->size);
+
+    if (!stack->data)
+    {
+        fprintf(fp, "Lost stack->data pointer\n");
+
+        fclose(fp);
+
+        return EXECUTED;
+    }
+
+    for (int i = 0; i < stack->capacity; i++)
+    {
+        fprintf(fp, "[%d] = %lld\n", i, stack->data[i]);
+    }
+
+    fclose(fp);
+
+    return EXECUTED;
+}
+
 StackCode StackTest(Stack_t* stack)
 {
-    for (int i = 0; i < stack->capacity; i++)
+    STACK_ASSERT(STACK_VALIDATOR(stack));
+
+    for (size_t i = 0; i < stack->capacity; i++)
     {
         StackPush(stack, i);
     }
 
-    return EXECUTED;
-}
+    #ifdef DEBUG
 
-StackCode StackDump(Stack_t* stack)
-{
-    return EXECUTED;
-}
+    printf("\n");
 
-StackCode StackPrint(Stack_t* stack)
-{
-    STACK_ASSERT(StackValidator(stack));
-
-    for (int i = 0; i < stack->capacity; i++)
+    for (size_t i = 0; i < stack->size; i++)
     {
-        printf("[%d] = %d\n", i, stack->data[i]);
+        printf("RealValue: [%ld] = %lld\n", i, stack->data[i]);
     }
 
     printf("\n");
 
-    for (int i = stack->capacity - 1; i >= 0; i--)
+    #endif
+
+    for (size_t i = stack->size; i > 0; i--)
     {
-        printf("[%d] = %d\n", i, StackPop(stack));
+        StackPop(stack);
     }
 
     return EXECUTED;
 }
 
-StackCode StackValidator(Stack_t* stack)
+StackCode StackValidator(Stack_t* stack, int line, const char* file, const char* function)
 {
     if (stack == nullptr || stack->data == nullptr || stack->size > stack->capacity)
     {
+        StackDump(stack, line, file, function);
+
         return STACK_INVALID;
     }
 
@@ -150,10 +222,11 @@ StackCode StackAssert(StackCode statement, int line, const char* file, const cha
 {
     if (statement == STACK_INVALID)
     {
-        printf("%s:%d:%s: Assertion failed.\n", file, line, function);
+        fprintf(stderr, "%s:%d:%s: Assertion failed.\n", file, line, function);
 
-        // abort();
+        abort();
     }
 
     return EXECUTED;
 }
+

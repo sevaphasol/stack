@@ -1,0 +1,8 @@
+dump.txt created at local time and date: Fri Sep 27 15:12:13 2024
+
+Stack_t[0x7fff53fdf550] failed at src/stack.cpp:181 in function StackCode StackTest(Stack_t*)
+Born at src/main.cpp:19 in function int main()
+
+capacity = 10
+size = 0
+Lost stack->data pointer
