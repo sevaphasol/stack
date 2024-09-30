@@ -30,12 +30,15 @@ StackReturnCode StackCtor(Stack_t* stack, int capacity)
 
     stack->inited = true;
 
+    GetHash(stack);
+
     return EXECUTED;
 }
 
 StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
 {
     STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     if (stack->size < stack->capacity)
     {
@@ -58,9 +61,12 @@ StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
         stack->data[stack->size] = value;
     }
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    GetHash(stack);
 
     stack->size++;
+
+    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     return EXECUTED;
 }
@@ -68,6 +74,7 @@ StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
 StackElem_t StackPop(Stack_t* stack)
 {
     STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     if (stack->size == 0)
     {
@@ -90,7 +97,11 @@ StackElem_t StackPop(Stack_t* stack)
 
     stack->data[stack->size] = 0;
 
+    GetHash(stack);
+
     STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
+
 
     return value;
 }
@@ -98,6 +109,7 @@ StackElem_t StackPop(Stack_t* stack)
 StackReturnCode StackResize(Stack_t* stack, size_t newCapacity)
 {
     STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     if (newCapacity < MIN_STACK_SIZE)
     {
@@ -124,7 +136,10 @@ StackReturnCode StackResize(Stack_t* stack, size_t newCapacity)
 
     stack->capacity = newCapacity;
 
+    GetHash(stack);
+
     STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     return EXECUTED;
 }
@@ -132,6 +147,7 @@ StackReturnCode StackResize(Stack_t* stack, size_t newCapacity)
 StackReturnCode StackDtor(Stack_t* stack)
 {
     STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     memset(stack->data, 0, stack->capacity);
 
@@ -142,6 +158,8 @@ StackReturnCode StackDtor(Stack_t* stack)
     stack->size = 0;
 
     stack->capacity = 0;
+
+    stack->hash = 0;
 
     return EXECUTED;
 }
@@ -165,7 +183,7 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
 
     TimeInfo = localtime(&RawTime);
 
-    fprintf(DumpFile, "dump.txt created at local time and date: %s", asctime(TimeInfo));
+    fprintf(DumpFile, "Local time and date: %s", asctime(TimeInfo));
 
     PrintErr(DumpFile, err);
 
@@ -210,7 +228,8 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
 
 StackReturnCode StackTest(Stack_t* stack)
 {
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID  (stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     FILE* UnitTestFile = fopen("unit_test", "wb");
 
@@ -233,6 +252,8 @@ StackReturnCode StackTest(Stack_t* stack)
 
         r = rand() % 100;
     }
+
+    GetHash(stack);
 
     for (size_t i = stack->size; i > 0; i--)
     {
@@ -262,7 +283,12 @@ StackReturnCode PrintErr(FILE* fp, uint64_t code)
 
     fprintf(fp, "ERRORS: ");
 
-    if (code >= 128)
+    if (code >= 256)
+    {
+        fprintf(fp, "INVALID FILE POINTER ");
+    }
+
+    if ((nextPow = code % 256) >= 128)
     {
         fprintf(fp, "INVALID FILE POINTER ");
     }
@@ -307,7 +333,22 @@ StackReturnCode PrintErr(FILE* fp, uint64_t code)
     return EXECUTED;
 }
 
-bool StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
+StackReturnCode GetHash(Stack_t* stack)
+{
+    STACK_ASSERT(STACK_IS_VALID(stack));
+
+    uint64_t hash = 5831;
+    for (size_t i = 0; i < stack->capacity; i++)
+    {
+        hash = (33 * hash + hash) + stack->data[i];
+    }
+
+    stack->hash = hash;
+
+    return EXECUTED;
+}
+
+StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
     StackDump(stack, line, file, function);
 
@@ -317,7 +358,7 @@ bool StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* file, const ch
 
         StackDump(stack, line, file, function);
 
-        return false;
+        return STACK_INVALID;
     }
 
     if (!stack->data)
@@ -326,7 +367,7 @@ bool StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* file, const ch
 
         StackDump(stack, line, file, function);
 
-        return false;
+        return STACK_INVALID;
     }
 
     if (stack->size > stack->capacity)
@@ -335,18 +376,47 @@ bool StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* file, const ch
 
         StackDump(stack, line, file, function);
 
-        return false;
+        return STACK_INVALID;
     }
 
-    return true;
+    return STACK_VALID;
 }
 
-void StackAssert(bool statement, int line, const char* file, const char* function)
+void StackAssert(StackReturnCode code, int line, const char* file, const char* function)
 {
-    if (!statement)
+    if (code == STACK_INVALID)
     {
-        fprintf(stderr, "%s:%d:%s: Assertion failed.\n", file, line, function);
+        fprintf(stderr, "%s:%d:%s: Assertion failed. STACK IS INVALID\n", file, line, function);
 
         abort();
     }
+
+    if (code == STACK_DAMAGED)
+    {
+        fprintf(stderr, "%s:%d:%s: Assertion failed. STACK IS DAMAGED\n", file, line, function);
+
+        abort();
+    }
+}
+
+StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const char* function)
+{
+    STACK_ASSERT(STACK_IS_VALID(stack));
+
+    StackDump(stack, line, file, function);
+
+    uint64_t hash = stack->hash;
+
+    GetHash(stack);
+
+    if (hash != stack->hash)
+    {
+        StackDump(stack, line, file, function);
+
+        return STACK_DAMAGED;
+    }
+
+    StackDump(stack, line, file, function);
+
+    return STACK_NOT_DAMAGED;
 }

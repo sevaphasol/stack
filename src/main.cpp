@@ -6,6 +6,8 @@
 
 uint64_t err = NO_ERROR;
 
+const uint64_t CANARY  = 0xCEBA;
+
 int main()
 {
     remove("dump.txt");
