@@ -25,7 +25,7 @@
 
 #endif
 
-int const MIN_STACK_SIZE = 1024;
+int const MIN_STACK_SIZE = 8;
 
 int const MAX_STACK_SIZE = 1024*1024;
 
@@ -49,7 +49,6 @@ typedef enum StackErrorCodes
     REQUESTED_TOO_LITTLE  = 32,
     REQUESTED_TOO_MUCH    = 64,
     INVALID_FILE_POINTER  = 128,
-
 } StackErrorCode;
 
 typedef uint64_t StackElem_t;
@@ -61,7 +60,7 @@ struct Stack_t
     ON_DEBUG(const char*   BornFunc);
     ON_DEBUG(const char*   name);
 
-    bool          initialized;
+    bool              inited;
 
     StackElem_t*      data;
     uint64_t          size;
@@ -84,7 +83,7 @@ StackReturnCode   StackTest           (Stack_t* stack);
 
 StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 
-const char*       StackStrErr         (uint64_t code);
+StackReturnCode   PrintErr            (FILE* fp, uint64_t code);
 
 bool              StackIsValid        (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 

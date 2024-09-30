@@ -1,8 +1,4766 @@
-dump.txt created at local time and date: Fri Sep 27 21:28:51 2024
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:213 in function StackReturnCode StackTest(Stack_t*)
+Born at src/main.cpp:13 in function int main()
 
-Stack_t[0x7ffc3ef115e0] name = stack failed at src/stack.cpp:209 in function StackReturnCode StackTest(Stack_t*)
-Born at src/main.cpp:19 in function int main()
-
-capacity = 10
+capacity = 8
 size = 0
-Lost stack->data pointer
+[0] = 0
+[1] = 0
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 0
+[0] = 0
+[1] = 0
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 0
+[0] = 24
+[1] = 0
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 1
+[0] = 24
+[1] = 0
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 1
+[0] = 24
+[1] = 71
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 2
+[0] = 24
+[1] = 71
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 2
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 3
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 3
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 4
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 4
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 5
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 5
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 6
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 6
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 7
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 7
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 8
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:100 in function StackReturnCode StackResize(Stack_t*, size_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 8
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:127 in function StackReturnCode StackResize(Stack_t*, size_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 8
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 0
+[9] = 1894499370
+[10] = 1893512235
+[11] = 1892525100
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 8
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 1894499370
+[10] = 1893512235
+[11] = 1892525100
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 9
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 1894499370
+[10] = 1893512235
+[11] = 1892525100
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 9
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 1893512235
+[11] = 1892525100
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 10
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 1893512235
+[11] = 1892525100
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 10
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 1892525100
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 11
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 1892525100
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 11
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 12
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 1891537965
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 12
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 13
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 1890550830
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 13
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 14
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 1889563695
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 14
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 15
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 1888576560
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 15
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 16
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:100 in function StackReturnCode StackResize(Stack_t*, size_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 16
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:127 in function StackReturnCode StackResize(Stack_t*, size_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 16
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 4038876465
+[17] = 3681
+[18] = 129120375685424
+[19] = 129120375685424
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 16
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 3681
+[18] = 129120375685424
+[19] = 129120375685424
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 17
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 3681
+[18] = 129120375685424
+[19] = 129120375685424
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 17
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 129120375685424
+[19] = 129120375685424
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 18
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 129120375685424
+[19] = 129120375685424
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 18
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 129120375685424
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 19
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 129120375685424
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 19
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 20
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 103264611756144
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 20
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 21
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 103264611756144
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 21
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 22
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 4033019190
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 22
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 23
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 1886919480
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 23
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 24
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 4031044920
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 24
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 25
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 1885010745
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 25
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 26
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 4029070650
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 26
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 27
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 1883036475
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 27
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 28
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 1883481660
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 28
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 29
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 1881062205
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 29
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 30
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 1881507390
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 30
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 45
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:38 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 31
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 45
+[31] = 1879087935
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:61 in function StackReturnCode StackPush(Stack_t*, StackElem_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 31
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 45
+[31] = 83
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 32
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 45
+[31] = 83
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 31
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 45
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 31
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 45
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 30
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 30
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 74
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 29
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 29
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 59
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 28
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 28
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 27
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 27
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 26
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 26
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 18
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 25
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 25
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 72
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 24
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 24
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 97
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 23
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 23
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 71
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 22
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 22
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 27
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 21
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 21
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 88
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 20
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 20
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 16
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 19
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 19
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 52
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 18
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 18
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 64
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 17
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 17
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 13
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 16
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 16
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 42
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 15
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 15
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 60
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 14
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 14
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 69
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 13
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 13
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 30
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 12
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 12
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 45
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 11
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 11
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 47
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 10
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 10
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 33
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 9
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 9
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:100 in function StackReturnCode StackResize(Stack_t*, size_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 32
+size = 8
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+[16] = 0
+[17] = 0
+[18] = 0
+[19] = 0
+[20] = 0
+[21] = 0
+[22] = 0
+[23] = 0
+[24] = 0
+[25] = 0
+[26] = 0
+[27] = 0
+[28] = 0
+[29] = 0
+[30] = 0
+[31] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:127 in function StackReturnCode StackResize(Stack_t*, size_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 8
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 74
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 8
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 8
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 52
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 7
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 0
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 7
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 10
+[7] = 0
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 6
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 0
+[7] = 0
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 6
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 95
+[6] = 0
+[7] = 0
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 5
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 0
+[6] = 0
+[7] = 0
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 5
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 0
+[6] = 0
+[7] = 0
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:100 in function StackReturnCode StackResize(Stack_t*, size_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 16
+size = 4
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 0
+[6] = 0
+[7] = 0
+[8] = 0
+[9] = 0
+[10] = 0
+[11] = 0
+[12] = 0
+[13] = 0
+[14] = 0
+[15] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:127 in function StackReturnCode StackResize(Stack_t*, size_t)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 4
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 12
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 4
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 4
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 24
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 3
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 3
+[0] = 24
+[1] = 71
+[2] = 62
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 2
+[0] = 24
+[1] = 71
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 2
+[0] = 24
+[1] = 71
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 1
+[0] = 24
+[1] = 0
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:70 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 1
+[0] = 24
+[1] = 0
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:93 in function StackElem_t StackPop(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 0
+[0] = 0
+[1] = 0
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
+dump.txt created at local time and date: Mon Sep 30 23:04:13 2024
+NO ERROR
+Stack_t[0x7ffdc422e3e0] stack at src/stack.cpp:134 in function StackReturnCode StackDtor(Stack_t*)
+Born at src/main.cpp:13 in function int main()
+
+capacity = 8
+size = 0
+[0] = 0
+[1] = 0
+[2] = 0
+[3] = 0
+[4] = 0
+[5] = 0
+[6] = 0
+[7] = 0
+
+
+---------------------------------------------------------------------
+
