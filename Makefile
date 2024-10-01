@@ -1,14 +1,14 @@
-CC = g++
+CC = gcc
 CFLAGS = -I include -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security \
 	-Wformat=2 -Wignored-qualifiers -Wlogical-op -Wno-missing-field-initializers -Wnon-virtual-dtor \
 	-Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing \
 	-Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -fexceptions -pipe -D DEBUG
 
-LDFLAGS = -lm
+LDFLAGS =
 
 SOURCES_DIR = src
 OBJECTS_DIR = bin
-BUILD_DIR = build
+BUILD_DIR   = build
 
 EXECUTABLE = stack
 EXECUTABLE_PATH = $(BUILD_DIR)/$(EXECUTABLE)

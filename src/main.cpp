@@ -6,19 +6,17 @@
 
 uint64_t err = NO_ERROR;
 
-const uint64_t CANARY  = 0xCEBA;
-
 int main()
 {
     remove("dump.txt");
 
     Stack_t stack = {INIT(stack)};
 
-    StackCtor(&stack, MIN_STACK_SIZE);
+    StackCtor(&stack, MIN_STACK_SIZE) verified;
 
-    StackTest(&stack);
+    StackTest(&stack) verified;
 
-    StackDtor(&stack);
+    StackDtor(&stack) verified;
 
     return 0;
 }
