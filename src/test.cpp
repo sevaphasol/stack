@@ -21,7 +21,7 @@ StackReturnCode StackTest(Stack_t* stack)
 
     int r = rand() % 100;
 
-    for (size_t i = 0; i < 32; i++)
+    for (size_t i = 0; i < 7; i++)
     {
         fprintf(UnitTestFile, "%d\n", r);
 

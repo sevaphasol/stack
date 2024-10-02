@@ -7,7 +7,7 @@
 
 #define ON_DEBUG(...) __VA_ARGS__
 
-#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, nullptr, false, nullptr, nullptr, 0, 0, 0, CANARY
+#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, fopen("dump.txt", "w"), false, nullptr, nullptr, 0, 0, 0, CANARY
 
 #define STACK_ASSERT(     code) StackAssert    (code, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
@@ -107,9 +107,9 @@ StackReturnCode          StackPush           (Stack_t* stack, StackElem_t value)
 
 StackElem_t              StackPop            (Stack_t* stack);
 
-static StackReturnCode   StackResize         (Stack_t* stack, size_t newCapacity);
+static StackReturnCode   StackResize         (Stack_t** stack, size_t newCapacity);
 
-StackReturnCode          StackDtor           (Stack_t* stack);
+StackReturnCode          StackDtor           (Stack_t** stack);
 
 static StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 

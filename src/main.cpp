@@ -10,9 +10,9 @@ extern StackReturnCode StackTest (Stack_t* stack);
 
 int main()
 {
-    Stack_t stack = *(StackCtor(MIN_STACK_SIZE));
+    Stack_t* stack = StackCtor(MIN_STACK_SIZE);
 
-    StackTest(&stack) verified;
+    StackTest(stack) verified;
 
     StackDtor(&stack) verified;
 
