@@ -3,13 +3,15 @@
 #include <time.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "stack.h"
-#include "stdlib.h"
+
+static Stack_t STACKS[MAX_STACK_AMOUNT] = {};
 
 Stack_t* StackCtor(int capacity)
 {
-    Stack_t* stack = (Stack_t*) calloc(1, sizeof(Stack_t) + sizeof(Canary_t) + capacity * sizeof(StackElem_t));
+    Stack_t* stack = (Stack_t*) calloc(1, sizeof(Stack_t) + sizeof(Canary_t) + capacity * sizeof(StackElem_t) + sizeof(Canary_t));
 
     *stack = {INIT(stack)};
 
@@ -45,9 +47,9 @@ Stack_t* StackCtor(int capacity)
         return nullptr;
     }
 
-    // ON_DEBUG(FILE* DumpFile = fopen("dump.txt", "w"));
+    ON_DEBUG(FILE* DumpFile = fopen("dump.txt", "w"));
 
-    // ON_DEBUG(stack->DumpFile = DumpFile);
+    ON_DEBUG(stack->DumpFile = DumpFile);
 
     stack->size = 0;
 
@@ -222,7 +224,7 @@ StackReturnCode StackDtor(Stack_t** stack)
 
     // printf("%p\n", (*stack)->DumpFile);
 
-    // fclose((*stack)->DumpFile);
+    fclose((*stack)->DumpFile);
 
     // fputs("123\n", (*stack)->DumpFile);
 

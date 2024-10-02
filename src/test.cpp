@@ -35,7 +35,5 @@ StackReturnCode StackTest(Stack_t* stack)
         StackPop(stack);
     }
 
-    printf("\033[32mExecuted\033[0m\n");
-
     return EXECUTED;
 }

@@ -16,5 +16,10 @@ int main()
 
     StackDtor(&stack) verified;
 
+    if (!err)
+    {
+        printf("\033[32mSuccess\033[0m\n");
+    }
+
     return 0;
 }

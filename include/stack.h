@@ -7,7 +7,7 @@
 
 #define ON_DEBUG(...) __VA_ARGS__
 
-#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, fopen("dump.txt", "w"), false, nullptr, nullptr, 0, 0, 0, CANARY
+#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, nullptr, false, nullptr, nullptr, 0, 0, 0, CANARY
 
 #define STACK_ASSERT(     code) StackAssert    (code, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
@@ -50,6 +50,7 @@ int const MAX_STACK_SIZE = 1024*1024;
 int const MAX_STACK_AMOUNT = 20;
 
 const Canary_t CANARY  = 0xCEBA1488BADEDA;
+
 
 typedef enum StackReturnCodes
 {
