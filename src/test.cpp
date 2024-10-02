@@ -8,9 +8,6 @@ StackReturnCode StackTest (Stack_t* stack);
 
 StackReturnCode StackTest(Stack_t* stack)
 {
-    STACK_ASSERT(STACK_IS_VALID  (stack));
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
-
     FILE* UnitTestFile = fopen("unit_test", "wb");
 
     if (!UnitTestFile)

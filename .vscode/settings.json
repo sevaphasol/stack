@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "cmath": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "vector": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
     }
 }

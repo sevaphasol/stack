@@ -20,6 +20,8 @@ Stack_t* StackCtor(int capacity)
         return nullptr;
     }
 
+    #ifdef DEBUG
+
     stack->MemorySize = sizeof(Canary_t) + capacity * sizeof(StackElem_t);
 
     stack->DataWithCanary = (void*) calloc(1, stack->MemorySize + stack->MemorySize % sizeof(uint64_t) + sizeof(Canary_t));
@@ -30,6 +32,12 @@ Stack_t* StackCtor(int capacity)
 
     stack->data = (StackElem_t*)((char*) stack->DataWithCanary + sizeof(Canary_t));
 
+    #else
+
+    stack->data = (StackElem_t*) calloc(capacity, capacity * sizeof(StackElem_t));
+
+    #endif
+
     if (!stack->data)
     {
         err += INVALID_DATA_POINTER;
@@ -37,9 +45,9 @@ Stack_t* StackCtor(int capacity)
         return nullptr;
     }
 
-    FILE* DumpFile = fopen("dump.txt", "w");
+    ON_DEBUG(FILE* DumpFile = fopen("dump.txt", "w"));
 
-    stack->DumpFile = DumpFile;
+    ON_DEBUG(stack->DumpFile = DumpFile);
 
     stack->size = 0;
 
@@ -47,9 +55,9 @@ Stack_t* StackCtor(int capacity)
 
     stack->inited = true;
 
-    GetHash(stack);
+    ON_DEBUG(GetHash(stack));
 
-    StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__);
+    ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
     return stack;
 }
@@ -80,7 +88,9 @@ StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
         stack->data[stack->size] = value;
     }
 
-    GetHash(stack);
+    ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
+
+    ON_DEBUG(GetHash(stack));
 
     stack->size++;
 
@@ -116,7 +126,9 @@ StackElem_t StackPop(Stack_t* stack)
 
     stack->data[stack->size] = 0;
 
-    GetHash(stack);
+    ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
+
+    ON_DEBUG(GetHash(stack));
 
     STACK_ASSERT(STACK_IS_VALID(stack));
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
@@ -144,6 +156,8 @@ StackReturnCode StackResize(Stack_t* stack, size_t NewCapacity)
         return FAILED;
     }
 
+    #ifdef DEBUG
+
     uint64_t MemorySize = sizeof(Canary_t) + NewCapacity * sizeof(StackElem_t);
 
     stack->DataWithCanary = (StackElem_t*) realloc(stack->DataWithCanary, MemorySize + MemorySize % sizeof(uint64_t) + sizeof(Canary_t));
@@ -165,7 +179,20 @@ StackReturnCode StackResize(Stack_t* stack, size_t NewCapacity)
 
     *((Canary_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % sizeof(uint64_t))) = CANARY;
 
-    GetHash(stack);
+    #else
+
+    stack->data = (StackElem_t*) realloc(stack->data, NewCapacity * sizeof(StackElem_t));
+
+    if (!stack->data)
+    {
+        err += INVALID_DATA_POINTER;
+
+        return FAILED;
+    }
+
+    #endif
+
+    ON_DEBUG(GetHash(stack));
 
     STACK_ASSERT(STACK_IS_VALID(stack));
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
@@ -178,9 +205,25 @@ StackReturnCode StackDtor(Stack_t* stack)
     STACK_ASSERT(STACK_IS_VALID(stack));
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
-    *((Canary_t*)stack->DataWithCanary) = 0;
+    #ifdef DEBUG
+
+    // *((Canary_t*)stack->DataWithCanary) = 0;
+
+    memset(stack->DataWithCanary, 0, stack->MemorySize);
 
     free(stack->DataWithCanary);
+
+    stack->DataWithCanary = nullptr;
+
+    #else
+
+    memset(stack->data, 0, stack->capacity);
+
+    free(stack->data);
+
+    stack->data = nullptr;
+
+    #endif
 
     stack->data = nullptr;
 
@@ -188,17 +231,19 @@ StackReturnCode StackDtor(Stack_t* stack)
 
     stack->capacity = 0;
 
-    stack->hash = 0;
+    ON_DEBUG(stack->hash = 0);
 
-    fclose(stack->DumpFile);
+    ON_DEBUG(fclose(stack->DumpFile));
 
-    stack->DumpFile = nullptr;
+    ON_DEBUG(stack->DumpFile = nullptr);
 
     return EXECUTED;
 }
 
 StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
+    #ifdef DEBUG
+
     if (!stack->DumpFile)
     {
         fprintf(stderr, "IFP\n");
@@ -260,6 +305,8 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
 
     fprintf(stack->DumpFile, "\n\n---------------------------------------------------------------------\n\n");
 
+    #endif
+
     return EXECUTED;
 }
 
@@ -312,6 +359,8 @@ StackReturnCode PrintErr(FILE* fp, uint64_t code)
 
 StackReturnCode GetHash(Stack_t* stack)
 {
+    #ifdef DEBUG
+
     STACK_ASSERT(STACK_IS_VALID(stack));
 
     uint64_t hash = 5831;
@@ -323,11 +372,15 @@ StackReturnCode GetHash(Stack_t* stack)
 
     stack->hash = hash;
 
+    #endif
+
     return EXECUTED;
 }
 
 StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
+    #ifdef DEBUG
+
     StackDump(stack, line, file, function);
 
     if (!stack)
@@ -357,6 +410,8 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
         return STACK_INVALID;
     }
 
+    #endif
+
     return STACK_VALID;
 }
 
@@ -379,6 +434,8 @@ void StackAssert(StackReturnCode code, int line, const char* file, const char* f
 
 StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const char* function)
 {
+    #ifdef DEBUG
+
     STACK_ASSERT(STACK_IS_VALID(stack));
 
     StackDump(stack, line, file, function);
@@ -424,6 +481,8 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
     }
 
     StackDump(stack, line, file, function);
+
+    #endif
 
     return STACK_NOT_DAMAGED;
 }
