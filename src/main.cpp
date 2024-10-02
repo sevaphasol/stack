@@ -6,13 +6,11 @@
 
 uint64_t err = NO_ERROR;
 
+extern StackReturnCode StackTest (Stack_t* stack);
+
 int main()
 {
-    remove("dump.txt");
-
-    Stack_t stack = {INIT(stack)};
-
-    StackCtor(&stack, MIN_STACK_SIZE) verified;
+    Stack_t stack = *(StackCtor(MIN_STACK_SIZE));
 
     StackTest(&stack) verified;
 

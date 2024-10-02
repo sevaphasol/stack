@@ -7,7 +7,7 @@
 
 #define ON_DEBUG(...) __VA_ARGS__
 
-#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, false, nullptr, nullptr, 0, 0, CANARY
+#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, nullptr, false, nullptr, nullptr, 0, 0, 0, CANARY
 
 #define STACK_ASSERT(     code) StackAssert    (code, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
@@ -21,7 +21,7 @@
 
 #define ON_DEBUG(...)
 
-#define INIT(name) CANARY, false, nullptr, 0, 0, CANARY
+#define INIT(name) CANARY, false, nullptr, 0, 0, 0, CANARY
 
 #define STACK_ASSERT(statement)
 
@@ -37,11 +37,17 @@ if ((nextPow = code % pow) >= pow / 2) \
     fprintf(fp, str);                  \
 }                                      \
 
+typedef uint64_t StackElem_t;
+
+typedef uint64_t Canary_t;
+
 int const MIN_STACK_SIZE = 8;
 
 int const MAX_STACK_SIZE = 1024*1024;
 
-const uint64_t CANARY  = 0xCEBA;
+int const MAX_STACK_AMOUNT = 20;
+
+const Canary_t CANARY  = 0xCEBA1488BADEDA;
 
 typedef enum StackReturnCodes
 {
@@ -70,30 +76,30 @@ typedef enum StackErrorCodes
     INVALID_STRUCT_CANARY = 2048,
 } StackErrorCode;
 
-typedef uint64_t StackElem_t;
-
 struct Stack_t
 {
-    uint64_t left_canary;
+    Canary_t left_canary;
 
     ON_DEBUG(const char*   BornFile);
     ON_DEBUG(int           BornLine);
     ON_DEBUG(const char*   BornFunc);
     ON_DEBUG(const char*   name);
     ON_DEBUG(uint64_t      hash);
+    ON_DEBUG(FILE*         DumpFile);
 
-    bool              inited;
-    StackElem_t*      data;
-    StackElem_t*      DataWithCanary;
-    uint64_t          size;
-    uint64_t          capacity;
+    bool                   inited;
+    StackElem_t*           data;
+    void*                  DataWithCanary;
+    uint64_t               MemorySize;
+    uint64_t               size;
+    uint64_t               capacity;
 
-    uint64_t right_canary;
+    Canary_t right_canary;
 };
 
 extern uint64_t err;
 
-StackReturnCode   StackCtor           (Stack_t* stack, int capacity);
+Stack_t*          StackCtor           (int capacity);
 
 StackReturnCode   StackPush           (Stack_t* stack, StackElem_t value);
 
@@ -102,8 +108,6 @@ StackElem_t       StackPop            (Stack_t* stack);
 StackReturnCode   StackResize         (Stack_t* stack, size_t newCapacity);
 
 StackReturnCode   StackDtor           (Stack_t* stack);
-
-StackReturnCode   StackTest           (Stack_t* stack);
 
 StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 

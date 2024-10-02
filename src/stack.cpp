@@ -1,36 +1,45 @@
 #include <stdio.h>
 #include <assert.h>
 #include <time.h>
-#include <cstring>
+#include <stdint.h>
+#include <string.h>
 
 #include "stack.h"
 #include "stdlib.h"
 
-StackReturnCode StackCtor(Stack_t* stack, int capacity)
+Stack_t* StackCtor(int capacity)
 {
+    Stack_t* stack = (Stack_t*) calloc(1, sizeof(Stack_t));
+
+    *stack = {INIT(stack)};
+
     if (!stack)
     {
         err += INVALID_STACK_POINTER;
 
-        return FAILED;
+        return nullptr;
     }
 
-    StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__);
+    stack->MemorySize = sizeof(Canary_t) + capacity * sizeof(StackElem_t);
 
-    stack->DataWithCanary = (StackElem_t*) calloc(capacity + 2, sizeof(StackElem_t));
+    stack->DataWithCanary = (void*) calloc(1, stack->MemorySize + stack->MemorySize % sizeof(uint64_t) + sizeof(Canary_t));
 
-    *stack->DataWithCanary = CANARY;
+    *((Canary_t*) stack->DataWithCanary) = CANARY;
 
-    *(stack->DataWithCanary + capacity + 1) = CANARY;
+    *((Canary_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % sizeof(uint64_t))) = CANARY;
 
-    stack->data = stack->DataWithCanary + 1;
+    stack->data = (StackElem_t*)((char*) stack->DataWithCanary + sizeof(Canary_t));
 
     if (!stack->data)
     {
         err += INVALID_DATA_POINTER;
 
-        return FAILED;
+        return nullptr;
     }
+
+    FILE* DumpFile = fopen("dump.txt", "w");
+
+    stack->DumpFile = DumpFile;
 
     stack->size = 0;
 
@@ -42,7 +51,7 @@ StackReturnCode StackCtor(Stack_t* stack, int capacity)
 
     StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__);
 
-    return EXECUTED;
+    return stack;
 }
 
 StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
@@ -116,39 +125,45 @@ StackElem_t StackPop(Stack_t* stack)
     return value;
 }
 
-StackReturnCode StackResize(Stack_t* stack, size_t newCapacity)
+StackReturnCode StackResize(Stack_t* stack, size_t NewCapacity)
 {
     STACK_ASSERT(STACK_IS_VALID(stack));
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
-    if (newCapacity < MIN_STACK_SIZE)
+    if (NewCapacity < MIN_STACK_SIZE)
     {
         err += REQUESTED_TOO_LITTLE;
 
         return FAILED;
     }
 
-    if (newCapacity > MAX_STACK_SIZE)
+    if (NewCapacity > MAX_STACK_SIZE)
     {
         err += REQUESTED_TOO_MUCH;
 
         return FAILED;
     }
 
-    stack->DataWithCanary = (StackElem_t*) realloc(stack->DataWithCanary, (newCapacity + 2) * sizeof(StackElem_t));
+    uint64_t MemorySize = sizeof(Canary_t) + NewCapacity * sizeof(StackElem_t);
 
-    stack->data = stack->DataWithCanary + 1;
+    stack->DataWithCanary = (StackElem_t*) realloc(stack->DataWithCanary, MemorySize + MemorySize % sizeof(uint64_t) + sizeof(Canary_t));
 
-    if (!stack->data)
+    if (!stack->DataWithCanary)
     {
         err += INVALID_DATA_POINTER;
 
         return FAILED;
     }
 
-    stack->capacity = newCapacity;
+    stack->data = (StackElem_t*)((char*) stack->DataWithCanary + sizeof(Canary_t));
 
-    *(stack->DataWithCanary + stack->capacity + 1) = CANARY;
+    *((Canary_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % sizeof(uint64_t))) = CANARY;
+
+    stack->MemorySize = MemorySize;
+
+    stack->capacity = NewCapacity;
+
+    *((Canary_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % sizeof(uint64_t))) = CANARY;
 
     GetHash(stack);
 
@@ -163,7 +178,7 @@ StackReturnCode StackDtor(Stack_t* stack)
     STACK_ASSERT(STACK_IS_VALID(stack));
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
-    memset(stack->DataWithCanary, 0, stack->capacity + 2);
+    *((Canary_t*)stack->DataWithCanary) = 0;
 
     free(stack->DataWithCanary);
 
@@ -175,15 +190,19 @@ StackReturnCode StackDtor(Stack_t* stack)
 
     stack->hash = 0;
 
+    fclose(stack->DumpFile);
+
+    stack->DumpFile = nullptr;
+
     return EXECUTED;
 }
 
 StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
-    FILE* DumpFile = fopen("dump.txt", "a");
-
-    if (!DumpFile)
+    if (!stack->DumpFile)
     {
+        fprintf(stderr, "IFP\n");
+
         err += INVALID_FILE_POINTER;
 
         return FAILED;
@@ -197,92 +216,49 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
 
     TimeInfo = localtime(&RawTime);
 
-    fprintf(DumpFile, "Local time and date: %s", asctime(TimeInfo));
+    fprintf(stack->DumpFile, "Local time and date: %s", asctime(TimeInfo));
 
-    PrintErr(DumpFile, err);
+    PrintErr(stack->DumpFile, err);
 
     if (!stack)
     {
-        fprintf(DumpFile, "Lost stack pointer\n");
+        fprintf(stack->DumpFile, "Lost stack pointer\n");
 
-        fclose(DumpFile);
+        fclose(stack->DumpFile);
 
         return EXECUTED;
     }
 
-    fprintf(DumpFile, "Stack_t[%p] %s at %s:%d in function %s\nBorn at %s:%d in function %s\n\n",
+    fprintf(stack->DumpFile, "Stack_t[%p] %s at %s:%d in function %s\nBorn at %s:%d in function %s\n\n",
             stack, stack->name, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc);
 
-    fprintf(DumpFile, "LEFT STRUCT CANARY = %ld\n", stack->left_canary);
+    fprintf(stack->DumpFile, "LEFT STRUCT CANARY = %ld\n", stack->left_canary);
 
-    fprintf(DumpFile, "RIGHT STRUCT CANARY = %ld\n", stack->right_canary);
+    fprintf(stack->DumpFile, "RIGHT STRUCT CANARY = %ld\n", stack->right_canary);
 
-    fprintf(DumpFile, "capacity = %ld\n", stack->capacity);
+    fprintf(stack->DumpFile, "capacity = %ld\n", stack->capacity);
 
-    fprintf(DumpFile, "size = %ld\n", stack->size);
+    fprintf(stack->DumpFile, "size = %ld\n", stack->size);
 
     if (!stack->data)
     {
-        fprintf(DumpFile, "Lost stack->data pointer\n");
+        fprintf(stack->DumpFile, "Lost stack->data pointer\n");
 
-        fprintf(DumpFile, "\n\n---------------------------------------------------------------------\n\n");
-
-        fclose(DumpFile);
+        fprintf(stack->DumpFile, "\n\n---------------------------------------------------------------------\n\n");
 
         return EXECUTED;
     }
 
-    fprintf(DumpFile, "\nLEFT DATA CANARY = %ld\n\n", *stack->DataWithCanary);
+    fprintf(stack->DumpFile, "\nLEFT DATA CANARY = %ld\n\n", *((uint64_t*)stack->DataWithCanary));
 
     for (int i = 0; i < stack->capacity; i++)
     {
-        fprintf(DumpFile, "[%d] = %ld\n", i, stack->data[i]);
+        fprintf(stack->DumpFile, "[%d] = %ld\n", i, stack->data[i]);
     }
 
-    fprintf(DumpFile, "\nRIGHT DATA CANARY = %ld\n", *(stack->DataWithCanary + stack->capacity + 1));
+    fprintf(stack->DumpFile, "\nRIGHT DATA CANARY = %ld\n", *((uint64_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % 8)));
 
-    fprintf(DumpFile, "\n\n---------------------------------------------------------------------\n\n");
-
-    fclose(DumpFile);
-
-    return EXECUTED;
-}
-
-StackReturnCode StackTest(Stack_t* stack)
-{
-    STACK_ASSERT(STACK_IS_VALID  (stack));
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
-
-    FILE* UnitTestFile = fopen("unit_test", "wb");
-
-    if (!UnitTestFile)
-    {
-        err += INVALID_FILE_POINTER;
-
-        return FAILED;
-    }
-
-    srand((unsigned int) time(NULL));
-
-    int r = rand() % 100;
-
-    for (size_t i = 0; i < 32; i++)
-    {
-        fprintf(UnitTestFile, "%d\n", r);
-
-        StackPush(stack, (int) r);
-
-        r = rand() % 100;
-    }
-
-    GetHash(stack);
-
-    for (size_t i = stack->size; i > 0; i--)
-    {
-        StackPop(stack);
-    }
-
-    printf("\033[32mExecuted\033[0m\n");
+    fprintf(stack->DumpFile, "\n\n---------------------------------------------------------------------\n\n");
 
     return EXECUTED;
 }
@@ -435,7 +411,8 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
     // printf("%ld\n", *(stack->DataWithCanary + stack->capacity + 1));
 
-    if (*(stack->DataWithCanary) != CANARY || *(stack->DataWithCanary + stack->capacity + 1) != CANARY)
+    if (*((uint64_t*)stack->DataWithCanary) != CANARY || \
+    *((uint64_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % 8)) != CANARY)
     {
         err += INVALID_DATA_CANARY;
 

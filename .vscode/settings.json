@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "cstddef": "cpp",
-        "cstring": "cpp"
+        "cmath": "cpp",
+        "system_error": "cpp"
     }
 }
