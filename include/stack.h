@@ -7,7 +7,8 @@
 
 #define ON_DEBUG(...) __VA_ARGS__
 
-#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, nullptr, false, nullptr, nullptr, 0, 0, 0, CANARY
+#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, nullptr,  \
+                   false,  INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY \
 
 #define STACK_ASSERT(     code) StackAssert    (code, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
@@ -21,7 +22,7 @@
 
 #define ON_DEBUG(...)
 
-#define INIT(name) false, nullptr, 0, 0
+#define INIT(name) false, INVALID_STACK_ID, nullptr, 0, 0
 
 #define STACK_ASSERT(statement)
 
@@ -29,7 +30,7 @@
 
 #define STACK_IS_DAMAGED(stack)
 
-#define verified && PrintErr(stderr, err)
+#define verified && ParseErr(stderr, err)
 
 #endif
 
@@ -39,15 +40,19 @@ if ((nextPow = code % pow) >= pow / 2) \
     fprintf(fp, str);                  \
 }                                      \
 
+#define ALIGNED_TO(val, bytes) bytes + (val - bytes % val) % val
+
 typedef uint64_t StackElem_t;
 
 typedef uint64_t Canary_t;
+
+typedef int StackId_t;
 
 int const MIN_STACK_SIZE = 8;
 
 int const MAX_STACK_SIZE = 1024*1024;
 
-int const MAX_STACK_AMOUNT = 20;
+int const MAX_STACK_AMOUNT = 16;
 
 const Canary_t CANARY  = 0xCEBA1488BADEDA;
 
@@ -60,6 +65,7 @@ typedef enum StackReturnCodes
     STACK_INVALID         = -3,
     STACK_DAMAGED         = -4,
     STACK_NOT_DAMAGED     = -5,
+    INVALID_STACK_ID      = -6,
 } StackReturnCode;
 
 typedef enum StackErrorCodes
@@ -81,7 +87,7 @@ typedef enum StackErrorCodes
 
 struct Stack_t
 {
-    ON_DEBUG(Canary_t left_canary);
+    ON_DEBUG(Canary_t      left_canary);
 
     ON_DEBUG(const char*   BornFile);
     ON_DEBUG(int           BornLine);
@@ -91,30 +97,34 @@ struct Stack_t
     ON_DEBUG(FILE*         DumpFile);
 
     bool                   inited;
+    StackId_t              id;
     StackElem_t*           data;
-    ON_DEBUG(void*         DataWithCanary);
+    ON_DEBUG(Canary_t*     DataLeftCanary);
+    ON_DEBUG(Canary_t*     DataRightCanary);
     ON_DEBUG(uint64_t      MemorySize);
     uint64_t               size;
     uint64_t               capacity;
 
-    ON_DEBUG(Canary_t right_canary);
+    ON_DEBUG(Canary_t      right_canary);
 };
 
 extern uint64_t err;
 
-Stack_t*                 StackCtor           (int capacity);
+StackId_t                StackCtor           (int capacity);
 
-StackReturnCode          StackPush           (Stack_t* stack, StackElem_t value);
+StackReturnCode          StackPush           (StackId_t StackId, StackElem_t value);
 
-StackElem_t              StackPop            (Stack_t* stack);
+StackElem_t              StackPop            (StackId_t StackId);
 
-static StackReturnCode   StackResize         (Stack_t** stack, size_t newCapacity);
+static StackReturnCode   StackResize         (StackId_t StackId, size_t newCapacity);
 
-StackReturnCode          StackDtor           (Stack_t** stack);
+StackReturnCode          StackDtor           (StackId_t StackId);
 
 static StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 
 StackReturnCode          PrintErr            (FILE* fp, uint64_t code);
+
+void                     ParseErr            (uint64_t code);
 
 static StackReturnCode   StackIsDamaged      (Stack_t* stack, int line, const char* file, const char* function);
 
@@ -122,6 +132,6 @@ static StackReturnCode   StackIsValid        (Stack_t* stack ON_DEBUG(, int line
 
 static void              StackAssert         (StackReturnCode code, int line, const char* file, const char* function);
 
-static StackReturnCode   GetHash        (Stack_t* stack);
+static StackReturnCode   GetHash             (Stack_t* stack);
 
 #endif // STACK_H__

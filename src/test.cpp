@@ -4,10 +4,12 @@
 
 #include "stack.h"
 
-StackReturnCode StackTest (Stack_t* stack);
+StackReturnCode StackTest();
 
-StackReturnCode StackTest(Stack_t* stack)
+StackReturnCode StackTest()
 {
+    StackId_t StackId = StackCtor(MIN_STACK_SIZE);
+
     FILE* UnitTestFile = fopen("unit_test", "wb");
 
     if (!UnitTestFile)
@@ -21,19 +23,21 @@ StackReturnCode StackTest(Stack_t* stack)
 
     int r = rand() % 100;
 
-    for (size_t i = 0; i < 7; i++)
+    for (size_t i = 0; i < 32; i++)
     {
         fprintf(UnitTestFile, "%d\n", r);
 
-        StackPush(stack, (int) r);
+        StackPush(StackId, (int) r);
 
         r = rand() % 100;
     }
 
-    for (size_t i = stack->size; i > 0; i--)
+    for (size_t i = 32; i > 0; i--)
     {
-        StackPop(stack);
+        StackPop(StackId);
     }
+
+    StackDtor(StackId) verified;
 
     return EXECUTED;
 }

@@ -7,11 +7,33 @@
 
 #include "stack.h"
 
-static Stack_t STACKS[MAX_STACK_AMOUNT] = {};
+static Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
 
-Stack_t* StackCtor(int capacity)
+static int N_STACKS = 0;
+
+StackId_t StackCtor(int capacity)
 {
-    Stack_t* stack = (Stack_t*) calloc(1, sizeof(Stack_t) + sizeof(Canary_t) + capacity * sizeof(StackElem_t) + sizeof(Canary_t));
+    if (N_STACKS >= MAX_STACK_AMOUNT)
+    {
+        return INVALID_STACK_ID;
+    }
+
+    if (capacity < MIN_STACK_SIZE)
+    {
+        capacity = MIN_STACK_SIZE;
+    }
+
+    #ifdef DEBUG
+
+    uint64_t MemorySize = ALIGNED_TO(sizeof(uint64_t), sizeof(Stack_t)) + ALIGNED_TO(sizeof(uint64_t), sizeof(Canary_t) + capacity * sizeof(StackElem_t)) + sizeof(Canary_t);
+
+    #else
+
+    uint64_t MemorySize = sizeof(Stack_t) + capacity * sizeof(StaclElem_t);
+
+    #endif
+
+    Stack_t* stack = (Stack_t*) calloc(1, MemorySize);
 
     *stack = {INIT(stack)};
 
@@ -19,24 +41,26 @@ Stack_t* StackCtor(int capacity)
     {
         err += INVALID_STACK_POINTER;
 
-        return nullptr;
+        return INVALID_STACK_ID;
     }
 
     #ifdef DEBUG
 
-    stack->MemorySize = sizeof(Canary_t) + capacity * sizeof(StackElem_t);
+    stack->MemorySize = MemorySize;
 
-    stack->DataWithCanary = (void*) (stack + 1);
+    stack->DataLeftCanary = (Canary_t*) (stack + 1);
 
-    *((Canary_t*) stack->DataWithCanary) = CANARY;
+    *(stack->DataLeftCanary) = CANARY;
 
-    *((Canary_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % sizeof(uint64_t))) = CANARY;
+    stack->DataRightCanary = (Canary_t*)((char*) stack + stack->MemorySize - sizeof(Canary_t));
 
-    stack->data = (StackElem_t*)((char*) stack->DataWithCanary + sizeof(Canary_t));
+    *(stack->DataRightCanary) = CANARY;
+
+    stack->data = (StackElem_t*)((char*) stack->DataLeftCanary + sizeof(Canary_t));
 
     #else
 
-    stack->data = (StackElem_t*) calloc(capacity, capacity * sizeof(StackElem_t));
+    stack->data = (StackElem_t*) (stack + 1);
 
     #endif
 
@@ -44,7 +68,7 @@ Stack_t* StackCtor(int capacity)
     {
         err += INVALID_DATA_POINTER;
 
-        return nullptr;
+        return INVALID_STACK_ID;
     }
 
     ON_DEBUG(FILE* DumpFile = fopen("dump.txt", "w"));
@@ -59,14 +83,19 @@ Stack_t* StackCtor(int capacity)
 
     ON_DEBUG(GetHash(stack));
 
+    stack->id = N_STACKS;
+
+    STACKS[N_STACKS++] = stack;
+
     ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
-
-    return stack;
+    return stack->id;
 }
 
-StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
+StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 {
+    Stack_t* stack = STACKS[StackId];
+
     STACK_ASSERT(STACK_IS_VALID(stack));
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
@@ -83,10 +112,12 @@ StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
             return FAILED;
         }
 
-        if (StackResize(&stack, stack->capacity * 2) == FAILED)
+        if (StackResize(StackId, stack->capacity * 2) == FAILED)
         {
             return FAILED;
         }
+
+        stack = STACKS[StackId];
 
         stack->data[stack->size] = value;
     }
@@ -103,8 +134,10 @@ StackReturnCode StackPush(Stack_t* stack, StackElem_t value)
     return EXECUTED;
 }
 
-StackElem_t StackPop(Stack_t* stack)
+StackElem_t StackPop(StackId_t StackId)
 {
+    Stack_t*stack = STACKS[StackId];
+
     STACK_ASSERT(STACK_IS_VALID(stack));
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
@@ -121,11 +154,13 @@ StackElem_t StackPop(Stack_t* stack)
 
     if ((stack->size <= stack->capacity / 4) && (stack->capacity / 2 >= MIN_STACK_SIZE))
     {
-        if (StackResize(&stack, stack->capacity / 2) == FAILED)
+        if (StackResize(StackId, stack->capacity / 2) == FAILED)
         {
             return FAILED;
         }
     }
+
+    stack = STACKS[StackId];
 
     stack->data[stack->size] = 0;
 
@@ -140,10 +175,12 @@ StackElem_t StackPop(Stack_t* stack)
     return value;
 }
 
-StackReturnCode StackResize(Stack_t** stack, size_t NewCapacity)
+StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
 {
-    STACK_ASSERT(STACK_IS_VALID(*stack));
-    STACK_ASSERT(STACK_IS_DAMAGED(*stack));
+    Stack_t* stack = STACKS[StackId];
+
+    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     if (NewCapacity < MIN_STACK_SIZE)
     {
@@ -161,28 +198,34 @@ StackReturnCode StackResize(Stack_t** stack, size_t NewCapacity)
 
     #ifdef DEBUG
 
-    uint64_t MemorySize = sizeof(Canary_t) + NewCapacity * sizeof(StackElem_t);
+    uint64_t NewMemorySize = ALIGNED_TO(sizeof(uint64_t), sizeof(Stack_t)) + \
+                             ALIGNED_TO(sizeof(uint64_t), sizeof(Canary_t) + \
+                             NewCapacity * sizeof(StackElem_t)) + sizeof(Canary_t);
 
-    *stack = (Stack_t*) realloc(*stack, sizeof(Stack_t) + MemorySize + MemorySize % sizeof(uint64_t) + sizeof(Canary_t));
+    stack = (Stack_t*) realloc(stack, NewMemorySize);
 
-    if (!(*stack))
+    if (!(stack))
     {
         err += INVALID_STACK_POINTER;
 
         return FAILED;
     }
 
-    (*stack)->DataWithCanary = (void*) (stack + 1);
+    stack->DataLeftCanary = (Canary_t*) (stack + 1);
 
-    (*stack)->data = (StackElem_t*)((char*) (*stack)->DataWithCanary + sizeof(Canary_t));
+    stack->data = (StackElem_t*)((char*) stack->DataLeftCanary + sizeof(Canary_t));
 
-    *((Canary_t*)((char*) (*stack)->DataWithCanary + (*stack)->MemorySize + (*stack)->MemorySize % sizeof(uint64_t))) = CANARY;
+    *((Canary_t*)((char*) stack + stack->MemorySize - sizeof(Canary_t))) = 0; // null previous r_canary
 
-    (*stack)->MemorySize = MemorySize;
+    stack->MemorySize = NewMemorySize;
 
-    (*stack)->capacity = NewCapacity;
+    stack->capacity = NewCapacity;
 
-    *((Canary_t*)((char*) (*stack)->DataWithCanary + (*stack)->MemorySize + (*stack)->MemorySize % sizeof(uint64_t))) = CANARY;
+    stack->DataRightCanary = (Canary_t*) ((char*) stack + NewMemorySize - sizeof(Canary_t));
+
+    *(stack->DataRightCanary) = CANARY;
+
+    StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__);
 
     #else
 
@@ -197,44 +240,46 @@ StackReturnCode StackResize(Stack_t** stack, size_t NewCapacity)
 
     #endif
 
-    ON_DEBUG(GetHash(*stack));
+    ON_DEBUG(GetHash(stack));
 
-    STACK_ASSERT(STACK_IS_VALID(*stack));
-    STACK_ASSERT(STACK_IS_DAMAGED(*stack));
+    STACKS[StackId] = stack;
+
+    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     return EXECUTED;
 }
 
-StackReturnCode StackDtor(Stack_t** stack)
+StackReturnCode StackDtor(StackId_t StackId)
 {
-    STACK_ASSERT(STACK_IS_VALID(*stack));
-    STACK_ASSERT(STACK_IS_DAMAGED(*stack));
+    Stack_t*stack = STACKS[StackId];
 
-    (*stack)->data = nullptr;
+    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
-    (*stack)->size = 0;
+    stack->data = nullptr;
 
-    (*stack)->capacity = 0;
+    stack->size = 0;
+
+    stack->capacity = 0;
 
     #ifdef DEBUG
 
-    // fprintf(stderr, "OK\n");
+    stack->hash = 0;
 
-    ON_DEBUG((*stack)->hash = 0);
+    fclose(stack->DumpFile);
 
-    // printf("%p\n", (*stack)->DumpFile);
+    stack->DumpFile = nullptr;
 
-    fclose((*stack)->DumpFile);
+    memset(stack, 0, stack->MemorySize);
 
-    // fputs("123\n", (*stack)->DumpFile);
+    free(stack);
 
-    ON_DEBUG((*stack)->DumpFile = nullptr);
+    stack = nullptr;
 
-    memset(*stack, 0, sizeof(Stack_t) + (*stack)->MemorySize);
+    STACKS[StackId] = nullptr;
 
-    free(*stack);
-
-    *stack = nullptr;
+    N_STACKS -= 1;
 
     #else
 
@@ -243,6 +288,8 @@ StackReturnCode StackDtor(Stack_t** stack)
     free(stack->data);
 
     stack->data = nullptr;
+
+    STACKS[StackId] = nullptr;
 
     #endif
 
@@ -286,6 +333,8 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
     fprintf(stack->DumpFile, "Stack_t[%p] %s at %s:%d in function %s\nBorn at %s:%d in function %s\n\n",
             stack, stack->name, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc);
 
+    fprintf(stack->DumpFile, "Stack ID = %d\n", stack->id);
+
     fprintf(stack->DumpFile, "LEFT STRUCT CANARY = %ld\n", stack->left_canary);
 
     fprintf(stack->DumpFile, "RIGHT STRUCT CANARY = %ld\n", stack->right_canary);
@@ -303,65 +352,20 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
         return EXECUTED;
     }
 
-    fprintf(stack->DumpFile, "\nLEFT DATA CANARY = %ld\n\n", *((uint64_t*)stack->DataWithCanary));
+    fprintf(stack->DumpFile, "\nLEFT DATA CANARY = %ld\n\n", *(stack->DataLeftCanary));
 
     for (int i = 0; i < stack->capacity; i++)
     {
         fprintf(stack->DumpFile, "[%d] = %ld\n", i, stack->data[i]);
     }
 
-    fprintf(stack->DumpFile, "\nRIGHT DATA CANARY = %ld\n", *((uint64_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % 8)));
+    fprintf(stack->DumpFile, "\nRIGHT DATA CANARY = %ld\n", *(stack->DataRightCanary));
 
     fprintf(stack->DumpFile, "\n\n---------------------------------------------------------------------\n\n");
 
+    fflush(stack->DumpFile);
+
     #endif
-
-    return EXECUTED;
-}
-
-StackReturnCode PrintErr(FILE* fp, uint64_t code)
-{
-    uint64_t nextPow = code;
-
-    if (!fp)
-    {
-        return FAILED;
-    }
-
-    if (code == 0)
-    {
-        fprintf(fp, "NO ERROR\n");
-
-        return EXECUTED;
-    }
-
-    fprintf(fp, "ERRORS: ");
-
-    PRINT_ERR(code, 4096, "INVALID STRUCT CANARY ");
-
-    PRINT_ERR(code, 2048, "INVALID DATA CANARY ");
-
-    PRINT_ERR(code, 1024, "INVALID HASH ");
-
-    PRINT_ERR(code, 512,  "DAMAGED STACK ERR ");
-
-    PRINT_ERR(code, 256,  "INVALID FILE POINTER ");
-
-    PRINT_ERR(code, 128,  "REQUESTED TOO MUCH ");
-
-    PRINT_ERR(code, 64,   "REQUESTED TOO LITTLE ");
-
-    PRINT_ERR(code, 32,   "INVALID SIZE ");
-
-    PRINT_ERR(code, 16,   "INVALID DATA POINTER ");
-
-    PRINT_ERR(code, 8,    "INVALID STACK POINTER ");
-
-    PRINT_ERR(code, 4,    "STACK OVERFLOW ");
-
-    PRINT_ERR(code, 2,    "STACK UNDERFLOW ");
-
-    fprintf(fp, "\n");
 
     return EXECUTED;
 }
@@ -416,6 +420,8 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
 
         StackDump(stack, line, file, function);
 
+        fprintf(stderr, "%ld > %ld\n", stack->size, stack->capacity);
+
         return STACK_INVALID;
     }
 
@@ -430,12 +436,16 @@ void StackAssert(StackReturnCode code, int line, const char* file, const char* f
     {
         fprintf(stderr, "%s:%d:%s: Assertion failed. STACK IS INVALID\n", file, line, function);
 
+        PrintErr(stderr, err);
+
         abort();
     }
 
     if (code == STACK_DAMAGED)
     {
         fprintf(stderr, "%s:%d:%s: Assertion failed. STACK IS DAMAGED\n", file, line, function);
+
+        PrintErr(stderr, err);
 
         abort();
     }
@@ -475,16 +485,15 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
         return STACK_DAMAGED;
     }
 
-    // printf("%ld\n", *(stack->DataWithCanary + stack->capacity + 1));
-
-    if (*((uint64_t*)stack->DataWithCanary) != CANARY || \
-    *((uint64_t*)((char*) stack->DataWithCanary + stack->MemorySize + stack->MemorySize % 8)) != CANARY)
+    if (*(stack->DataLeftCanary) != CANARY || *(stack->DataRightCanary) != CANARY)
     {
         err += INVALID_DATA_CANARY;
 
         StackDump(stack, line, file, function);
 
         PrintErr(stderr, err);
+
+        fclose(stack->DumpFile);
 
         return STACK_DAMAGED;
     }
@@ -494,4 +503,56 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
     #endif
 
     return STACK_NOT_DAMAGED;
+}
+
+StackReturnCode PrintErr(FILE* fp, uint64_t code)
+{
+    uint64_t nextPow = code;
+
+    if (!fp)
+    {
+        return FAILED;
+    }
+
+    if (code == 0)
+    {
+        fprintf(fp, "NO ERROR\n");
+
+        return EXECUTED;
+    }
+
+    fprintf(fp, "ERRORS: ");
+
+    PRINT_ERR(code, 4096, "INVALID STRUCT CANARY ");
+
+    PRINT_ERR(code, 2048, "INVALID DATA CANARY ");
+
+    PRINT_ERR(code, 1024, "INVALID HASH ");
+
+    PRINT_ERR(code, 512,  "DAMAGED STACK ERR ");
+
+    PRINT_ERR(code, 256,  "INVALID FILE POINTER ");
+
+    PRINT_ERR(code, 128,  "REQUESTED TOO MUCH ");
+
+    PRINT_ERR(code, 64,   "REQUESTED TOO LITTLE ");
+
+    PRINT_ERR(code, 32,   "INVALID SIZE ");
+
+    PRINT_ERR(code, 16,   "INVALID DATA POINTER ");
+
+    PRINT_ERR(code, 8,    "INVALID STACK POINTER ");
+
+    PRINT_ERR(code, 4,    "STACK OVERFLOW ");
+
+    PRINT_ERR(code, 2,    "STACK UNDERFLOW ");
+
+    fprintf(fp, "\n");
+
+    return EXECUTED;
+}
+
+void ParseErr (uint64_t code)
+{
+    PrintErr(stderr, code);
 }
