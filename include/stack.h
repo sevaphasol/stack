@@ -20,6 +20,8 @@
 
 #define DUMP_FILE "dump.log"
 
+#define MEMORY_LOG_FILE "memory.log"
+
 #else
 
 #define ON_DEBUG(...)
@@ -35,6 +37,8 @@
 #define verified && PrintErr(stderr, err)
 
 #define DUMP_FILE ""
+
+#define MEMORY_LOG_FILE ""
 
 #endif
 

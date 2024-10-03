@@ -6,11 +6,30 @@
 #include <stdlib.h>
 
 #include "stack.h"
+#include "allocation.h"
 
-static Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
+Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
+
+FILE* MemoryLogFile = nullptr;
+
+FILE* DumpFile = nullptr;
 
 StackId_t StackCtor(int capacity)
 {
+    #ifdef DEBUG
+
+    if (!MemoryLogFile)
+    {
+        MemoryLogFile = fopen(MEMORY_LOG_FILE, "w");
+    }
+
+    if (!DumpFile)
+    {
+        DumpFile = fopen(DUMP_FILE, "w");
+    };
+
+    #endif
+
     StackId_t id = GetStackId();
 
     if (id == INVALID_STACK_ID)
@@ -29,13 +48,16 @@ StackId_t StackCtor(int capacity)
 
     uint64_t MemorySize = ALIGNED_TO(sizeof(uint64_t), sizeof(Stack_t)) + ALIGNED_TO(sizeof(uint64_t), sizeof(Canary_t) + capacity * sizeof(StackElem_t)) + sizeof(Canary_t);
 
+    Stack_t* stack = (Stack_t*) log_calloc(MemoryLogFile, 1, MemorySize);
+
     #else
 
     uint64_t MemorySize = sizeof(Stack_t) + capacity * sizeof(StackElem_t);
 
+    Stack_t* stack = (Stack_t*) calloc(1, MemorySize);
+
     #endif
 
-    Stack_t* stack = (Stack_t*) calloc(1, MemorySize);
 
     *stack = {INIT(stack)};
 
@@ -72,8 +94,6 @@ StackId_t StackCtor(int capacity)
 
         return INVALID_STACK_ID;
     }
-
-    ON_DEBUG(FILE* DumpFile = fopen(DUMP_FILE, "w"));
 
     ON_DEBUG(stack->DumpFile = DumpFile);
 
@@ -222,7 +242,7 @@ StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
                              ALIGNED_TO(sizeof(uint64_t), sizeof(Canary_t) + \
                              NewCapacity * sizeof(StackElem_t)) + sizeof(Canary_t);
 
-    stack = (Stack_t*) realloc(stack, NewMemorySize);
+    stack = (Stack_t*) log_realloc(MemoryLogFile, stack, NewMemorySize);
 
     if (!(stack))
     {
@@ -289,7 +309,7 @@ StackReturnCode StackDtor(StackId_t StackId)
 
     memset(stack, 0, stack->MemorySize);
 
-    free(stack);
+    log_free(MemoryLogFile, stack);
 
     stack = nullptr;
 
