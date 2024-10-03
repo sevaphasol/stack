@@ -18,11 +18,13 @@
 
 #define verified && PrintErr(stderr, err)
 
+#define DUMP_FILE "dump.log"
+
 #else
 
 #define ON_DEBUG(...)
 
-#define INIT(name) false, INVALID_STACK_ID, nullptr, 0, 0
+#define INIT(name) false, INVALID_STACK_ID, nullptr, 0, 0, 0
 
 #define STACK_ASSERT(statement)
 
@@ -30,7 +32,9 @@
 
 #define STACK_IS_DAMAGED(stack)
 
-#define verified && ParseErr(stderr, err)
+#define verified && PrintErr(stderr, err)
+
+#define DUMP_FILE ""
 
 #endif
 
@@ -83,6 +87,7 @@ typedef enum StackErrorCodes
     INVALID_HASH          = 512,
     INVALID_DATA_CANARY   = 1024,
     INVALID_STRUCT_CANARY = 2048,
+    INVALID_STACK_ID_ERR  = 4096,
 } StackErrorCode;
 
 struct Stack_t
@@ -101,7 +106,7 @@ struct Stack_t
     StackElem_t*           data;
     ON_DEBUG(Canary_t*     DataLeftCanary);
     ON_DEBUG(Canary_t*     DataRightCanary);
-    ON_DEBUG(uint64_t      MemorySize);
+    uint64_t               MemorySize;
     uint64_t               size;
     uint64_t               capacity;
 
@@ -111,6 +116,8 @@ struct Stack_t
 extern uint64_t err;
 
 StackId_t                StackCtor           (int capacity);
+
+StackId_t                GetStackId         ();
 
 StackReturnCode          StackPush           (StackId_t StackId, StackElem_t value);
 
