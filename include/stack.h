@@ -1,4 +1,5 @@
-#include <stdint.h>
+#include  <stdint.h>
+#include  <pthread.h>
 
 #ifndef STACK_H__
 #define STACK_H__
@@ -7,8 +8,8 @@
 
 #define ON_DEBUG(...) __VA_ARGS__
 
-#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, 0, false,  \
-                   INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY          \
+#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, 0, PTHREAD_MUTEX_INITIALIZER,   \
+                   false,  INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY                       \
 
 #define STACK_ASSERT(     code) StackAssert    (code, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
@@ -45,6 +46,8 @@
 #define DEDHYPEBEAST  0xCEBA1488BADEDA
 
 #define STRUCT_HASH_OFFSET (uint64_t) &(((Stack_t*) nullptr)->StructHash)
+
+#define MUTEX_OFFSET       (uint64_t) &(((Stack_t*) nullptr)->mutex)
 
 #define PRINT_ERR(code, pow, str)      \
 if ((nextPow = code % pow) >= pow / 2) \

@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdint.h>
 #include <string.h>
+#include <pthread.h>
 #include <stdlib.h>
 
 #include "stack.h"
@@ -11,25 +12,26 @@
 
 struct Stack_t
 {
-    ON_DEBUG(Canary_t      left_canary);
+    ON_DEBUG(Canary_t        left_canary);
 
-    ON_DEBUG(const char*   BornFile);
-    ON_DEBUG(int           BornLine);
-    ON_DEBUG(const char*   BornFunc);
-    ON_DEBUG(const char*   name);
-    ON_DEBUG(uint64_t      DataHash);
-    ON_DEBUG(uint64_t      StructHash);
+    ON_DEBUG(const char*     BornFile);
+    ON_DEBUG(int             BornLine);
+    ON_DEBUG(const char*     BornFunc);
+    ON_DEBUG(const char*     name);
+    ON_DEBUG(uint64_t        DataHash);
+    ON_DEBUG(uint64_t        StructHash);
+    ON_DEBUG(pthread_mutex_t mutex);
 
-    bool                   inited;
-    StackId_t              id;
-    StackElem_t*           data;
-    ON_DEBUG(Canary_t*     DataLeftCanary);
-    ON_DEBUG(Canary_t*     DataRightCanary);
-    uint64_t               MemorySize;
-    uint64_t               size;
-    uint64_t               capacity;
+    bool                     inited;
+    StackId_t                id;
+    StackElem_t*             data;
+    ON_DEBUG(Canary_t*       DataLeftCanary);
+    ON_DEBUG(Canary_t*       DataRightCanary);
+    uint64_t                 MemorySize;
+    uint64_t                 size;
+    uint64_t                 capacity;
 
-    ON_DEBUG(Canary_t      right_canary);
+    ON_DEBUG(Canary_t        right_canary);
 };
 
 static Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
@@ -99,7 +101,10 @@ StackId_t StackCtor(int capacity)
 
     *stack = {INIT(stack)};
 
+    pthread_mutex_init(&(stack->mutex), NULL);
+
     if (!stack)
+
     {
         err += INVALID_STACK_POINTER;
 
@@ -178,6 +183,8 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 
     STACK_ASSERT(STACK_IS_VALID(stack));
 
+    pthread_mutex_lock(&(stack->mutex));
+
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
     if (stack->size < stack->capacity)
@@ -215,6 +222,8 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
+    pthread_mutex_unlock(&(stack->mutex));
+
     return EXECUTED;
 }
 
@@ -223,6 +232,8 @@ StackElem_t StackPop(StackId_t StackId)
     Stack_t*stack = STACKS[StackId - 1];
 
     STACK_ASSERT(STACK_IS_VALID(stack));
+
+    pthread_mutex_lock(&(stack->mutex));
 
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
@@ -260,6 +271,8 @@ StackElem_t StackPop(StackId_t StackId)
     STACK_ASSERT(STACK_IS_VALID(stack));
 
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
+
+    pthread_mutex_unlock(&(stack->mutex));
 
     return value;
 }
@@ -367,6 +380,8 @@ StackReturnCode StackDtor(StackId_t StackId)
 
     ON_DEBUG(fclose(DumpFile));
 
+    pthread_mutex_destroy(&(stack->mutex));
+
     stack = nullptr;
 
     STACKS[StackId - 1] = nullptr;
@@ -380,7 +395,7 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
 
     if (!DumpFile)
     {
-        fprintf(stderr, "IFP\n");
+        fprintf(stderr, "INVALID FILE POINTER\n");
 
         err += INVALID_FILE_POINTER;
 
@@ -483,14 +498,36 @@ StackReturnCode CountStructHash(Stack_t* stack)
 
     STACK_ASSERT(STACK_IS_VALID(stack));
 
+    uint64_t FirstOffset, FirstSize, SecondOffset, SecondSize = 0;
+
+    if (STRUCT_HASH_OFFSET < MUTEX_OFFSET)
+    {
+        FirstOffset  = STRUCT_HASH_OFFSET;
+        FirstSize    = sizeof(stack->StructHash);
+        SecondOffset = MUTEX_OFFSET;
+        SecondSize   = sizeof(stack->mutex);
+    }
+    else
+    {
+        FirstOffset  = STRUCT_HASH_OFFSET;
+        FirstSize    = sizeof(stack->StructHash);
+        SecondOffset = MUTEX_OFFSET;
+        SecondSize   = sizeof(stack->mutex);
+    }
+
     uint64_t StructHash = 5831;
 
-    for (size_t i = 0; i < STRUCT_HASH_OFFSET; i++)
+    for (size_t i = 0; i < FirstOffset; i++)
     {
         StructHash = 33 * StructHash + *((char*) stack + i);
     }
 
-    for (size_t i = STRUCT_HASH_OFFSET + sizeof(stack->StructHash); i < sizeof(Stack_t); i++)
+    for (size_t i = FirstOffset + FirstSize; i < SecondOffset; i++)
+    {
+        StructHash = 33 * StructHash + *((char*) stack + i);
+    }
+
+    for (size_t i = SecondOffset + SecondSize; i < sizeof(Stack_t); i++)
     {
         StructHash = 33 * StructHash + *((char*) stack + i);
     }
@@ -512,6 +549,8 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
+        pthread_mutex_unlock(&(stack->mutex));
+
         return STACK_INVALID;
     }
 
@@ -520,6 +559,8 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
         err += INVALID_STACK_ID_ERR;
 
         ON_DEBUG(StackDump(stack, line, file, function));
+
+        pthread_mutex_unlock(&(stack->mutex));
 
         return INVALID_STACK_ID;
     }
@@ -530,6 +571,8 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
+        pthread_mutex_unlock(&(stack->mutex));
+
         return STACK_INVALID;
     }
 
@@ -538,6 +581,8 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
         err += INVALID_SIZE;
 
         ON_DEBUG(StackDump(stack, line, file, function));
+
+        pthread_mutex_unlock(&(stack->mutex));
 
         return STACK_INVALID;
     }
@@ -589,7 +634,7 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
         StackDump(stack, line, file, function);
 
-        PrintErr(stderr, err);
+        pthread_mutex_unlock(&(stack->mutex));
 
         return STACK_DAMAGED;
     }
@@ -608,7 +653,7 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
         StackDump(stack, line, file, function);
 
-        PrintErr(stderr, err);
+        pthread_mutex_unlock(&(stack->mutex));
 
         return STACK_DAMAGED;
     }
@@ -619,7 +664,7 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
         StackDump(stack, line, file, function);
 
-        PrintErr(stderr, err);
+        pthread_mutex_unlock(&(stack->mutex));
 
         return STACK_DAMAGED;
     }
@@ -630,7 +675,7 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
         StackDump(stack, line, file, function);
 
-        PrintErr(stderr, err);
+        pthread_mutex_unlock(&(stack->mutex));
 
         return STACK_DAMAGED;
     }
