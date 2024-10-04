@@ -2,5 +2,29 @@
 Called calloc         
 Number of members: 1
 Size   of members: 200
-Returned: 0x62658a4d1660          
+Returned: 0x58575a5e0660          
+----------------------
+----------------------
+Called realloc        
+Size in bytes: 264    
+Returned: 0x58575a5e1a60          
+----------------------
+----------------------
+Called realloc        
+Size in bytes: 392    
+Returned: 0x58575a5e1a60          
+----------------------
+----------------------
+Called realloc        
+Size in bytes: 264    
+Returned: 0x58575a5e1a60          
+----------------------
+----------------------
+Called realloc        
+Size in bytes: 200    
+Returned: 0x58575a5e1a60          
+----------------------
+----------------------
+Called free           
+Pointer: 0x58575a5e1a60           
 ----------------------

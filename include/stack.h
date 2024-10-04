@@ -34,15 +34,15 @@
 
 #define STACK_IS_DAMAGED(stack)
 
-#define verified && ParseErr(stderr, err)
+#define verified && ParseErr(stderr, err, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
-#define DUMP_FILE ""
+#define DUMP_FILE "dump.log"
 
-#define MEMORY_LOG_FILE ""
+#define MEMORY_LOG_FILE "memory.log"
 
 #endif
 
-#define DEDHYPEBEAST 0xCEBA1488BADEDA
+#define DEDHYPEBEAST  0xCEBA1488BADEDA
 
 #define STRUCT_HASH_OFFSET (uint64_t) &(((Stack_t*) nullptr)->StructHash)
 
@@ -66,7 +66,9 @@ int const MAX_STACK_SIZE = 1024*1024;
 
 int const MAX_STACK_AMOUNT = 16;
 
-const Canary_t CANARY  = DEDHYPEBEAST;
+const Canary_t    CANARY = DEDHYPEBEAST;
+
+const int         POISON = 0;
 
 typedef enum StackReturnCodes
 {
@@ -98,29 +100,6 @@ typedef enum StackErrorCodes
 } StackErrorCode;
 
 extern uint64_t err;
-
-struct Stack_t
-{
-    ON_DEBUG(Canary_t      left_canary);
-
-    ON_DEBUG(const char*   BornFile);
-    ON_DEBUG(int           BornLine);
-    ON_DEBUG(const char*   BornFunc);
-    ON_DEBUG(const char*   name);
-    ON_DEBUG(uint64_t      DataHash);
-    ON_DEBUG(uint64_t      StructHash);
-
-    bool                   inited;
-    StackId_t              id;
-    StackElem_t*           data;
-    ON_DEBUG(Canary_t*     DataLeftCanary);
-    ON_DEBUG(Canary_t*     DataRightCanary);
-    uint64_t               MemorySize;
-    uint64_t               size;
-    uint64_t               capacity;
-
-    ON_DEBUG(Canary_t      right_canary);
-};
 
 StackId_t                StackCtor           (int capacity);
 

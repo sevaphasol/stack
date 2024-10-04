@@ -7,8 +7,6 @@
 
 StackReturnCode StackTest();
 
-extern Stack_t* STACKS[MAX_STACK_AMOUNT];
-
 void* PthrPush(void* args);
 
 void* PthrDel(void* args);
@@ -17,47 +15,47 @@ StackReturnCode StackTest()
 {
     StackId_t StackId = StackCtor(MIN_STACK_SIZE);
 
-    pthread_t threads[2];
-
-    pthread_create(&threads[0], NULL, PthrPush,  &StackId);
-
-    pthread_create(&threads[1], NULL, PthrDel,   &StackId);
-
-    pthread_join(threads[0], NULL);
-
-    pthread_join(threads[1], NULL);
-
-
-//     FILE* UnitTestFile = fopen("unit_test", "wb");
+//     pthread_t threads[100];
 //
-//     if (!UnitTestFile)
+//     for (int i = 0; i < 100; i++)
 //     {
-//         err += INVALID_FILE_POINTER;
-//
-//         return FAILED;
+//         pthread_create(&threads[i], NULL, PthrPush,  &StackId);
 //     }
 //
-//     srand((unsigned int) time(NULL));
-//
-//     int r = rand() % 100;
-//
-//     for (size_t i = 0; i < 32; i++)
+//     for (int i = 0; i < 1024; i++)
 //     {
-//         fprintf(UnitTestFile, "%d\n", r);
-//
-//         StackPush(StackId, (int) r);
-//
-//         r = rand() % 100;
+//         pthread_join(threads[i], NULL);
 //     }
 //
-//     for (size_t i = 32; i > 0; i--)
-//     {
-//         StackPop(StackId);
-//     }
-//
-//     StackDtor(StackId) verified;
-//
-//     return EXECUTED;
+    FILE* UnitTestFile = fopen("unit_test", "wb");
+
+    if (!UnitTestFile)
+    {
+        err += INVALID_FILE_POINTER;
+
+        return FAILED;
+    }
+
+    srand((unsigned int) time(NULL));
+
+    int r = rand() % 100;
+
+    for (size_t i = 0; i < 32; i++)
+    {
+        fprintf(UnitTestFile, "%d\n", r);
+
+        StackPush(StackId, (int) r);
+
+        r = rand() % 100;
+    }
+
+    for (size_t i = 32; i > 0; i--)
+    {
+        StackPop(StackId);
+    }
+
+    StackDtor(StackId) verified;
+
     return EXECUTED;
 }
 

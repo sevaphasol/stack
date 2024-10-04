@@ -9,30 +9,30 @@
 #include "allocation.h"
 
 
-// struct Stack_t
-// {
-//     ON_DEBUG(Canary_t      left_canary);
-//
-//     ON_DEBUG(const char*   BornFile);
-//     ON_DEBUG(int           BornLine);
-//     ON_DEBUG(const char*   BornFunc);
-//     ON_DEBUG(const char*   name);
-//     ON_DEBUG(uint64_t      DataHash);
-//     ON_DEBUG(uint64_t      StructHash);
-//
-//     bool                   inited;
-//     StackId_t              id;
-//     StackElem_t*           data;
-//     ON_DEBUG(Canary_t*     DataLeftCanary);
-//     ON_DEBUG(Canary_t*     DataRightCanary);
-//     uint64_t               MemorySize;
-//     uint64_t               size;
-//     uint64_t               capacity;
-//
-//     ON_DEBUG(Canary_t      right_canary);
-// };
+struct Stack_t
+{
+    ON_DEBUG(Canary_t      left_canary);
 
-Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
+    ON_DEBUG(const char*   BornFile);
+    ON_DEBUG(int           BornLine);
+    ON_DEBUG(const char*   BornFunc);
+    ON_DEBUG(const char*   name);
+    ON_DEBUG(uint64_t      DataHash);
+    ON_DEBUG(uint64_t      StructHash);
+
+    bool                   inited;
+    StackId_t              id;
+    StackElem_t*           data;
+    ON_DEBUG(Canary_t*     DataLeftCanary);
+    ON_DEBUG(Canary_t*     DataRightCanary);
+    uint64_t               MemorySize;
+    uint64_t               size;
+    uint64_t               capacity;
+
+    ON_DEBUG(Canary_t      right_canary);
+};
+
+static Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
 
 static FILE* MemoryLogFile = nullptr;
 
@@ -132,6 +132,8 @@ StackId_t StackCtor(int capacity)
 
         return INVALID_STACK_ID;
     }
+
+    memset((void*) stack->data, POISON, capacity * sizeof(StackElem_t));
 
     stack->size = 0;
 
@@ -247,7 +249,7 @@ StackElem_t StackPop(StackId_t StackId)
 
     stack = STACKS[StackId - 1];
 
-    stack->data[stack->size] = 0;
+    stack->data[stack->size] = POISON;
 
     ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
@@ -438,7 +440,14 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
 
     for (int i = 0; i < stack->capacity; i++)
     {
-        fprintf(DumpFile, "[%d] = %ld\n", i, stack->data[i]);
+        if (i < stack->size)
+        {
+            fprintf(DumpFile, "[%d] = %ld\n", i, stack->data[i]);
+        }
+        else
+        {
+            fprintf(DumpFile, "[%d] = (POISON)\n", i);
+        }
     }
 
     fprintf(DumpFile, "\n\n---------------------------------------------------------------------\n\n");
