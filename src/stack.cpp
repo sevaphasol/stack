@@ -103,7 +103,7 @@ StackId_t StackCtor(int capacity)
     {
         err += INVALID_STACK_POINTER;
 
-        return INVALID_STACK_ID;
+        return INVALID_STACK_POINTER;
     }
 
     #ifdef DEBUG
@@ -158,16 +158,16 @@ StackId_t GetStackId()
 
     StackId_t id = 0;
 
-    for (id = 0; id < MAX_STACK_AMOUNT; id++)
+    for (id; id < MAX_STACK_AMOUNT; id++)
     {
         if (STACKS[id] == nullptr)
         {
-            ReturnId = id;
+            ReturnId = id + 1;
             break;
         }
     }
 
-    return id + 1;
+    return ReturnId;
 }
 
 StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
@@ -538,38 +538,31 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
 
 void StackAssert(StackReturnCode code, int line, const char* file, const char* function)
 {
-    if (code == STACK_INVALID)
+    if (code == STACK_DAMAGED || code == STACK_INVALID)
     {
         fprintf(stderr, "%s:%d:%s: Assertion failed. STACK IS INVALID\n", file, line, function);
 
         PrintErr(stderr, err);
 
-        fflush(MemoryLogFile);
+        #ifdef DEBUG
 
-        ON_DEBUG(fclose(MemoryLogFile));
+        if (MemoryLogFile)
+        {
+            fflush(MemoryLogFile);
 
-        fflush(DumpFile);
+            fclose(MemoryLogFile);
+        }
 
-        ON_DEBUG(fclose(DumpFile));
+        if (DumpFile)
+        {
+            fflush(DumpFile);
 
-        ON_DEBUG(abort());
-    }
+            fclose(DumpFile);
+        }
 
-    if (code == STACK_DAMAGED)
-    {
-        fprintf(stderr, "%s:%d:%s: Assertion failed. STACK IS DAMAGED\n", file, line, function);
+        abort();
 
-        PrintErr(stderr, err);
-
-        fflush(MemoryLogFile);
-
-        ON_DEBUG(fclose(MemoryLogFile));
-
-        fflush(DumpFile);
-
-        ON_DEBUG(fclose(DumpFile));
-
-        ON_DEBUG(abort());
+        #endif
     }
 }
 
@@ -689,7 +682,53 @@ StackReturnCode PrintErr(FILE* fp, uint64_t code)
     return EXECUTED;
 }
 
-void ParseErr (uint64_t code)
+StackReturnCode ParseErr(FILE* fp, uint64_t code, int line, const char* file, const char* function)
 {
-    PrintErr(stderr, code);
+    uint64_t nextPow = code;
+
+    if (!fp)
+    {
+        return FAILED;
+    }
+
+    fprintf(fp, "Called in %s:%d:%s\n", file, line, function);
+
+    if (code == 0)
+    {
+        fprintf(fp, "NO ERROR\n");
+
+        return EXECUTED;
+    }
+
+    fprintf(fp, "ERRORS: ");
+
+    PRINT_ERR(code, 8192, "INVALID STACK ID ");
+
+    PRINT_ERR(code, 4096, "INVALID STRUCT CANARY ");
+
+    PRINT_ERR(code, 2048, "INVALID DATA CANARY ");
+
+    PRINT_ERR(code, 1024, "INVALID HASH ");
+
+    PRINT_ERR(code, 512,  "DAMAGED STACK ERR ");
+
+    PRINT_ERR(code, 256,  "INVALID FILE POINTER ");
+
+    PRINT_ERR(code, 128,  "REQUESTED TOO MUCH ");
+
+    PRINT_ERR(code, 64,   "REQUESTED TOO LITTLE ");
+
+    PRINT_ERR(code, 32,   "INVALID SIZE ");
+
+    PRINT_ERR(code, 16,   "INVALID DATA POINTER ");
+
+    PRINT_ERR(code, 8,    "INVALID STACK POINTER ");
+
+    PRINT_ERR(code, 4,    "STACK OVERFLOW ");
+
+    PRINT_ERR(code, 2,    "STACK UNDERFLOW ");
+
+    fprintf(fp, "\n");
+
+    return EXECUTED;
 }

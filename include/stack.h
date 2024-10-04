@@ -16,7 +16,7 @@
 
 #define STACK_IS_DAMAGED(stack) StackIsDamaged (stack,     __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
-#define verified && PrintErr(stderr, err)
+#define verified && ParseErr(stderr, err, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
 #define DUMP_FILE "dump.log"
 
@@ -34,13 +34,15 @@
 
 #define STACK_IS_DAMAGED(stack)
 
-#define verified && PrintErr(stderr, err)
+#define verified && ParseErr(stderr, err)
 
 #define DUMP_FILE ""
 
 #define MEMORY_LOG_FILE ""
 
 #endif
+
+#define DEDHYPEBEAST 0xCEBA1488BADEDA
 
 #define STRUCT_HASH_OFFSET (uint64_t) &(((Stack_t*) nullptr)->StructHash)
 
@@ -64,7 +66,7 @@ int const MAX_STACK_SIZE = 1024*1024;
 
 int const MAX_STACK_AMOUNT = 16;
 
-const Canary_t CANARY  = 0xCEBA1488BADEDA;
+const Canary_t CANARY  = DEDHYPEBEAST;
 
 typedef enum StackReturnCodes
 {
@@ -109,6 +111,6 @@ StackReturnCode          StackDtor           (StackId_t StackId);
 
 StackReturnCode          PrintErr            (FILE* fp, uint64_t code);
 
-void                     ParseErr            (uint64_t code);
+StackReturnCode          ParseErr            (FILE* fp, uint64_t code, int line, const char* file, const char* function);
 
 #endif // STACK_H__
