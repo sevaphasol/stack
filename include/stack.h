@@ -3,12 +3,12 @@
 #ifndef STACK_H__
 #define STACK_H__
 
-#ifdef DEBUG
+#ifdef  DEBUG
 
 #define ON_DEBUG(...) __VA_ARGS__
 
-#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, nullptr,  \
-                   false,  INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY \
+#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, #name, 0, 0, false,  \
+                   INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY          \
 
 #define STACK_ASSERT(     code) StackAssert    (code, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
@@ -42,6 +42,8 @@
 
 #endif
 
+#define STRUCT_HASH_OFFSET (uint64_t) &(((Stack_t*) nullptr)->StructHash)
+
 #define PRINT_ERR(code, pow, str)      \
 if ((nextPow = code % pow) >= pow / 2) \
 {                                      \
@@ -63,7 +65,6 @@ int const MAX_STACK_SIZE = 1024*1024;
 int const MAX_STACK_AMOUNT = 16;
 
 const Canary_t CANARY  = 0xCEBA1488BADEDA;
-
 
 typedef enum StackReturnCodes
 {
@@ -94,55 +95,20 @@ typedef enum StackErrorCodes
     INVALID_STACK_ID_ERR  = 4096,
 } StackErrorCode;
 
-struct Stack_t
-{
-    ON_DEBUG(Canary_t      left_canary);
-
-    ON_DEBUG(const char*   BornFile);
-    ON_DEBUG(int           BornLine);
-    ON_DEBUG(const char*   BornFunc);
-    ON_DEBUG(const char*   name);
-    ON_DEBUG(uint64_t      hash);
-    ON_DEBUG(FILE*         DumpFile);
-
-    bool                   inited;
-    StackId_t              id;
-    StackElem_t*           data;
-    ON_DEBUG(Canary_t*     DataLeftCanary);
-    ON_DEBUG(Canary_t*     DataRightCanary);
-    uint64_t               MemorySize;
-    uint64_t               size;
-    uint64_t               capacity;
-
-    ON_DEBUG(Canary_t      right_canary);
-};
-
 extern uint64_t err;
 
 StackId_t                StackCtor           (int capacity);
 
-StackId_t                GetStackId         ();
+StackId_t                GetStackId          ();
 
 StackReturnCode          StackPush           (StackId_t StackId, StackElem_t value);
 
 StackElem_t              StackPop            (StackId_t StackId);
 
-static StackReturnCode   StackResize         (StackId_t StackId, size_t newCapacity);
-
 StackReturnCode          StackDtor           (StackId_t StackId);
-
-static StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 
 StackReturnCode          PrintErr            (FILE* fp, uint64_t code);
 
 void                     ParseErr            (uint64_t code);
-
-static StackReturnCode   StackIsDamaged      (Stack_t* stack, int line, const char* file, const char* function);
-
-static StackReturnCode   StackIsValid        (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
-
-static void              StackAssert         (StackReturnCode code, int line, const char* file, const char* function);
-
-static StackReturnCode   GetHash             (Stack_t* stack);
 
 #endif // STACK_H__
