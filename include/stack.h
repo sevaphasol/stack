@@ -19,10 +19,6 @@
 
 #define verified && ParseErr(stderr, err, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
-#define DUMP_FILE "dump.log"
-
-#define MEMORY_LOG_FILE "memory.log"
-
 #else
 
 #define ON_DEBUG(...)
@@ -36,10 +32,6 @@
 #define STACK_IS_DAMAGED(stack)
 
 #define verified && ParseErr(stderr, err, __LINE__, __FILE__, __PRETTY_FUNCTION__)
-
-#define DUMP_FILE "dump.log"
-
-#define MEMORY_LOG_FILE "memory.log"
 
 #endif
 
@@ -63,11 +55,15 @@ typedef uint64_t Canary_t;
 
 typedef int StackId_t;
 
-int const MIN_STACK_SIZE = 8;
+const int         MIN_STACK_SIZE   = 8;
 
-int const MAX_STACK_SIZE = 1024*1024;
+const int         MAX_STACK_SIZE   = 1024*1024;
 
-int const MAX_STACK_AMOUNT = 16;
+const int         MAX_STACK_AMOUNT = 16;
+
+const char* const DUMP_FILE       = "dump.html";
+
+const char* const MEMORY_LOG_FILE = "memory.html";
 
 const Canary_t    CANARY = DEDHYPEBEAST;
 

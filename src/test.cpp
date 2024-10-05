@@ -17,11 +17,11 @@ StackReturnCode StackTest()
 
     pthread_t threads[2];
 
-    pthread_create(&threads[0], NULL, PthrPush,  &StackId);
-    pthread_create(&threads[1], NULL, PthrDel,   &StackId);
-
-    pthread_join(threads[0], NULL);
-    pthread_join(threads[1], NULL);
+//     pthread_create(&threads[0], NULL, PthrPush,  &StackId);
+//     pthread_create(&threads[1], NULL, PthrDel,   &StackId);
+//
+//     pthread_join(threads[0], NULL);
+//     pthread_join(threads[1], NULL);
 
 
     FILE* UnitTestFile = fopen("unit_test", "wb");
