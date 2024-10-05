@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <stack.h>
 
 #ifndef ALLOCATION_H__
 #define ALLOCATION_H__

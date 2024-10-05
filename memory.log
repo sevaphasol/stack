@@ -1,0 +1,24 @@
+Called calloc         
+Number of members: 1
+Size   of members: 240
+Returned: 0x63c4ab6d9660          
+----------------------
+Called realloc        
+Size in bytes: 304    
+Returned: 0x63c4ab6daa90          
+----------------------
+Called realloc        
+Size in bytes: 432    
+Returned: 0x63c4ab6daa90          
+----------------------
+Called realloc        
+Size in bytes: 304    
+Returned: 0x63c4ab6daa90          
+----------------------
+Called realloc        
+Size in bytes: 240    
+Returned: 0x63c4ab6daa90          
+----------------------
+Called free           
+Pointer: 0x63c4ab6daa90           
+----------------------

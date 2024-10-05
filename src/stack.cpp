@@ -40,15 +40,15 @@ static FILE* MemoryLogFile = nullptr;
 
 static FILE* DumpFile = nullptr;
 
-static StackReturnCode   StackIsDamaged      (Stack_t* stack, int line, const char* file, const char* function);
+static StackReturnCode   StackIsDamaged      (StackId_t StackId, int line, const char* file, const char* function);
 
-static StackReturnCode   StackIsValid        (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
+static StackReturnCode   StackIsValid        (StackId_t StackId ON_DEBUG(, int line, const char* file, const char* function));
 
 static void              StackAssert         (StackReturnCode code, int line, const char* file, const char* function);
 
-static StackReturnCode   CountDataHash       (Stack_t* stack);
+static StackReturnCode   CountDataHash       (StackId_t StackId);
 
-static StackReturnCode   CountStructHash     (Stack_t* stack);
+static StackReturnCode   CountStructHash     (StackId_t StackId);
 
 static StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 
@@ -61,14 +61,13 @@ StackId_t StackCtor(int capacity)
     if (!MemoryLogFile)
     {
         MemoryLogFile = fopen(MEMORY_LOG_FILE, "w");
-        fprintf(MemoryLogFile, "</html>\n");
+        ON_HTML(fprintf(MemoryLogFile, "<!DOCTYPE html><html>"));
     }
 
     if (!DumpFile)
     {
         DumpFile = fopen(DUMP_FILE, "w");
-        fprintf(DumpFile, "<!DOCTYPE html>\n<html>");
-        fprintf(DumpFile, "<body style=\"background-color: #606060;\">");
+        ON_HTML(fprintf(DumpFile, "<!DOCTYPE html><html>"));
     };
 
     #endif
@@ -104,7 +103,7 @@ StackId_t StackCtor(int capacity)
 
     *stack = {INIT(stack)};
 
-    pthread_mutex_init(&(stack->mutex), NULL);
+    // pthread_mutex_init(&(stack->mutex), NULL);
 
     if (!stack)
 
@@ -186,7 +185,7 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 
     STACK_ASSERT(STACK_IS_VALID(stack));
 
-    // pthread_mutex_lock(&(stack->mutex));
+    pthread_mutex_lock(&(stack->mutex));
 
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
@@ -225,18 +224,18 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
-    // pthread_mutex_unlock(&(stack->mutex));
+    pthread_mutex_unlock(&(stack->mutex));
 
     return EXECUTED;
 }
 
 StackElem_t StackPop(StackId_t StackId)
 {
-    Stack_t*stack = STACKS[StackId - 1];
+    Stack_t* stack = STACKS[StackId - 1];
 
     STACK_ASSERT(STACK_IS_VALID(stack));
 
-    // pthread_mutex_lock(&(stack->mutex));
+    pthread_mutex_lock(&(stack->mutex));
 
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
@@ -275,7 +274,7 @@ StackElem_t StackPop(StackId_t StackId)
 
     STACK_ASSERT(STACK_IS_DAMAGED(stack));
 
-    // pthread_mutex_unlock(&(stack->mutex));
+    pthread_mutex_unlock(&(stack->mutex));
 
     return value;
 }
@@ -372,22 +371,33 @@ StackReturnCode StackDtor(StackId_t StackId)
 {
     Stack_t* stack = STACKS[StackId - 1];
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
+    if (!stack)
+    {
+        return EXECUTED;
+    }
 
     memset(stack, 0, stack->MemorySize);
 
     log_free(MemoryLogFile, stack);
 
-    ON_DEBUG(fclose(MemoryLogFile));
+    if (MemoryLogFile)
+    {
+        ON_HTML(fprintf(MemoryLogFile, "</html>\n"));
 
-    fprintf(MemoryLogFile, "</html>\n");
+        ON_DEBUG(fclose(MemoryLogFile));
+    }
 
-    ON_DEBUG(fclose(DumpFile));
+    if (DumpFile)
+    {
+        ON_HTML(fprintf(DumpFile, "</html>\n"));
 
-    fprintf(DumpFile, "</html>\n");
+        ON_DEBUG(fclose(DumpFile));
+    }
 
-    pthread_mutex_destroy(&(stack->mutex));
+    if (&(stack->mutex))
+    {
+        pthread_mutex_destroy(&(stack->mutex));
+    }
 
     stack = nullptr;
 
@@ -396,15 +406,15 @@ StackReturnCode StackDtor(StackId_t StackId)
     return EXECUTED;
 }
 
-StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
+StackReturnCode StackDump(StackId_t StackId ON_DEBUG(, int line, const char* file, const char* function))
 {
     #ifdef DEBUG
 
+    Stack_t* stack = STACKS[StackId - 1];
+
     if (!DumpFile)
     {
-        fprintf(stderr, "<p style=\"color:Red\">"
-                        "INVALID FILE POINTER<bp>"
-                        "</p>");
+        fprintf(stderr, "INVALID FILE POINTER\n");
 
         err += INVALID_FILE_POINTER;
 
@@ -419,81 +429,84 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
 
     TimeInfo = localtime(&RawTime);
 
-    fprintf(DumpFile, "<p style=\"color:LightGrey;\">"
-                      "Local time and date: </p><p style=\"color:LightBlue;\">%s<bp>"
-                      "</p>", asctime(TimeInfo));
+    ON_HTML(fprintf(DumpFile, "<p style=\"color:LightGrey;\">"
+                              "Local time and date: </p><p style=\"color:LightBlue;\">%s<bp>"
+                              "</p>", asctime(TimeInfo)));
+
+    ON_LOG( fprintf(DumpFile, "Local time and date: %s\n", asctime(TimeInfo)));
 
     PrintErr(DumpFile, err);
 
     if (!stack)
     {
-        fprintf(DumpFile, "<p style=\"color:LightRed\">"
-                          "Lost stack pointer</br>"
-                          "</p>");
+        ON_HTML(fprintf(DumpFile, "<p style=\"color:Red\">"
+                                  "Lost stack pointer</br>"
+                                  "</p>"));
+
+        ON_LOG( fprintf(DumpFile, "Lost stack pointer\n"));
 
         fclose(DumpFile);
 
         return EXECUTED;
     }
 
-//     fprintf(DumpFile, "Stack_t[%p] %s at %s:%d in function %s\nBorn at %s:%d in function %s\n\n",
-//             stack, stack->name, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc);
-//
-//     fprintf(DumpFile, "Stack ID             = %d\n\n",    stack->id);
-//
-//     fprintf(DumpFile, "LEFT  STRUCT CANARY  = %lu\n",     stack->left_canary);
-//
-//     fprintf(DumpFile, "RIGHT STRUCT CANARY  = %lu\n\n",   stack->right_canary);
-//
-//     fprintf(DumpFile, "LEFT  DATA   CANARY  = %lu\n",   *(stack->DataLeftCanary));
-//
-//     fprintf(DumpFile, "RIGHT DATA   CANARY  = %lu\n\n", *(stack->DataRightCanary));
-//
-//     fprintf(DumpFile, "STRUCT HASH          = %lu\n",     stack->StructHash);
-//
-//     fprintf(DumpFile, "DATA   HASH          = %lu\n\n",   stack->DataHash);
-//
-//     fprintf(DumpFile, "capacity             = %lu\n",     stack->capacity);
-//
-//     fprintf(DumpFile, "size                 = %lu\n\n",   stack->size);
+    ON_LOG(fprintf(DumpFile,  "Stack_t[%p] %s at %s:%d in function %s\nBorn at %s:%d in function %s\n\n"
+                              "Stack ID             = %d\n\n"
+                              "LEFT  STRUCT CANARY  = %lu\n"
+                              "RIGHT STRUCT CANARY  = %lu\n\n"
+                              "LEFT  DATA   CANARY  = %lu\n"
+                              "RIGHT DATA   CANARY  = %lu\n\n"
+                              "STRUCT HASH          = %lu\n"
+                              "DATA   HASH          = %lu\n\n"
+                              "capacity             = %lu\n"
+                              "size                 = %lu\n\n",
+                              stack, stack->name, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc,
+                              stack->id,
+                              stack->left_canary,
+                              stack->right_canary,
+                              *(stack->DataLeftCanary),
+                              *(stack->DataRightCanary),
+                              stack->StructHash,
+                              stack->DataHash,
+                              stack->capacity,
+                              stack->size));
 
-    fprintf(DumpFile, "<h3 style=\"color:LightGrey;\">Stack_t[<em style=\"color:LightOrange;\">%p</em>]"
-                      " <h3 style=\"color:LightRed;\">%s</h3>"
-                      " at <em style=\"color:LightOrange;\">%s</em>:"
-                      "<em style=\"color:LightGrey;\">%d</em> in function"
-                      " <em style=\"color:LightGrey;\">%s</em><br>Born"
-                      " at <em style=\"color:LightGrey;\">%s</em>:"
-                      "<em style=\"color:LightGrey;\">%d</em> in function "
-                      "<em style=\"color:LightGrey;\">%s</em></h1>"
-                      "<em style=\"color:LightGrey;\">"
-                      "Stack ID              = %d<br><br>"
-                      "LEFT   STRUCT CANARY  = %lu<br>"
-                      "RIGHT  STRUCT CANARY  = %lu<br><br>"
-                      "LEFT   DATA   CANARY  = %lu<br>"
-                      "RIGHT  DATA   CANARY  = %lu<br><br>"
-                      "STRUCT HASH           = %lu<br>"
-                      "DATA   HASH           = %lu<br><br>"
-                      "capacity              = %lu<br>"
-                      "size                  = %lu<br><br>"
-                      "</em>",
-                      stack, stack->name, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc,
-                      stack->id,
-                      stack->left_canary,
-                      stack->right_canary,
-                      *(stack->DataLeftCanary),
-                      *(stack->DataRightCanary),
-                      stack->StructHash,
-                      stack->DataHash,
-                      stack->capacity,
-                      stack->size);
+    ON_HTML(fprintf(DumpFile, "<h3>Stack_t[<em style=\"color:Red;\">%p</em>] %s"
+                              " at <em style=\"color:Red;\">%s</em>:"
+                              "<em style=\"color:Red;\">%d</em> in function"
+                              " <em style=\"color:Red;\">%s</em><br>Born"
+                              " at <em style=\"color:Red;\">%s</em>:"
+                              "<em style=\"color:Red;\">%d</em> in function "
+                              "<em style=\"color:Red;\">%s</em></h1><br>"
+                              "Stack ID              = <em style=\"color:Red;\">%d</em><br><br>"
+                              "LEFT   STRUCT CANARY  = <em style=\"color:Red;\">%lu</em><br>"
+                              "RIGHT  STRUCT CANARY  = <em style=\"color:Red;\">%lu</em><br><br>"
+                              "LEFT   DATA   CANARY  = <em style=\"color:Red;\">%lu</em><br>"
+                              "RIGHT  DATA   CANARY  = <em style=\"color:Red;\">%lu</em><br><br>"
+                              "STRUCT HASH           = <em style=\"color:Red;\">%lu</em><br>"
+                              "DATA   HASH           = <em style=\"color:Red;\">%lu</em><br><br>"
+                              "capacity              = <em style=\"color:Red;\">%lu</em><br>"
+                              "size                  = <em style=\"color:Red;\">%lu</em><br><br>"
+                              "</em>",
+                              stack, stack->name, file, line, function, stack->BornFile, stack->BornLine, stack->BornFunc,
+                              stack->id,
+                              stack->left_canary,
+                              stack->right_canary,
+                              *(stack->DataLeftCanary),
+                              *(stack->DataRightCanary),
+                              stack->StructHash,
+                              stack->DataHash,
+                              stack->capacity,
+                              stack->size));
 
     if (!stack->data)
     {
-        fprintf(DumpFile, "<p style=\"color:LightRed\">"
-                          "Lost stack->data pointer<br>"
-                          "</p>");
+        ON_HTML(fprintf(DumpFile, "<p style=\"color:LightRed\">"
+                                  "Lost stack->data pointer<br>"
+                                  "<br><br>---------------------------------------------------------------------<br><br></p>"));
 
-        fprintf(DumpFile, "<p><br><br>---------------------------------------------------------------------<br><br></p>");
+        ON_LOG(fprintf(DumpFile,  "Lost stack->data pointer\n"
+                                  "\n\n---------------------------------------------------------------------\n\n"));
 
         return EXECUTED;
     }
@@ -502,26 +515,34 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
     {
         if (i < stack->size)
         {
-            fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
-                              "[%d] = </em><em style=\"color:LightBlue;\">%ld</em><br>", i, stack->data[i]);
+            ON_HTML(fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
+                                      "[%d] = </em><em style=\"color:LightBlue;\">%ld</em><br>", i, stack->data[i]));
+
+            ON_LOG( fprintf(DumpFile, "[%d] = %ld\n", i, stack->data[i]));
         }
         else
         {
-            fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
-                              "[%d] = </em><em style=\"color:LightBlue;\">POISON</em><br>", i);
+            ON_HTML(fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
+                                      "[%d] = </em><em style=\"color:LightBlue;\">POISON</em><br>", i));
+
+            ON_LOG( fprintf(DumpFile, "[%d] = POISON\n", i));
         }
     }
 
-    fprintf(DumpFile, "<p><br><br>---------------------------------------------------------------------<br><br></p>");
+    ON_HTML(fprintf(DumpFile, "<p><br><br>---------------------------------------------------------------------<br><br></p>"));
+
+    ON_LOG( fprintf(DumpFile, "\n\n---------------------------------------------------------------------\n\n"));
 
     #endif
 
     return EXECUTED;
 }
 
-StackReturnCode CountDataHash(Stack_t* stack)
+StackReturnCode CountDataHash(StackId_t StackId)
 {
     #ifdef DEBUG
+
+    Stack_t* stack = STACKS[StackId - 1];
 
     STACK_ASSERT(STACK_IS_VALID(stack));
 
@@ -586,8 +607,12 @@ StackReturnCode CountStructHash(Stack_t* stack)
     return EXECUTED;
 }
 
-StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
+StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* file, const char* function))
 {
+    #ifdef DEBUG
+
+    Stack_t* stack = STACKS[StackId - 1];
+
     ON_DEBUG(StackDump(stack, line, file, function));
 
     if (!stack)
@@ -596,7 +621,7 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        pthread_mutex_unlock(&(stack->mutex));
+        StackDtor(stack);
 
         return STACK_INVALID;
     }
@@ -607,7 +632,7 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        pthread_mutex_unlock(&(stack->mutex));
+        StackDtor(stack);
 
         return INVALID_STACK_ID;
     }
@@ -618,7 +643,7 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        pthread_mutex_unlock(&(stack->mutex));
+        StackDtor(stack);
 
         return STACK_INVALID;
     }
@@ -629,10 +654,12 @@ StackReturnCode StackIsValid(Stack_t* stack ON_DEBUG(, int line, const char* fil
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        pthread_mutex_unlock(&(stack->mutex));
+        StackDtor(stack);
 
         return STACK_INVALID;
     }
+
+    #endif
 
     return STACK_VALID;
 }
@@ -667,9 +694,11 @@ void StackAssert(StackReturnCode code, int line, const char* file, const char* f
     }
 }
 
-StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const char* function)
+StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, const char* function)
 {
     #ifdef DEBUG
+
+    Stack_t* stack = STACKS[StackId - 1];
 
     STACK_ASSERT(STACK_IS_VALID(stack));
 
@@ -681,7 +710,7 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
         StackDump(stack, line, file, function);
 
-        pthread_mutex_unlock(&(stack->mutex));
+        StackDtor(stack);
 
         return STACK_DAMAGED;
     }
@@ -700,7 +729,7 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
         StackDump(stack, line, file, function);
 
-        pthread_mutex_unlock(&(stack->mutex));
+        StackDtor(stack);
 
         return STACK_DAMAGED;
     }
@@ -711,7 +740,7 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
         StackDump(stack, line, file, function);
 
-        pthread_mutex_unlock(&(stack->mutex));
+        StackDtor(stack);
 
         return STACK_DAMAGED;
     }
@@ -722,7 +751,7 @@ StackReturnCode StackIsDamaged(Stack_t* stack, int line, const char* file, const
 
         StackDump(stack, line, file, function);
 
-        pthread_mutex_unlock(&(stack->mutex));
+        StackDtor(stack);
 
         return STACK_DAMAGED;
     }
@@ -745,63 +774,16 @@ StackReturnCode PrintErr(FILE* fp, uint64_t code)
 
     if (code == 0)
     {
-        fprintf(fp, "<p style=\"color: LightGreen\";>NO ERROR<br></p>");
+        ON_HTML(fprintf(fp, "<p style=\"color: LightGreen\";>NO ERROR<br></p>"));
+
+        ON_LOG(fprintf(fp, "OK\n"));
 
         return EXECUTED;
     }
 
-    fprintf(fp, "ERRORS: ");
+    ON_HTML(fprintf(fp, "<p style=\"color: Red\";>ERRORS: "));
 
-    PRINT_ERR(code, 8192, "<p style=\"color: LightRed\";>INVALID STACK ID </p>");
-
-    PRINT_ERR(code, 4096, "INVALID STRUCT CANARY ");
-
-    PRINT_ERR(code, 2048, "INVALID DATA CANARY ");
-
-    PRINT_ERR(code, 1024, "INVALID HASH ");
-
-    PRINT_ERR(code, 512,  "DAMAGED STACK ERR ");
-
-    PRINT_ERR(code, 256,  "INVALID FILE POINTER ");
-
-    PRINT_ERR(code, 128,  "REQUESTED TOO MUCH ");
-
-    PRINT_ERR(code, 64,   "REQUESTED TOO LITTLE ");
-
-    PRINT_ERR(code, 32,   "INVALID SIZE ");
-
-    PRINT_ERR(code, 16,   "INVALID DATA POINTER ");
-
-    PRINT_ERR(code, 8,    "INVALID STACK POINTER ");
-
-    PRINT_ERR(code, 4,    "STACK OVERFLOW ");
-
-    PRINT_ERR(code, 2,    "STACK UNDERFLOW ");
-
-    fprintf(fp, "\n");
-
-    return EXECUTED;
-}
-
-StackReturnCode ParseErr(FILE* fp, uint64_t code, int line, const char* file, const char* function)
-{
-    uint64_t nextPow = code;
-
-    if (!fp)
-    {
-        return FAILED;
-    }
-
-    fprintf(fp, "Called in %s:%d:%s\n", file, line, function);
-
-    if (code == 0)
-    {
-        fprintf(fp, "NO ERROR\n");
-
-        return EXECUTED;
-    }
-
-    fprintf(fp, "ERRORS: ");
+    ON_LOG(fprintf(fp, "ERRORS: "));
 
     PRINT_ERR(code, 8192, "INVALID STACK ID ");
 
@@ -829,7 +811,27 @@ StackReturnCode ParseErr(FILE* fp, uint64_t code, int line, const char* file, co
 
     PRINT_ERR(code, 2,    "STACK UNDERFLOW ");
 
-    fprintf(fp, "\n");
+    ON_HTML(fprintf(fp, "</p><br>"));
+
+    ON_LOG(fprintf(fp, "\n"));
+
+    return EXECUTED;
+}
+
+StackReturnCode ParseErr(FILE* fp, uint64_t code, int line, const char* file, const char* function)
+{
+    uint64_t nextPow = code;
+
+    if (!fp)
+    {
+        return FAILED;
+    }
+
+    ON_HTML(fprintf(fp, "<p style=\"color: LightBlue\";>Called in %s:%d:%s</p><br>", file, line, function));
+
+    ON_LOG(fprintf(fp, "Called in %s:%d:%s\n", file, line, function));
+
+    PrintErr(fp, code);
 
     return EXECUTED;
 }

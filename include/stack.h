@@ -61,9 +61,27 @@ const int         MAX_STACK_SIZE   = 1024*1024;
 
 const int         MAX_STACK_AMOUNT = 16;
 
+#ifdef FILE_HTML
+
 const char* const DUMP_FILE       = "dump.html";
 
 const char* const MEMORY_LOG_FILE = "memory.html";
+
+#define ON_HTML(...) __VA_ARGS__
+
+#define ON_LOG(...)
+
+#else
+
+const char* const DUMP_FILE       = "dump.log";
+
+const char* const MEMORY_LOG_FILE = "memory.log";
+
+#define ON_HTML(...)
+
+#define ON_LOG(...)  __VA_ARGS__
+
+#endif
 
 const Canary_t    CANARY = DEDHYPEBEAST;
 
