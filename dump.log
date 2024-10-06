@@ -1,16 +1,16 @@
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
 STRUCT HASH          = 0
 DATA   HASH          = 0
@@ -18,1090 +18,1186 @@ DATA   HASH          = 0
 capacity             = 8
 size                 = 0
 
-[0] = 0 (POISON) 
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
 STRUCT HASH          = 0
-DATA   HASH          = 8200768652963271
+DATA   HASH          = 6157115436449336839
 
 capacity             = 8
 size                 = 0
 
-[0] = 0 (POISON) 
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:168 in function StackId_t StackCtor(int, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:168 in function StackId_t StackCtor(int, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200768652963271
-
-capacity             = 8
-size                 = 0
-
-[0] = 0 (POISON) 
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200768652963271
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 6157115436449336839
 
 capacity             = 8
 size                 = 0
 
-[0] = 0 (POISON) 
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
 
-Stack ID             = 1
+Stack ID             = 2
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200768652963271
-
-capacity             = 8
-size                 = 0
-
-[0] = 0 (POISON) 
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200768652963271
+STRUCT HASH          = 0
+DATA   HASH          = 0
 
 capacity             = 8
 size                 = 0
 
-[0] = 0 (POISON) 
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
 
-Stack ID             = 1
+Stack ID             = 2
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200768652963271
-
-capacity             = 8
-size                 = 0
-
-[0] = 0 (POISON) 
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200768652963271
+STRUCT HASH          = 0
+DATA   HASH          = 6157115436449336839
 
 capacity             = 8
 size                 = 0
 
-[0] = 0 (POISON) 
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:168 in function StackId_t StackCtor(int, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200768652963271
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:230 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 6157115436449336839
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200768652963271
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 6157115436449336839
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 5192082222852007939
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 7700082459103722356
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:236 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:238 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 1
 
 [0] = 1
-[1] = 0 (POISON) 
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:230 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200811271406248
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 17225161946023347040
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18025390790094896498
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 30181209223416403
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:236 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:238 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 2
 
 [0] = 1
 [1] = 2
-[2] = 0 (POISON) 
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:230 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 3
@@ -1109,63 +1205,31 @@ size                 = 3
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813854342186
-
-capacity             = 8
-size                 = 3
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 9841662487652997182
-DATA   HASH          = 8200813971748365
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 2467766690327424602
 
 capacity             = 8
 size                 = 3
@@ -1173,63 +1237,31 @@ size                 = 3
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
-
-capacity             = 8
-size                 = 3
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
+STRUCT HASH          = 17152689780867020433
+DATA   HASH          = 9846464319949523637
 
 capacity             = 8
 size                 = 3
@@ -1237,63 +1269,31 @@ size                 = 3
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:236 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
-
-capacity             = 8
-size                 = 3
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
 
 capacity             = 8
 size                 = 3
@@ -1301,63 +1301,31 @@ size                 = 3
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
-
-capacity             = 8
-size                 = 3
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
 
 capacity             = 8
 size                 = 3
@@ -1365,63 +1333,31 @@ size                 = 3
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:238 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
-
-capacity             = 8
-size                 = 3
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
 
 capacity             = 8
 size                 = 3
@@ -1429,63 +1365,31 @@ size                 = 3
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
-
-capacity             = 8
-size                 = 3
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
 
 capacity             = 8
 size                 = 3
@@ -1493,31 +1397,1887 @@ size                 = 3
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 0 (POISON) 
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
+
+capacity             = 8
+size                 = 3
+
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 0
+
+[0] = 3468301448 (POISON) 
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:230 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 6157115436449336839
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 17507957833022717797
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:236 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:238 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 1
+
+[0] = 4
+[1] = 3468301448 (POISON) 
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:230 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 17225162073878675971
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 15741520438692305870
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:236 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:238 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 2
+
+[0] = 4
+[1] = 3
+[2] = 3468301448 (POISON) 
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:230 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 2467766819474221502
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8242186248094547601
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:236 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:238 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 3
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:230 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 4
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 4
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 9846464449057185144
+
+capacity             = 8
+size                 = 4
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 4
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 5276257424762546933
+DATA   HASH          = 6157115634320650996
+
+capacity             = 8
+size                 = 4
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 4
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:236 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 4844726575872821031
+DATA   HASH          = 6157115634320650996
+
+capacity             = 8
+size                 = 4
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 4
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 4844726575872821031
+DATA   HASH          = 6157115634320650996
+
+capacity             = 8
+size                 = 4
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 4
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:238 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 4844726575872821031
+DATA   HASH          = 6157115634320650996
+
+capacity             = 8
+size                 = 4
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 4
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 4844726575872821031
+DATA   HASH          = 6157115634320650996
+
+capacity             = 8
+size                 = 4
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 4
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c740a90] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:64 in function void EasyHackExample()
+
+Stack ID             = 2
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 4844726575872821031
+DATA   HASH          = 6157115634320650996
+
+capacity             = 8
+size                 = 4
+
+[0] = 4
+[1] = 3
+[2] = 2
+[3] = 4
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
+
+capacity             = 8
+size                 = 3
+
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
+
+capacity             = 8
+size                 = 3
+
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
+
+capacity             = 8
+size                 = 3
+
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
+
+capacity             = 8
+size                 = 3
+
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
+
+capacity             = 8
+size                 = 3
+
+[0] = 1
+[1] = 2
+[2] = 3
+[3] = 3468301448 (POISON) 
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
+
+
+---------------------------------------------------------------------
+
+Local time and date: Mon Oct  7 00:10:00 2024
+
+OK
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:230 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
+
+Stack ID             = 1
+
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
+
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
+
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
 
 capacity             = 8
 size                 = 4
@@ -1525,63 +3285,31 @@ size                 = 4
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 1
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813971748365
-
-capacity             = 8
-size                 = 4
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 18316486987794333570
-DATA   HASH          = 8200813976492049
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 9846464319949523637
 
 capacity             = 8
 size                 = 4
@@ -1589,63 +3317,31 @@ size                 = 4
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 1
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
-
-capacity             = 8
-size                 = 4
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
+STRUCT HASH          = 8908902667273871671
+DATA   HASH          = 6157115505209431726
 
 capacity             = 8
 size                 = 4
@@ -1653,63 +3349,31 @@ size                 = 4
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 1
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:236 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
-
-capacity             = 8
-size                 = 4
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
+STRUCT HASH          = 3510322469962612069
+DATA   HASH          = 6157115505209431726
 
 capacity             = 8
 size                 = 4
@@ -1717,63 +3381,31 @@ size                 = 4
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 1
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:741 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
-
-capacity             = 8
-size                 = 4
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
+STRUCT HASH          = 3510322469962612069
+DATA   HASH          = 6157115505209431726
 
 capacity             = 8
 size                 = 4
@@ -1781,63 +3413,31 @@ size                 = 4
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 1
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:238 in function StackReturnCode StackPush(StackId_t, StackElem_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
-
-capacity             = 8
-size                 = 4
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
+STRUCT HASH          = 3510322469962612069
+DATA   HASH          = 6157115505209431726
 
 capacity             = 8
 size                 = 4
@@ -1845,63 +3445,31 @@ size                 = 4
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 1
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:572 in function StackReturnCode CountDataHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
-
-capacity             = 8
-size                 = 4
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
+STRUCT HASH          = 3510322469962612069
+DATA   HASH          = 6157115505209431726
 
 capacity             = 8
 size                 = 4
@@ -1909,2475 +3477,43 @@ size                 = 4
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 4
-[4] = 0 (POISON) 
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
+[3] = 1
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------
 
-Local time and date: Sun Oct  6 23:09:17 2024
+Local time and date: Mon Oct  7 00:10:00 2024
 
 OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
+Stack_t[0x5d1d4c73f660] stack at src/stack.cpp:594 in function StackReturnCode CountStructHash(StackId_t)
+Born at src/test.cpp:63 in function void EasyHackExample()
 
 Stack ID             = 1
 
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
+LEFT  STRUCT CANARY  = 3468301448
+RIGHT STRUCT CANARY  = 3468301448
 
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
+LEFT  DATA   CANARY  = 3468301448
+RIGHT DATA   CANARY  = 3468301448
 
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976492049
+STRUCT HASH          = 3510322469962612069
+DATA   HASH          = 6157115505209431726
 
 capacity             = 8
-size                 = 5
+size                 = 4
 
 [0] = 1
 [1] = 2
 [2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10601350396683442610
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 5
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 0 (POISON) 
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976671734
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4648591134117717911
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 6
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0 (POISON) 
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678268
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 10413111680488830936
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 7
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 0 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 8
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678499
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 8
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 16459645500089049473
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 8
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 8
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 8
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 8
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 8
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 7
-[7] = 8
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:195 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:199 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:296 in function StackReturnCode StackResize(StackId_t, size_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:298 in function StackReturnCode StackResize(StackId_t, size_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd081660] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 8
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:343 in function StackReturnCode StackResize(StackId_t, size_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 16
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 0 (POISON) 
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 8200813976678507
-
-capacity             = 16
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 0 (POISON) 
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 2769586164944240490
-DATA   HASH          = 6858489661028590484
-
-capacity             = 16
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 0 (POISON) 
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:372 in function StackReturnCode StackResize(StackId_t, size_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 7960278347374550951
-DATA   HASH          = 6858489661028590484
-
-capacity             = 16
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 0 (POISON) 
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 7960278347374550951
-DATA   HASH          = 6858489661028590484
-
-capacity             = 16
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 0 (POISON) 
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:374 in function StackReturnCode StackResize(StackId_t, size_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 7960278347374550951
-DATA   HASH          = 6858489661028590484
-
-capacity             = 16
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 0 (POISON) 
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 7960278347374550951
-DATA   HASH          = 6858489661028590484
-
-capacity             = 16
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 0 (POISON) 
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 7960278347374550951
-DATA   HASH          = 6858489661028590484
-
-capacity             = 16
-size                 = 8
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 0 (POISON) 
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:226 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 7960278347374550951
-DATA   HASH          = 6858489661028590484
-
-capacity             = 16
-size                 = 9
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 9
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 7960278347374550951
-DATA   HASH          = 6858489661028590484
-
-capacity             = 16
-size                 = 9
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 9
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 7960278347374550951
-DATA   HASH          = 6858490044594577277
-
-capacity             = 16
-size                 = 9
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 9
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:232 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4430212815279749412
-DATA   HASH          = 6858490044594577277
-
-capacity             = 16
-size                 = 9
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 9
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:755 in function StackReturnCode StackIsDamaged(StackId_t, int, const char*, const char*)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4430212815279749412
-DATA   HASH          = 6858490044594577277
-
-capacity             = 16
-size                 = 9
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 9
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:234 in function StackReturnCode StackPush(StackId_t, StackElem_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4430212815279749412
-DATA   HASH          = 6858490044594577277
-
-capacity             = 16
-size                 = 9
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 9
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:573 in function StackReturnCode CountDataHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4430212815279749412
-DATA   HASH          = 6858490044594577277
-
-capacity             = 16
-size                 = 9
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 9
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
-
-
----------------------------------------------------------------------
-
-Local time and date: Sun Oct  6 23:09:17 2024
-
-OK
-Stack_t[0x56f6dd082a90] stack at src/stack.cpp:595 in function StackReturnCode CountStructHash(StackId_t)
-Born at src/test.cpp:99 in function void MediumHackExample2()
-
-Stack ID             = 1
-
-LEFT  STRUCT CANARY  = 58188442558455514
-RIGHT STRUCT CANARY  = 58188442558455514
-
-LEFT  DATA   CANARY  = 58188442558455514
-RIGHT DATA   CANARY  = 58188442558455514
-
-STRUCT HASH          = 4430212815279749412
-DATA   HASH          = 6858490044594577277
-
-capacity             = 16
-size                 = 9
-
-[0] = 1
-[1] = 2
-[2] = 3
-[3] = 4
-[4] = 5
-[5] = 6
-[6] = 0
-[7] = 239
-[8] = 9
-[9] = 0 (POISON) 
-[10] = 1879087935 (POISON) 
-[11] = 1879533120 (POISON) 
-[12] = 4028400705 (POISON) 
-[13] = 1894335810 (POISON) 
-[14] = 4043203395 (POISON) 
-[15] = 1892361540 (POISON) 
+[3] = 1
+[4] = 3468301448 (POISON) 
+[5] = 3468301448 (POISON) 
+[6] = 3468301448 (POISON) 
+[7] = 3468301448 (POISON) 
 
 
 ---------------------------------------------------------------------

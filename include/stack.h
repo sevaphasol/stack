@@ -93,7 +93,7 @@
 
 #define verified && ParseErr(stderr, err, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
-#define DEDHYPEBEAST  0xCEBA1488BADEDA
+#define DEDHYPEBEAST  0xCEBA1488
 
 #define STRUCT_HASH_OFFSET (uint64_t) &(((Stack_t*) nullptr)->StructHash)
 
@@ -119,9 +119,9 @@ const   int      MAX_STACK_SIZE   = 1024*1024;
 
 const   int      MAX_STACK_AMOUNT = 16;
 
-const   Canary_t CANARY = DEDHYPEBEAST;
+const   Canary_t     CANARY = DEDHYPEBEAST;
 
-const   int      POISON = 0;
+const   unsigned int POISON = 0xCEBA1488;
 
 extern  uint64_t err;
 

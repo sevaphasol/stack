@@ -15,6 +15,8 @@ void  MediumHackExample2(); // Example of imperfection of CountDataHash
 
 void  HardHackExample();    // When INVALID_HASH error is triggered deadlock occurs
 
+void  HardHackExample2();   // StackPop can go before stack->data and return incorrect value
+
 struct Stack_t
 {
     ON_CANARY_PROTECTION(Canary_t        left_canary);
@@ -33,7 +35,7 @@ struct Stack_t
     ON_CANARY_PROTECTION(Canary_t*       DataLeftCanary);
     ON_CANARY_PROTECTION(Canary_t*       DataRightCanary);
                          uint64_t        MemorySize;
-                         uint64_t        size;
+                         int64_t         size;
                          uint64_t        capacity;
 
     ON_CANARY_PROTECTION(Canary_t        right_canary);
@@ -43,14 +45,15 @@ extern Stack_t* STACKS[MAX_STACK_AMOUNT];
 
 StackReturnCode StackTest()
 {
-
-    // EasyHackExample();
+    EasyHackExample();
 
     // MediumHackExample();
 
     // MediumHackExample2();
 
     // HardHackExample();
+
+    // HardHackExample2();
 
     return EXECUTED;
 }
@@ -129,4 +132,23 @@ void HardHackExample()
     stack->StructHash--;
 
     StackPush(StackId, 1) verified;
+
+    StackDtor(StackId) verified;
+}
+
+void HardHackExample2()
+{
+    StackId_t StackId = STACK_CTOR(MIN_STACK_SIZE);
+
+    for (int i = 0; i < 64; i++)
+    {
+        StackPush(StackId, 1) verified;
+    }
+
+    for (int i = 0; i < 65; i++)
+    {
+        printf("%lu\n", StackPop(StackId));
+    }
+
+    StackDtor(StackId) verified;
 }
