@@ -208,11 +208,15 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
         {
             err += STACK_OVERFLOW;
 
+            ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
             return FAILED;
         }
 
         if (StackResize(StackId, stack->capacity * 2) == FAILED)
         {
+            ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
             return FAILED;
         }
 
@@ -252,6 +256,8 @@ StackElem_t StackPop(StackId_t StackId)
     {
         err += STACK_UNDERFLOW;
 
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
         return FAILED;
     }
 
@@ -265,6 +271,8 @@ StackElem_t StackPop(StackId_t StackId)
     {
         if (StackResize(StackId, stack->capacity / 2) == FAILED)
         {
+            ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
             return FAILED;
         }
     }
@@ -667,8 +675,6 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
-
         StackDtor(StackId);
 
         return STACK_INVALID;
@@ -690,6 +696,19 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
     if (!stack->data)
     {
         err += INVALID_DATA_POINTER;
+
+        ON_DEBUG(StackDump(stack, line, file, function));
+
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
+        StackDtor(StackId);
+
+        return STACK_INVALID;
+    }
+
+    if (stack->size > MAX_STACK_SIZE * sizeof(StackElem_t))
+    {
+        err += STACK_UNDERFLOW;
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
