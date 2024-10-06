@@ -36,9 +36,11 @@ struct Stack_t
 
 static Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
 
+static int   STACK_AMOUNT  = 0;
+
 static FILE* MemoryLogFile = nullptr;
 
-static FILE* DumpFile = nullptr;
+static FILE* DumpFile      = nullptr;
 
 static StackReturnCode   StackIsDamaged      (StackId_t StackId, int line, const char* file, const char* function);
 
@@ -156,6 +158,8 @@ StackId_t StackCtor(int capacity, int line, const char* file, const char* functi
     stack->id = id;
 
     STACKS[id - 1] = stack;
+
+    STACK_AMOUNT++;
 
     ON_HASH_PROTECTION(CountDataHash(  id));
 
@@ -378,8 +382,10 @@ StackReturnCode StackDtor(StackId_t StackId)
 
     if (!stack)
     {
-        return EXECUTED;
+        return FAILED;
     }
+
+    ON_THREAD_PROTECTION(pthread_mutex_lock(&(stack->mutex)));
 
     memset(stack, 0, stack->MemorySize);
 
@@ -387,18 +393,21 @@ StackReturnCode StackDtor(StackId_t StackId)
 
     log_free(MemoryLogFile, stack);
 
-    if (MemoryLogFile)
+    if (STACK_AMOUNT == 0)
     {
-        ON_HTML(fprintf(MemoryLogFile, "</html>\n"));
+        if (MemoryLogFile)
+        {
+            ON_HTML(fprintf(MemoryLogFile, "</html>\n"));
 
-        fclose(MemoryLogFile);
-    }
+            fclose(MemoryLogFile);
+        }
 
-    if (DumpFile)
-    {
-        ON_HTML(fprintf(DumpFile, "</html>\n"));
+        if (DumpFile)
+        {
+            ON_HTML(fprintf(DumpFile, "</html>\n"));
 
-        fclose(DumpFile);
+            fclose(DumpFile);
+        }
     }
 
     #else
@@ -408,6 +417,8 @@ StackReturnCode StackDtor(StackId_t StackId)
     #endif
 
     #ifdef THREAD_PROTECTION
+
+    pthread_mutex_unlock(&(stack->mutex));
 
     if (&(stack->mutex))
     {
@@ -656,6 +667,8 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
         StackDtor(StackId);
 
         return STACK_INVALID;
@@ -666,6 +679,8 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
         err += INVALID_STACK_ID_ERR;
 
         ON_DEBUG(StackDump(stack, line, file, function));
+
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
         StackDtor(StackId);
 
@@ -678,6 +693,8 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
         StackDtor(StackId);
 
         return STACK_INVALID;
@@ -688,6 +705,8 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
         err += INVALID_SIZE;
 
         ON_DEBUG(StackDump(stack, line, file, function));
+
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
         StackDtor(StackId);
 
@@ -745,6 +764,8 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
         StackDtor(StackId);
 
         return STACK_DAMAGED;
@@ -754,7 +775,9 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
     {
         err += INVALID_DATA_CANARY;
 
-        StackDump(stack, line, file, function);
+        ON_DEBUG(StackDump(stack, line, file, function));
+
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
         StackDtor(StackId);
 
@@ -775,6 +798,8 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
         StackDtor(StackId);
 
         return STACK_DAMAGED;
@@ -785,6 +810,8 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
         err += INVALID_HASH;
 
         ON_DEBUG(StackDump(stack, line, file, function));
+
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
         StackDtor(StackId);
 
@@ -801,6 +828,8 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
         StackDtor(StackId);
 
         return STACK_DAMAGED;
@@ -811,6 +840,8 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
         err += INVALID_DATA_CANARY;
 
         ON_DEBUG(StackDump(stack, line, file, function));
+
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
         StackDtor(StackId);
 
@@ -835,6 +866,8 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
+
         StackDtor(StackId);
 
         return STACK_DAMAGED;
@@ -845,6 +878,8 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
         err += INVALID_HASH;
 
         ON_DEBUG(StackDump(stack, line, file, function));
+
+        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
         StackDtor(StackId);
 
