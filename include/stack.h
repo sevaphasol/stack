@@ -8,6 +8,11 @@
 
 #ifdef  DEBUG
 
+#define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, \
+                   #name, 0, 0, PTHREAD_MUTEX_INITIALIZER,          \
+                   false,  INVALID_STACK_ID, nullptr, nullptr,      \
+                   nullptr, 0, 0, 0, CANARY                         \
+
 #define ON_DEBUG(...)             __VA_ARGS__
 
 #define ON_THREAD_PROTECTION(...) __VA_ARGS__
@@ -28,6 +33,8 @@
 
 #ifdef  THREAD_PROTECTION
 
+#define INIT(name) PTHREAD_MUTEX_INITIALIZER, false, INVALID_STACK_ID, nullptr, 0, 0, 0
+
 #define ON_THREAD_PROTECTION(...) __VA_ARGS__
 
 #define ON_CANARY_PROTECTION(...)
@@ -38,6 +45,8 @@
 
 #ifdef  CANARY_PROTECTION
 
+#define INIT(name) CANARY, false, INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY
+
 #define ON_CANARY_PROTECTION(...) __VA_ARGS__
 
 #define ON_THREAD_PROTECTION(...)
@@ -47,6 +56,8 @@
 #endif
 
 #ifdef  HASH_PROTECTION
+
+#define INIT(  name) 0, 0, false, INVALID_STACK_ID, nullptr, 0, 0, 0
 
 #define ON_HASH_PROTECTION(  ...) __VA_ARGS__
 
@@ -60,6 +71,8 @@
 
 #else
 
+#define INIT(          name) false, INVALID_STACK_ID, nullptr, 0, 0, 0
+
 #define ON_DEBUG(            ...)
 
 #define ON_THREAD_PROTECTION(...)
@@ -70,18 +83,18 @@
 
 #endif
 
-#define DEBUG_INIT(            name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, \
-                                     #name, 0, 0, PTHREAD_MUTEX_INITIALIZER,          \
-                                     false,  INVALID_STACK_ID, nullptr, nullptr,      \
-                                     nullptr, 0, 0, 0, CANARY                         \
-
-#define CANARY_PROTECTION_INIT(name) CANARY, false, INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY
-
-#define HASH_PROTECTION_INIT(  name) 0, 0, false, INVALID_STACK_ID, nullptr, 0, 0, 0
-
-#define THREAD_PROTECTION_INIT(name) PTHREAD_MUTEX_INITIALIZER, false, INVALID_STACK_ID, nullptr, 0, 0, 0
-
-#define RELEASE_INIT(          name) false, INVALID_STACK_ID, nullptr, 0, 0, 0
+// #define DEBUG_INIT(            name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, \
+//                                      #name, 0, 0, PTHREAD_MUTEX_INITIALIZER,          \
+//                                      false,  INVALID_STACK_ID, nullptr, nullptr,      \
+//                                      nullptr, 0, 0, 0, CANARY                         \
+//
+// #define CANARY_PROTECTION_INIT(name) CANARY, false, INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY
+//
+// #define HASH_PROTECTION_INIT(  name) 0, 0, false, INVALID_STACK_ID, nullptr, 0, 0, 0
+//
+// #define THREAD_PROTECTION_INIT(name) PTHREAD_MUTEX_INITIALIZER, false, INVALID_STACK_ID, nullptr, 0, 0, 0
+//
+// #define RELEASE_INIT(          name) false, INVALID_STACK_ID, nullptr, 0, 0, 0
 
 #define STACK_ASSERT(     code) StackAssert    (code,            __LINE__, __FILE__, __PRETTY_FUNCTION__)
 

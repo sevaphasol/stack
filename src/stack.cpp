@@ -100,27 +100,7 @@ StackId_t StackCtor(int capacity)
 
     #endif
 
-    #if defined(DEBUG) || defined(CANARY_PROTECTION) || defined(HASH_PROTECTION) || defined(THREAD_PROTECTION)
-
-    #ifdef DEBUG
-
-    ON_DEBUG(            *stack = {DEBUG_INIT(stack)});
-
-    #else
-
-    ON_CANARY_PROTECTION(*stack = {CANARY_PROTECTION_INIT(stack)});
-
-    ON_HASH_PROTECTION(  *stack = {HASH_PROTECTION_INIT(  stack)});
-
-    ON_THREAD_PROTECTION(*stack = {THREAD_PROTECTION_INIT(stack)});
-
-    #endif
-
-    #else
-
-    *stack = {RELEASE_INIT(stack)}
-
-    #endif
+    *stack = {INIT(stack)};
 
     ON_THREAD_PROTECTION(pthread_mutex_init(&(stack->mutex), NULL));
 
