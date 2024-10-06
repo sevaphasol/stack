@@ -12,26 +12,26 @@
 
 struct Stack_t
 {
-    ON_DEBUG(Canary_t        left_canary);
+    ON_CANARY_PROTECTION(Canary_t        left_canary);
 
-    ON_DEBUG(const char*     BornFile);
-    ON_DEBUG(int             BornLine);
-    ON_DEBUG(const char*     BornFunc);
-    ON_DEBUG(const char*     name);
-    ON_DEBUG(uint64_t        DataHash);
-    ON_DEBUG(uint64_t        StructHash);
-    ON_DEBUG(pthread_mutex_t mutex);
+    ON_DEBUG(            const char *    BornFile);
+    ON_DEBUG(            int             BornLine);
+    ON_DEBUG(            const char *    BornFunc);
+    ON_DEBUG(            const char *    name);
+    ON_HASH_PROTECTION(  uint64_t        DataHash);
+    ON_HASH_PROTECTION(  uint64_t        StructHash);
+    ON_THREAD_PROTECTION(pthread_mutex_t mutex);
 
-    bool                     inited;
-    StackId_t                id;
-    StackElem_t*             data;
-    ON_DEBUG(Canary_t*       DataLeftCanary);
-    ON_DEBUG(Canary_t*       DataRightCanary);
-    uint64_t                 MemorySize;
-    uint64_t                 size;
-    uint64_t                 capacity;
+                         bool            inited;
+                         StackId_t       id;
+                         StackElem_t*    data;
+    ON_CANARY_PROTECTION(Canary_t*       DataLeftCanary);
+    ON_CANARY_PROTECTION(Canary_t*       DataRightCanary);
+                         uint64_t        MemorySize;
+                         uint64_t        size;
+                         uint64_t        capacity;
 
-    ON_DEBUG(Canary_t        right_canary);
+    ON_CANARY_PROTECTION(Canary_t        right_canary);
 };
 
 static Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
@@ -50,7 +50,7 @@ static StackReturnCode   CountDataHash       (StackId_t StackId);
 
 static StackReturnCode   CountStructHash     (StackId_t StackId);
 
-static StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
+static StackReturnCode   StackDump           (Stack_t* stack, int line, const char* file, const char* function);
 
 static StackReturnCode   StackResize         (StackId_t StackId, size_t newCapacity);
 
@@ -86,7 +86,7 @@ StackId_t StackCtor(int capacity)
         capacity = MIN_STACK_SIZE;
     }
 
-    #ifdef DEBUG
+    #if defined(DEBUG) || defined(CANARY_PROTECTION)
 
     uint64_t MemorySize = ALIGNED_TO(sizeof(uint64_t), sizeof(Stack_t)) + ALIGNED_TO(sizeof(uint64_t), sizeof(Canary_t) + capacity * sizeof(StackElem_t)) + sizeof(Canary_t);
 
@@ -100,10 +100,29 @@ StackId_t StackCtor(int capacity)
 
     #endif
 
+    #if defined(DEBUG) || defined(CANARY_PROTECTION) || defined(HASH_PROTECTION) || defined(THREAD_PROTECTION)
 
-    *stack = {INIT(stack)};
+    #ifdef DEBUG
 
-    // pthread_mutex_init(&(stack->mutex), NULL);
+    ON_DEBUG(            *stack = {DEBUG_INIT(stack)});
+
+    #else
+
+    ON_CANARY_PROTECTION(*stack = {CANARY_PROTECTION_INIT(stack)});
+
+    ON_HASH_PROTECTION(  *stack = {HASH_PROTECTION_INIT(  stack)});
+
+    ON_THREAD_PROTECTION(*stack = {THREAD_PROTECTION_INIT(stack)});
+
+    #endif
+
+    #else
+
+    *stack = {RELEASE_INIT(stack)}
+
+    #endif
+
+    ON_THREAD_PROTECTION(pthread_mutex_init(&(stack->mutex), NULL));
 
     if (!stack)
 
@@ -113,7 +132,7 @@ StackId_t StackCtor(int capacity)
         return INVALID_STACK_POINTER;
     }
 
-    #ifdef DEBUG
+    #if defined(DEBUG) || defined(CANARY_PROTECTION)
 
     stack->MemorySize = MemorySize;
 
@@ -152,9 +171,9 @@ StackId_t StackCtor(int capacity)
 
     STACKS[id - 1] = stack;
 
-    ON_DEBUG(CountDataHash(stack));
+    ON_HASH_PROTECTION(CountDataHash(  id));
 
-    ON_DEBUG(CountStructHash(stack));
+    ON_HASH_PROTECTION(CountStructHash(id));
 
     ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
@@ -183,11 +202,11 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 {
     Stack_t* stack = STACKS[StackId - 1];
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID(StackId));
 
-    pthread_mutex_lock(&(stack->mutex));
+    ON_THREAD_PROTECTION(pthread_mutex_lock(&(stack->mutex)));
 
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(StackId));
 
     if (stack->size < stack->capacity)
     {
@@ -216,15 +235,15 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 
     ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
-    ON_DEBUG(CountDataHash(stack));
+    ON_HASH_PROTECTION(CountDataHash(  StackId));
 
-    ON_DEBUG(CountStructHash(stack));
+    ON_HASH_PROTECTION(CountStructHash(StackId));
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID(  StackId));
 
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(StackId));
 
-    pthread_mutex_unlock(&(stack->mutex));
+    ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
     return EXECUTED;
 }
@@ -233,11 +252,11 @@ StackElem_t StackPop(StackId_t StackId)
 {
     Stack_t* stack = STACKS[StackId - 1];
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID(StackId));
 
-    pthread_mutex_lock(&(stack->mutex));
+    ON_THREAD_PROTECTION(pthread_mutex_lock(&(stack->mutex)));
 
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(StackId));
 
     if (stack->size == 0)
     {
@@ -248,7 +267,7 @@ StackElem_t StackPop(StackId_t StackId)
 
     stack->size--;
 
-    ON_DEBUG(CountStructHash(stack));
+    ON_HASH_PROTECTION(CountStructHash(StackId));
 
     StackElem_t value = stack->data[stack->size];
 
@@ -266,15 +285,15 @@ StackElem_t StackPop(StackId_t StackId)
 
     ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
-    ON_DEBUG(CountDataHash(stack));
+    ON_HASH_PROTECTION(CountDataHash(  StackId));
 
-    ON_DEBUG(CountStructHash(stack));
+    ON_HASH_PROTECTION(CountStructHash(StackId));
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID(  StackId));
 
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(StackId));
 
-    pthread_mutex_unlock(&(stack->mutex));
+    ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
     return value;
 }
@@ -284,9 +303,9 @@ StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
 {
     Stack_t* stack = STACKS[StackId - 1];
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID(StackId));
 
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(StackId));
 
     if (NewCapacity < MIN_STACK_SIZE)
     {
@@ -302,7 +321,7 @@ StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
         return FAILED;
     }
 
-    #ifdef DEBUG
+    #if defined(DEBUG) || defined(CANARY_PROTECTION)
 
     uint64_t NewMemorySize = ALIGNED_TO(sizeof(uint64_t), sizeof(Stack_t)) + \
                              ALIGNED_TO(sizeof(uint64_t), sizeof(Canary_t) + \
@@ -331,7 +350,7 @@ StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
 
     *(stack->DataRightCanary) = CANARY;
 
-    StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__);
+    ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
     #else
 
@@ -356,13 +375,13 @@ StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
 
     STACKS[StackId - 1] = stack;
 
-    ON_DEBUG(CountDataHash(stack));
+    ON_HASH_PROTECTION(CountDataHash(  StackId));
 
-    ON_DEBUG(CountStructHash(stack));
+    ON_HASH_PROTECTION(CountStructHash(StackId));
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID(  StackId));
 
-    STACK_ASSERT(STACK_IS_DAMAGED(stack));
+    STACK_ASSERT(STACK_IS_DAMAGED(StackId));
 
     return EXECUTED;
 }
@@ -378,26 +397,38 @@ StackReturnCode StackDtor(StackId_t StackId)
 
     memset(stack, 0, stack->MemorySize);
 
+    #ifdef DEBUG
+
     log_free(MemoryLogFile, stack);
 
     if (MemoryLogFile)
     {
         ON_HTML(fprintf(MemoryLogFile, "</html>\n"));
 
-        ON_DEBUG(fclose(MemoryLogFile));
+        fclose(MemoryLogFile);
     }
 
     if (DumpFile)
     {
         ON_HTML(fprintf(DumpFile, "</html>\n"));
 
-        ON_DEBUG(fclose(DumpFile));
+        fclose(DumpFile);
     }
+
+    #else
+
+    free(stack);
+
+    #endif
+
+    #ifdef THREAD_PROTECTION
 
     if (&(stack->mutex))
     {
         pthread_mutex_destroy(&(stack->mutex));
     }
+
+    #endif
 
     stack = nullptr;
 
@@ -406,11 +437,9 @@ StackReturnCode StackDtor(StackId_t StackId)
     return EXECUTED;
 }
 
-StackReturnCode StackDump(StackId_t StackId ON_DEBUG(, int line, const char* file, const char* function))
+StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
     #ifdef DEBUG
-
-    Stack_t* stack = STACKS[StackId - 1];
 
     if (!DumpFile)
     {
@@ -523,9 +552,9 @@ StackReturnCode StackDump(StackId_t StackId ON_DEBUG(, int line, const char* fil
         else
         {
             ON_HTML(fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
-                                      "[%d] = </em><em style=\"color:LightBlue;\">POISON</em><br>", i));
+                                      "[%d] = </em><em style=\"color:LightBlue;\">%ld (POISON)</em><br>", i, stack->data[i]));
 
-            ON_LOG( fprintf(DumpFile, "[%d] = POISON\n", i));
+            ON_LOG( fprintf(DumpFile, "[%d] = %ld (POISON) \n", i, stack->data[i]));
         }
     }
 
@@ -544,7 +573,7 @@ StackReturnCode CountDataHash(StackId_t StackId)
 
     Stack_t* stack = STACKS[StackId - 1];
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID(StackId));
 
     uint64_t DataHash = 5831;
 
@@ -560,11 +589,15 @@ StackReturnCode CountDataHash(StackId_t StackId)
     return EXECUTED;
 }
 
-StackReturnCode CountStructHash(Stack_t* stack)
+StackReturnCode CountStructHash(StackId_t StackId)
 {
-    #ifdef DEBUG
+    #ifdef HASH_PROTECTION
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    Stack_t* stack = STACKS[StackId - 1];
+
+    STACK_ASSERT(STACK_IS_VALID(StackId));
+
+    #ifdef THREAD_PROTECTION
 
     uint64_t FirstOffset, FirstSize, SecondOffset, SecondSize = 0;
 
@@ -602,6 +635,24 @@ StackReturnCode CountStructHash(Stack_t* stack)
 
     stack->StructHash = StructHash;
 
+    #else
+
+    uint64_t StructHash = 5831;
+
+    for (size_t i = 0; i < STRUCT_HASH_OFFSET; i++)
+    {
+        StructHash = 33 * StructHash + *((char*) stack + i);
+    }
+
+    for (size_t i = STRUCT_HASH_OFFSET + sizeof(stack->StructHash); i < sizeof(Stack_t); i++)
+    {
+        StructHash = 33 * StructHash + *((char*) stack + i);
+    }
+
+    stack->StructHash = StructHash;
+
+    #endif
+
     #endif
 
     return EXECUTED;
@@ -609,8 +660,6 @@ StackReturnCode CountStructHash(Stack_t* stack)
 
 StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* file, const char* function))
 {
-    #ifdef DEBUG
-
     Stack_t* stack = STACKS[StackId - 1];
 
     ON_DEBUG(StackDump(stack, line, file, function));
@@ -621,7 +670,7 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        StackDtor(stack);
+        StackDtor(StackId);
 
         return STACK_INVALID;
     }
@@ -632,7 +681,7 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        StackDtor(stack);
+        StackDtor(StackId);
 
         return INVALID_STACK_ID;
     }
@@ -643,7 +692,7 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        StackDtor(stack);
+        StackDtor(StackId);
 
         return STACK_INVALID;
     }
@@ -654,12 +703,10 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
 
         ON_DEBUG(StackDump(stack, line, file, function));
 
-        StackDtor(stack);
+        StackDtor(StackId);
 
         return STACK_INVALID;
     }
-
-    #endif
 
     return STACK_VALID;
 }
@@ -696,51 +743,23 @@ void StackAssert(StackReturnCode code, int line, const char* file, const char* f
 
 StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, const char* function)
 {
-    #ifdef DEBUG
+    #if defined(DEBUG) || defined(HASH_PROTECTION) || defined(CANARY_PROTECTION)
 
     Stack_t* stack = STACKS[StackId - 1];
 
-    STACK_ASSERT(STACK_IS_VALID(stack));
+    STACK_ASSERT(STACK_IS_VALID(StackId));
 
-    StackDump(stack, line, file, function);
+    ON_DEBUG(StackDump(stack, line, file, function));
+
+    #ifdef DEBUG
 
     if (stack->left_canary != CANARY || stack->right_canary != CANARY)
     {
         err += INVALID_STRUCT_CANARY;
 
-        StackDump(stack, line, file, function);
+        ON_DEBUG(StackDump(stack, line, file, function));
 
-        StackDtor(stack);
-
-        return STACK_DAMAGED;
-    }
-
-    uint64_t DataHash = stack->DataHash;
-
-    uint64_t StructHash = stack->StructHash;
-
-    CountDataHash(stack);
-
-    CountStructHash(stack);
-
-    if (StructHash != stack->StructHash)
-    {
-        err += INVALID_HASH;
-
-        StackDump(stack, line, file, function);
-
-        StackDtor(stack);
-
-        return STACK_DAMAGED;
-    }
-
-    if (DataHash != stack->DataHash)
-    {
-        err += INVALID_HASH;
-
-        StackDump(stack, line, file, function);
-
-        StackDtor(stack);
+        StackDtor(StackId);
 
         return STACK_DAMAGED;
     }
@@ -751,12 +770,104 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
 
         StackDump(stack, line, file, function);
 
-        StackDtor(stack);
+        StackDtor(StackId);
 
         return STACK_DAMAGED;
     }
 
-    StackDump(stack, line, file, function);
+    uint64_t DataHash = stack->DataHash;
+
+    uint64_t StructHash = stack->StructHash;
+
+    CountDataHash(StackId);
+
+    CountStructHash(StackId);
+
+    if (StructHash != stack->StructHash)
+    {
+        err += INVALID_HASH;
+
+        ON_DEBUG(StackDump(stack, line, file, function));
+
+        StackDtor(StackId);
+
+        return STACK_DAMAGED;
+    }
+
+    if (DataHash != stack->DataHash)
+    {
+        err += INVALID_HASH;
+
+        ON_DEBUG(StackDump(stack, line, file, function));
+
+        StackDtor(StackId);
+
+        return STACK_DAMAGED;
+    }
+
+    #endif
+
+    #ifdef CANARY_PROTECTION
+
+    if (stack->left_canary != CANARY || stack->right_canary != CANARY)
+    {
+        err += INVALID_STRUCT_CANARY;
+
+        ON_DEBUG(StackDump(stack, line, file, function));
+
+        StackDtor(StackId);
+
+        return STACK_DAMAGED;
+    }
+
+    if (*(stack->DataLeftCanary) != CANARY || *(stack->DataRightCanary) != CANARY)
+    {
+        err += INVALID_DATA_CANARY;
+
+        ON_DEBUG(StackDump(stack, line, file, function));
+
+        StackDtor(StackId);
+
+        return STACK_DAMAGED;
+    }
+
+    #endif
+
+    #ifdef HASH_PROTECTION
+
+    uint64_t DataHash = stack->DataHash;
+
+    uint64_t StructHash = stack->StructHash;
+
+    CountDataHash(StackId);
+
+    CountStructHash(StackId);
+
+    if (StructHash != stack->StructHash)
+    {
+        err += INVALID_HASH;
+
+        ON_DEBUG(StackDump(stack, line, file, function));
+
+        StackDtor(StackId);
+
+        return STACK_DAMAGED;
+    }
+
+    if (DataHash != stack->DataHash)
+    {
+        err += INVALID_HASH;
+
+        ON_DEBUG(StackDump(stack, line, file, function));
+
+        StackDtor(StackId);
+
+        return STACK_DAMAGED;
+    }
+
+    #endif
+
+    ON_DEBUG(StackDump(stack, line, file, function));
 
     #endif
 
@@ -829,7 +940,7 @@ StackReturnCode ParseErr(FILE* fp, uint64_t code, int line, const char* file, co
 
     ON_HTML(fprintf(fp, "<p style=\"color: LightBlue\";>Called in %s:%d:%s</p><br>", file, line, function));
 
-    ON_LOG(fprintf(fp, "Called in %s:%d:%s\n", file, line, function));
+    ON_LOG( fprintf(fp, "Called in %s:%d:%s\n", file, line, function));
 
     PrintErr(fp, code);
 
