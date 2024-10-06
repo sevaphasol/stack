@@ -857,7 +857,6 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
     uint64_t StructHash = stack->StructHash;
 
     CountDataHash(StackId);
-    ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
     CountStructHash(StackId);
 
