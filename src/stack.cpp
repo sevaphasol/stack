@@ -574,7 +574,7 @@ StackReturnCode CountDataHash(StackId_t StackId)
 
     uint64_t DataHash = 5831;
 
-    for (size_t i = 0; i < stack->capacity - 1; i++)
+    for (size_t i = 0; i < stack->capacity; i++)
     {
         DataHash = 33 * DataHash + stack->data[i];
     }
@@ -783,6 +783,7 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
 
         return STACK_DAMAGED;
     }
+
 
     uint64_t DataHash = stack->DataHash;
 
