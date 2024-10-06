@@ -54,7 +54,7 @@ static StackReturnCode   StackDump           (Stack_t* stack, int line, const ch
 
 static StackReturnCode   StackResize         (StackId_t StackId, size_t newCapacity);
 
-StackId_t StackCtor(int capacity)
+StackId_t StackCtor(int capacity, int line, const char* file, const char* function)
 {
     #ifdef DEBUG
 
@@ -101,6 +101,12 @@ StackId_t StackCtor(int capacity)
     #endif
 
     *stack = {INIT(stack)};
+
+    stack->BornLine = line;
+
+    stack->BornFile = file;
+
+    stack->BornFunc = function;
 
     ON_THREAD_PROTECTION(pthread_mutex_init(&(stack->mutex), NULL));
 

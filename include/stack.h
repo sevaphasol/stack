@@ -83,24 +83,13 @@
 
 #endif
 
-// #define DEBUG_INIT(            name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, \
-//                                      #name, 0, 0, PTHREAD_MUTEX_INITIALIZER,          \
-//                                      false,  INVALID_STACK_ID, nullptr, nullptr,      \
-//                                      nullptr, 0, 0, 0, CANARY                         \
-//
-// #define CANARY_PROTECTION_INIT(name) CANARY, false, INVALID_STACK_ID, nullptr, nullptr, nullptr, 0, 0, 0, CANARY
-//
-// #define HASH_PROTECTION_INIT(  name) 0, 0, false, INVALID_STACK_ID, nullptr, 0, 0, 0
-//
-// #define THREAD_PROTECTION_INIT(name) PTHREAD_MUTEX_INITIALIZER, false, INVALID_STACK_ID, nullptr, 0, 0, 0
-//
-// #define RELEASE_INIT(          name) false, INVALID_STACK_ID, nullptr, 0, 0, 0
+#define STACK_ASSERT(     code)    StackAssert    (code,            __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
-#define STACK_ASSERT(     code) StackAssert    (code,            __LINE__, __FILE__, __PRETTY_FUNCTION__)
+#define STACK_IS_VALID(  stack)    StackIsValid   (stack ON_DEBUG(, __LINE__, __FILE__, __PRETTY_FUNCTION__))
 
-#define STACK_IS_VALID(  stack) StackIsValid   (stack ON_DEBUG(, __LINE__, __FILE__, __PRETTY_FUNCTION__))
+#define STACK_IS_DAMAGED(stack)    StackIsDamaged (stack,           __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
-#define STACK_IS_DAMAGED(stack) StackIsDamaged (stack,           __LINE__, __FILE__, __PRETTY_FUNCTION__)
+#define STACK_CTOR(      capacity) StackCtor      (capacity,        __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
 #define verified && ParseErr(stderr, err, __LINE__, __FILE__, __PRETTY_FUNCTION__)
 
@@ -187,7 +176,7 @@ typedef enum StackErrorCodes
     INVALID_STACK_ID_ERR  = 4096,
 } StackErrorCode;
 
-StackId_t                StackCtor           (int capacity);
+StackId_t                StackCtor           (int capacity, int line, const char* file, const char* function);
 
 StackId_t                GetStackId          ();
 

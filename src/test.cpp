@@ -13,7 +13,7 @@ void* PthrDel(void* args);
 
 StackReturnCode StackTest()
 {
-    StackId_t StackId = StackCtor(MIN_STACK_SIZE);
+    StackId_t StackId = STACK_CTOR(MIN_STACK_SIZE);
 
     pthread_t threads[2];
 
