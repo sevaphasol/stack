@@ -607,10 +607,10 @@ StackReturnCode CountStructHash(StackId_t StackId)
     }
     else
     {
-        FirstOffset  = STRUCT_HASH_OFFSET;
-        FirstSize    = sizeof(stack->StructHash);
-        SecondOffset = MUTEX_OFFSET;
-        SecondSize   = sizeof(stack->mutex);
+        FirstOffset  = MUTEX_OFFSET;
+        FirstSize    = sizeof(stack->mutex);
+        SecondOffset = STRUCT_HASH_OFFSET;
+        SecondSize   = sizeof(stack->StructHash);
     }
 
     uint64_t StructHash = 5831;
