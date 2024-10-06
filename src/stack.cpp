@@ -805,7 +805,7 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
         return STACK_DAMAGED;
     }
 
-    #endif
+    #else
 
     #ifdef CANARY_PROTECTION
 
@@ -868,6 +868,8 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
     #endif
 
     ON_DEBUG(StackDump(stack, line, file, function));
+
+    #endif
 
     #endif
 
