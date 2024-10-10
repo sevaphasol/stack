@@ -9,7 +9,6 @@
 #include "stack.h"
 #include "allocation.h"
 
-
 struct Stack_t
 {
     ON_CANARY_PROTECTION(Canary_t        left_canary);
@@ -38,6 +37,8 @@ static Stack_t* Stacks[MaxStackAmount] = {nullptr};
 
 static int                 StackAmount = 0;
 
+static FILE*           SpecialDumpFile = nullptr;
+
 static FILE*             MemoryLogFile = nullptr;
 
 static FILE*                  DumpFile = nullptr;
@@ -52,12 +53,17 @@ static StackReturnCode   CountDataHash       (StackId_t StackId);
 
 static StackReturnCode   CountStructHash     (StackId_t StackId);
 
-static StackReturnCode   StackDump           (Stack_t* stack, int line, const char* file, const char* function);
+static StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 
 static StackReturnCode   StackResize         (StackId_t StackId, size_t newCapacity);
 
 StackId_t StackCtor(int capacity, int line, const char* file, const char* function)
 {
+    if (!SpecialDumpFile)
+    {
+        SpecialDumpFile = fopen(SpecialDumpFileName, "w");
+    }
+
     #ifdef DEBUG
 
     if (!MemoryLogFile)
@@ -422,6 +428,11 @@ StackReturnCode StackDtor(StackId_t StackId)
 
             fclose(DumpFile);
         }
+
+        if(SpecialDumpFile)
+        {
+            fclose(SpecialDumpFile);
+        }
     }
 
     #else
@@ -447,6 +458,102 @@ StackReturnCode StackDtor(StackId_t StackId)
 
     return EXECUTED;
 }
+
+StackReturnCode SpecialStackDump(StackId_t StackId)
+{
+    if (!SpecialDumpFile)
+    {
+        fprintf(stderr, "INVALID FILE POINTER\n");
+
+        err += INVALID_FILE_POINTER;
+
+        return FAILED;
+    }
+
+    time_t RawTime;
+
+    struct tm* TimeInfo;
+
+    time(&RawTime);
+
+    TimeInfo = localtime(&RawTime);
+
+    fprintf(SpecialDumpFile, "Local time and date: %s\n", asctime(TimeInfo));
+
+    PrintErr(SpecialDumpFile, err);
+
+    if (!(1 <= StackId <= MaxStackAmount) || StackId == INVALID_STACK_ID)
+    {
+        fprintf(SpecialDumpFile, "Invalid stack id\n");
+
+        return FAILED;
+    }
+
+    Stack_t* stack = Stacks[StackId - 1];
+
+    if (!stack)
+    {
+        fprintf(SpecialDumpFile, "Lost stack pointer\n");
+
+        fclose(SpecialDumpFile);
+
+        return EXECUTED;
+    }
+
+    ON_DEBUG(fprintf(SpecialDumpFile,  "Stack_t[%p] %s Born at %s:%d in function %s\n\n"
+                                       "Stack ID             = %d\n\n"
+                                       "LEFT  STRUCT CANARY  = %lu\n"
+                                       "RIGHT STRUCT CANARY  = %lu\n\n"
+                                       "LEFT  DATA   CANARY  = %lu\n"
+                                       "RIGHT DATA   CANARY  = %lu\n\n"
+                                       "STRUCT HASH          = %lu\n"
+                                       "DATA   HASH          = %lu\n\n"
+                                       "capacity             = %lu\n"
+                                       "size                 = %lu\n\n",
+                                       stack, stack->name, stack->BornFile, stack->BornLine, stack->BornFunc,
+                                       stack->id,
+                                       stack->left_canary,
+                                       stack->right_canary,
+                                       *(stack->DataLeftCanary),
+                                       *(stack->DataRightCanary),
+                                       stack->StructHash,
+                                       stack->DataHash,
+                                       stack->capacity,
+                                       stack->size));
+
+    if (!stack->data)
+    {
+        fprintf(SpecialDumpFile,  "Lost stack->data pointer\n"
+                                  "\n\n---------------------------------------------------------------------\n\n");
+
+        return EXECUTED;
+    }
+
+    for (int i = 0; i < stack->capacity; i++)
+    {
+        if (i < stack->size)
+        {
+            ON_HTML(fprintf(SpecialDumpFile, "<em style=\"color:LightGrey;\">"
+                                             "[%d] = </em><em style=\"color:LightBlue;\">%ld</em><br>", i, stack->data[i]));
+
+            ON_LOG( fprintf(SpecialDumpFile, "[%d] = %d\n", i, stack->data[i]));
+        }
+        else
+        {
+            ON_HTML(fprintf(SpecialDumpFile, "<em style=\"color:LightGrey;\">"
+                                             "[%d] = </em><em style=\"color:LightBlue;\">%ld (POISON)</em><br>", i, stack->data[i]));
+
+            ON_LOG( fprintf(SpecialDumpFile, "[%d] = %d (POISON) \n", i, stack->data[i]));
+        }
+    }
+
+    ON_HTML(fprintf(SpecialDumpFile, "<p><br><br>---------------------------------------------------------------------<br><br></p>"));
+
+    ON_LOG( fprintf(SpecialDumpFile, "\n\n---------------------------------------------------------------------\n\n"));
+
+    return EXECUTED;
+}
+
 
 StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
@@ -558,20 +665,24 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
             ON_HTML(fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
                                       "[%d] = </em><em style=\"color:LightBlue;\">%ld</em><br>", i, stack->data[i]));
 
-            ON_LOG( fprintf(DumpFile, "[%d] = %ld\n", i, stack->data[i]));
+            ON_LOG( fprintf(DumpFile, "[%d] = %d\n", i, stack->data[i]));
         }
         else
         {
             ON_HTML(fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
                                       "[%d] = </em><em style=\"color:LightBlue;\">%ld (POISON)</em><br>", i, stack->data[i]));
 
-            ON_LOG( fprintf(DumpFile, "[%d] = %ld (POISON) \n", i, stack->data[i]));
+            ON_LOG( fprintf(DumpFile, "[%d] = %d (POISON) \n", i, stack->data[i]));
         }
     }
 
     ON_HTML(fprintf(DumpFile, "<p><br><br>---------------------------------------------------------------------<br><br></p>"));
 
     ON_LOG( fprintf(DumpFile, "\n\n---------------------------------------------------------------------\n\n"));
+
+    #else
+
+
 
     #endif
 

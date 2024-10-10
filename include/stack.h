@@ -125,9 +125,11 @@ const   int      POISON = 0;
 
 extern  uint64_t err;
 
+const char* const SpecialDumpFileName = "special_dump.log";
+
 #ifdef FILE_HTML
 
-const char* const DumpFileName    = "dump.html";
+const char* const DumpFileName       = "dump.html";
 
 const char* const MemoryLogFileName  = "memory.html";
 
@@ -137,7 +139,7 @@ const char* const MemoryLogFileName  = "memory.html";
 
 #else
 
-const char* const DumpFileName   = "dump.log";
+const char* const DumpFileName      = "dump.log";
 
 const char* const MemoryLogFileName = "memory.log";
 
@@ -189,5 +191,7 @@ StackReturnCode          StackDtor           (StackId_t StackId);
 StackReturnCode          PrintErr            (FILE* fp, uint64_t code);
 
 StackReturnCode          ParseErr            (FILE* fp, uint64_t code, int line, const char* file, const char* function);
+
+StackReturnCode          SpecialStackDump    (StackId_t StackId);
 
 #endif // STACK_H__
