@@ -4,8 +4,6 @@
 
 #include "stack.h"
 
-uint64_t err = NO_ERROR;
-
 int main()
 {
     return 0;

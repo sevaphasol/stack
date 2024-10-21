@@ -4,6 +4,12 @@
 #ifndef STACK_H__
 #define STACK_H__
 
+#ifndef DEBUG
+
+#define DEBUG
+
+#endif
+
 #if defined(DEBUG) || defined(HASH_PROTECTION) || defined(CANARY_PROTECTION) || defined(THREAD_PROTECTION)
 
 #ifdef  DEBUG
@@ -123,9 +129,31 @@ const   Canary_t CANARY = DEDHYPEBEAST;
 
 const   int      POISON = 0;
 
-extern  uint64_t err;
+struct Stack_t
+{
+    ON_CANARY_PROTECTION(Canary_t        left_canary);
 
-const char* const SpecialDumpFileName = "special_dump.log";
+    ON_DEBUG(            const char *    BornFile);
+    ON_DEBUG(            int             BornLine);
+    ON_DEBUG(            const char *    BornFunc);
+    ON_DEBUG(            const char *    name);
+    ON_HASH_PROTECTION(  uint64_t        DataHash);
+    ON_HASH_PROTECTION(  uint64_t        StructHash);
+    ON_THREAD_PROTECTION(pthread_mutex_t mutex);
+
+                         bool            inited;
+                         StackId_t       id;
+                         StackElem_t*    data;
+    ON_CANARY_PROTECTION(Canary_t*       DataLeftCanary);
+    ON_CANARY_PROTECTION(Canary_t*       DataRightCanary);
+                         uint64_t        MemorySize;
+                         uint64_t        size;
+                         uint64_t        capacity;
+
+    ON_CANARY_PROTECTION(Canary_t        right_canary);
+};
+
+const char* const SpecialDumpFileName = "./logs/special_dump.log";
 
 #ifdef FILE_HTML
 
@@ -139,9 +167,9 @@ const char* const MemoryLogFileName  = "memory.html";
 
 #else
 
-const char* const DumpFileName      = "dump.log";
+const char* const DumpFileName      = "./logs/dump.log";
 
-const char* const MemoryLogFileName = "memory.log";
+const char* const MemoryLogFileName = "./logs/memory.log";
 
 #define ON_HTML(...)
 
@@ -178,7 +206,7 @@ typedef enum StackErrorCodes
     INVALID_STACK_ID_ERR  = 4096,
 } StackErrorCode;
 
-StackId_t                StackCtor           (int capacity, int line, const char* file, const char* function);
+StackId_t                StackCtor           (size_t capacity, int line, const char* file, const char* function);
 
 StackId_t                GetStackId          ();
 

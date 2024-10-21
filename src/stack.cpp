@@ -9,31 +9,7 @@
 #include "stack.h"
 #include "allocation.h"
 
-struct Stack_t
-{
-    ON_CANARY_PROTECTION(Canary_t        left_canary);
-
-    ON_DEBUG(            const char *    BornFile);
-    ON_DEBUG(            int             BornLine);
-    ON_DEBUG(            const char *    BornFunc);
-    ON_DEBUG(            const char *    name);
-    ON_HASH_PROTECTION(  uint64_t        DataHash);
-    ON_HASH_PROTECTION(  uint64_t        StructHash);
-    ON_THREAD_PROTECTION(pthread_mutex_t mutex);
-
-                         bool            inited;
-                         StackId_t       id;
-                         StackElem_t*    data;
-    ON_CANARY_PROTECTION(Canary_t*       DataLeftCanary);
-    ON_CANARY_PROTECTION(Canary_t*       DataRightCanary);
-                         uint64_t        MemorySize;
-                         uint64_t        size;
-                         uint64_t        capacity;
-
-    ON_CANARY_PROTECTION(Canary_t        right_canary);
-};
-
-static Stack_t* Stacks[MaxStackAmount] = {nullptr};
+Stack_t* Stacks[MaxStackAmount] = {nullptr};
 
 static int                 StackAmount = 0;
 
@@ -57,7 +33,9 @@ static StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line
 
 static StackReturnCode   StackResize         (StackId_t StackId, size_t newCapacity);
 
-StackId_t StackCtor(int capacity, int line, const char* file, const char* function)
+uint64_t err = 0;
+
+StackId_t StackCtor(size_t capacity, int line, const char* file, const char* function)
 {
     if (!SpecialDumpFile)
     {
