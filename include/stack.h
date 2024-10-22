@@ -4,9 +4,9 @@
 #ifndef STACK_H__
 #define STACK_H__
 
-#ifndef DEBUG
+#ifdef DEBUG
 
-#define DEBUG
+#undef DEBUG
 
 #endif
 
@@ -119,7 +119,7 @@ typedef uint64_t Canary_t;
 
 typedef int      StackId_t;
 
-const   int      MinStackSize   = 8;
+const   int      MinStackSize   = 1024;
 
 const   int      MaxStackSize   = 1024*1024;
 
