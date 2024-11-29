@@ -9,38 +9,15 @@
 #include "stack.h"
 #include "allocation.h"
 
+Stack_t* Stacks[MaxStackAmount] = {nullptr};
 
-struct Stack_t
-{
-    ON_CANARY_PROTECTION(Canary_t        left_canary);
+static int                 StackAmount = 0;
 
-    ON_DEBUG(            const char *    BornFile);
-    ON_DEBUG(            int             BornLine);
-    ON_DEBUG(            const char *    BornFunc);
-    ON_DEBUG(            const char *    name);
-    ON_HASH_PROTECTION(  uint64_t        DataHash);
-    ON_HASH_PROTECTION(  uint64_t        StructHash);
-    ON_THREAD_PROTECTION(pthread_mutex_t mutex);
+static FILE*           SpecialDumpFile = nullptr;
 
-                         bool            inited;
-                         StackId_t       id;
-                         StackElem_t*    data;
-    ON_CANARY_PROTECTION(Canary_t*       DataLeftCanary);
-    ON_CANARY_PROTECTION(Canary_t*       DataRightCanary);
-                         uint64_t        MemorySize;
-                         uint64_t        size;
-                         uint64_t        capacity;
+static FILE*             MemoryLogFile = nullptr;
 
-    ON_CANARY_PROTECTION(Canary_t        right_canary);
-};
-
-static Stack_t* STACKS[MAX_STACK_AMOUNT] = {nullptr};
-
-static int   STACK_AMOUNT  = 0;
-
-static FILE* MemoryLogFile = nullptr;
-
-static FILE* DumpFile      = nullptr;
+static FILE*                  DumpFile = nullptr;
 
 static StackReturnCode   StackIsDamaged      (StackId_t StackId, int line, const char* file, const char* function);
 
@@ -52,23 +29,30 @@ static StackReturnCode   CountDataHash       (StackId_t StackId);
 
 static StackReturnCode   CountStructHash     (StackId_t StackId);
 
-static StackReturnCode   StackDump           (Stack_t* stack, int line, const char* file, const char* function);
+static StackReturnCode   StackDump           (Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function));
 
 static StackReturnCode   StackResize         (StackId_t StackId, size_t newCapacity);
 
-StackId_t StackCtor(int capacity, int line, const char* file, const char* function)
+uint64_t err = 0;
+
+StackId_t StackCtor(size_t capacity, int line, const char* file, const char* function)
 {
+    if (!SpecialDumpFile)
+    {
+        SpecialDumpFile = fopen(SpecialDumpFileName, "w");
+    }
+
     #ifdef DEBUG
 
     if (!MemoryLogFile)
     {
-        MemoryLogFile = fopen(MEMORY_LOG_FILE, "w");
+        MemoryLogFile = fopen(MemoryLogFileName, "w");
         ON_HTML(fprintf(MemoryLogFile, "<!DOCTYPE html><html>"));
     }
 
     if (!DumpFile)
     {
-        DumpFile = fopen(DUMP_FILE, "w");
+        DumpFile = fopen(DumpFileName, "w");
         ON_HTML(fprintf(DumpFile, "<!DOCTYPE html><html>"));
     };
 
@@ -83,9 +67,9 @@ StackId_t StackCtor(int capacity, int line, const char* file, const char* functi
         return INVALID_STACK_ID_ERR;
     }
 
-    if (capacity < MIN_STACK_SIZE)
+    if (capacity < MinStackSize)
     {
-        capacity = MIN_STACK_SIZE;
+        capacity = MinStackSize;
     }
 
     #if defined(DEBUG) || defined(CANARY_PROTECTION)
@@ -104,11 +88,15 @@ StackId_t StackCtor(int capacity, int line, const char* file, const char* functi
 
     *stack = {INIT(stack)};
 
+    #ifdef DEBUG
+
     stack->BornLine = line;
 
     stack->BornFile = file;
 
     stack->BornFunc = function;
+
+    #endif
 
     ON_THREAD_PROTECTION(pthread_mutex_init(&(stack->mutex), NULL));
 
@@ -149,20 +137,15 @@ StackId_t StackCtor(int capacity, int line, const char* file, const char* functi
 
     memset((void*) stack->data, POISON, capacity * sizeof(StackElem_t));
 
-    stack->size = 0;
-
+    stack->size     = 0;
     stack->capacity = capacity;
+    stack->inited   = true;
+    stack->id       = id;
+    Stacks[id - 1]  = stack;
 
-    stack->inited = true;
-
-    stack->id = id;
-
-    STACKS[id - 1] = stack;
-
-    STACK_AMOUNT++;
+    StackAmount++;
 
     ON_HASH_PROTECTION(CountDataHash(  id));
-
     ON_HASH_PROTECTION(CountStructHash(id));
 
     ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
@@ -176,9 +159,9 @@ StackId_t GetStackId()
 
     StackId_t id = 0;
 
-    for (id; id < MAX_STACK_AMOUNT; id++)
+    for (id; id < MaxStackAmount; id++)
     {
-        if (STACKS[id] == nullptr)
+        if (Stacks[id] == nullptr)
         {
             ReturnId = id + 1;
             break;
@@ -190,9 +173,9 @@ StackId_t GetStackId()
 
 StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 {
-    Stack_t* stack = STACKS[StackId - 1];
-
     STACK_ASSERT(STACK_IS_VALID(StackId));
+
+    Stack_t* stack = Stacks[StackId - 1];
 
     ON_THREAD_PROTECTION(pthread_mutex_lock(&(stack->mutex)));
 
@@ -204,7 +187,7 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
     }
     else
     {
-        if (stack->capacity > MAX_STACK_SIZE)
+        if (stack->capacity > MaxStackSize)
         {
             err += STACK_OVERFLOW;
 
@@ -220,7 +203,7 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
             return FAILED;
         }
 
-        stack = STACKS[StackId - 1];
+        stack = Stacks[StackId - 1];
 
         stack->data[stack->size] = value;
     }
@@ -229,13 +212,13 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 
     ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
-    ON_HASH_PROTECTION(CountDataHash(  StackId));
+    ON_HASH_PROTECTION (CountDataHash    (StackId));
 
-    ON_HASH_PROTECTION(CountStructHash(StackId));
+    ON_HASH_PROTECTION (CountStructHash  (StackId));
 
-    STACK_ASSERT(STACK_IS_VALID(  StackId));
+    STACK_ASSERT       (STACK_IS_VALID   (StackId));
 
-    STACK_ASSERT(STACK_IS_DAMAGED(StackId));
+    STACK_ASSERT       (STACK_IS_DAMAGED (StackId));
 
     ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
 
@@ -244,9 +227,9 @@ StackReturnCode StackPush(StackId_t StackId, StackElem_t value)
 
 StackElem_t StackPop(StackId_t StackId)
 {
-    Stack_t* stack = STACKS[StackId - 1];
-
     STACK_ASSERT(STACK_IS_VALID(StackId));
+
+    Stack_t* stack = Stacks[StackId - 1]; //TODO check for StackId before
 
     ON_THREAD_PROTECTION(pthread_mutex_lock(&(stack->mutex)));
 
@@ -267,7 +250,7 @@ StackElem_t StackPop(StackId_t StackId)
 
     StackElem_t value = stack->data[stack->size];
 
-    if ((stack->size <= stack->capacity / 4) && (stack->capacity / 2 >= MIN_STACK_SIZE))
+    if ((stack->size <= stack->capacity / 4) && (stack->capacity / 2 >= MinStackSize))
     {
         if (StackResize(StackId, stack->capacity / 2) == FAILED)
         {
@@ -277,9 +260,9 @@ StackElem_t StackPop(StackId_t StackId)
         }
     }
 
-    stack = STACKS[StackId - 1];
+    stack = Stacks[StackId - 1];
 
-    stack->data[stack->size] = POISON;
+    stack->data[stack->size] = POISON; //TODO ON_DEBUG
 
     ON_DEBUG(StackDump(stack, __LINE__, __FILE__, __PRETTY_FUNCTION__));
 
@@ -299,20 +282,20 @@ StackElem_t StackPop(StackId_t StackId)
 
 StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
 {
-    Stack_t* stack = STACKS[StackId - 1];
-
     STACK_ASSERT(STACK_IS_VALID(StackId));
+
+    Stack_t* stack = Stacks[StackId - 1];
 
     STACK_ASSERT(STACK_IS_DAMAGED(StackId));
 
-    if (NewCapacity < MIN_STACK_SIZE)
+    if (NewCapacity < MinStackSize)
     {
         err += REQUESTED_TOO_LITTLE;
 
         return FAILED;
     }
 
-    if (NewCapacity > MAX_STACK_SIZE)
+    if (NewCapacity > MaxStackSize)
     {
         err += REQUESTED_TOO_MUCH;
 
@@ -371,7 +354,7 @@ StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
 
     #endif
 
-    STACKS[StackId - 1] = stack;
+    Stacks[StackId - 1] = stack;
 
     ON_HASH_PROTECTION(CountDataHash(  StackId));
 
@@ -386,7 +369,14 @@ StackReturnCode StackResize(StackId_t StackId, size_t NewCapacity)
 
 StackReturnCode StackDtor(StackId_t StackId)
 {
-    Stack_t* stack = STACKS[StackId - 1];
+    if (!(1 <= StackId <= MaxStackAmount) || StackId == INVALID_STACK_ID)
+    {
+        err += INVALID_STACK_ID_ERR;
+
+        PrintErr(DumpFile, err);
+    }
+
+    Stack_t* stack = Stacks[StackId - 1];
 
     if (!stack)
     {
@@ -401,7 +391,7 @@ StackReturnCode StackDtor(StackId_t StackId)
 
     log_free(MemoryLogFile, stack);
 
-    if (STACK_AMOUNT == 0)
+    if (StackAmount == 0)
     {
         if (MemoryLogFile)
         {
@@ -415,6 +405,11 @@ StackReturnCode StackDtor(StackId_t StackId)
             ON_HTML(fprintf(DumpFile, "</html>\n"));
 
             fclose(DumpFile);
+        }
+
+        if(SpecialDumpFile)
+        {
+            fclose(SpecialDumpFile);
         }
     }
 
@@ -437,10 +432,106 @@ StackReturnCode StackDtor(StackId_t StackId)
 
     stack = nullptr;
 
-    STACKS[StackId - 1] = nullptr;
+    Stacks[StackId - 1] = nullptr;
 
     return EXECUTED;
 }
+
+StackReturnCode SpecialStackDump(StackId_t StackId)
+{
+    if (!SpecialDumpFile)
+    {
+        fprintf(stderr, "INVALID FILE POINTER\n");
+
+        err += INVALID_FILE_POINTER;
+
+        return FAILED;
+    }
+
+    time_t RawTime;
+
+    struct tm* TimeInfo;
+
+    time(&RawTime);
+
+    TimeInfo = localtime(&RawTime);
+
+    fprintf(SpecialDumpFile, "Local time and date: %s\n", asctime(TimeInfo));
+
+    PrintErr(SpecialDumpFile, err);
+
+    if (!(1 <= StackId <= MaxStackAmount) || StackId == INVALID_STACK_ID)
+    {
+        fprintf(SpecialDumpFile, "Invalid stack id\n");
+
+        return FAILED;
+    }
+
+    Stack_t* stack = Stacks[StackId - 1];
+
+    if (!stack)
+    {
+        fprintf(SpecialDumpFile, "Lost stack pointer\n");
+
+        fclose(SpecialDumpFile);
+
+        return EXECUTED;
+    }
+
+    ON_DEBUG(fprintf(SpecialDumpFile,  "Stack_t[%p] %s Born at %s:%d in function %s\n\n"
+                                       "Stack ID             = %d\n\n"
+                                       "LEFT  STRUCT CANARY  = %lu\n"
+                                       "RIGHT STRUCT CANARY  = %lu\n\n"
+                                       "LEFT  DATA   CANARY  = %lu\n"
+                                       "RIGHT DATA   CANARY  = %lu\n\n"
+                                       "STRUCT HASH          = %lu\n"
+                                       "DATA   HASH          = %lu\n\n"
+                                       "capacity             = %lu\n"
+                                       "size                 = %lu\n\n",
+                                       stack, stack->name, stack->BornFile, stack->BornLine, stack->BornFunc,
+                                       stack->id,
+                                       stack->left_canary,
+                                       stack->right_canary,
+                                       *(stack->DataLeftCanary),
+                                       *(stack->DataRightCanary),
+                                       stack->StructHash,
+                                       stack->DataHash,
+                                       stack->capacity,
+                                       stack->size));
+
+    if (!stack->data)
+    {
+        fprintf(SpecialDumpFile,  "Lost stack->data pointer\n"
+                                  "\n\n---------------------------------------------------------------------\n\n");
+
+        return EXECUTED;
+    }
+
+    for (int i = 0; i < stack->capacity; i++)
+    {
+        if (i < stack->size)
+        {
+            ON_HTML(fprintf(SpecialDumpFile, "<em style=\"color:LightGrey;\">"
+                                             "[%d] = </em><em style=\"color:LightBlue;\">%ld</em><br>", i, stack->data[i]));
+
+            ON_LOG( fprintf(SpecialDumpFile, "[%d] = %d\n", i, stack->data[i]));
+        }
+        else
+        {
+            ON_HTML(fprintf(SpecialDumpFile, "<em style=\"color:LightGrey;\">"
+                                             "[%d] = </em><em style=\"color:LightBlue;\">%ld (POISON)</em><br>", i, stack->data[i]));
+
+            ON_LOG( fprintf(SpecialDumpFile, "[%d] = %d (POISON) \n", i, stack->data[i]));
+        }
+    }
+
+    ON_HTML(fprintf(SpecialDumpFile, "<p><br><br>---------------------------------------------------------------------<br><br></p>"));
+
+    ON_LOG( fprintf(SpecialDumpFile, "\n\n---------------------------------------------------------------------\n\n"));
+
+    return EXECUTED;
+}
+
 
 StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, const char* function))
 {
@@ -552,20 +643,24 @@ StackReturnCode StackDump(Stack_t* stack ON_DEBUG(, int line, const char* file, 
             ON_HTML(fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
                                       "[%d] = </em><em style=\"color:LightBlue;\">%ld</em><br>", i, stack->data[i]));
 
-            ON_LOG( fprintf(DumpFile, "[%d] = %ld\n", i, stack->data[i]));
+            ON_LOG( fprintf(DumpFile, "[%d] = %d\n", i, stack->data[i]));
         }
         else
         {
             ON_HTML(fprintf(DumpFile, "<em style=\"color:LightGrey;\">"
                                       "[%d] = </em><em style=\"color:LightBlue;\">%ld (POISON)</em><br>", i, stack->data[i]));
 
-            ON_LOG( fprintf(DumpFile, "[%d] = %ld (POISON) \n", i, stack->data[i]));
+            ON_LOG( fprintf(DumpFile, "[%d] = %d (POISON) \n", i, stack->data[i]));
         }
     }
 
     ON_HTML(fprintf(DumpFile, "<p><br><br>---------------------------------------------------------------------<br><br></p>"));
 
     ON_LOG( fprintf(DumpFile, "\n\n---------------------------------------------------------------------\n\n"));
+
+    #else
+
+
 
     #endif
 
@@ -576,9 +671,9 @@ StackReturnCode CountDataHash(StackId_t StackId)
 {
     #ifdef DEBUG
 
-    Stack_t* stack = STACKS[StackId - 1];
-
     STACK_ASSERT(STACK_IS_VALID(StackId));
+
+    Stack_t* stack = Stacks[StackId - 1];
 
     uint64_t DataHash = 5831;
 
@@ -598,9 +693,9 @@ StackReturnCode CountStructHash(StackId_t StackId)
 {
     #ifdef HASH_PROTECTION
 
-    Stack_t* stack = STACKS[StackId - 1];
-
     STACK_ASSERT(STACK_IS_VALID(StackId));
+
+    Stack_t* stack = Stacks[StackId - 1];
 
     #ifdef THREAD_PROTECTION
 
@@ -665,7 +760,16 @@ StackReturnCode CountStructHash(StackId_t StackId)
 
 StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* file, const char* function))
 {
-    Stack_t* stack = STACKS[StackId - 1];
+    if (!(1 <= StackId <= MaxStackAmount) || StackId == INVALID_STACK_ID)
+    {
+        err += INVALID_STACK_ID_ERR;
+
+        PrintErr(DumpFile, err); //TODO fix deadlock
+
+        return INVALID_STACK_ID;
+    }
+
+    Stack_t* stack = Stacks[StackId - 1];
 
     ON_DEBUG(StackDump(stack, line, file, function));
 
@@ -678,19 +782,6 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
         StackDtor(StackId);
 
         return STACK_INVALID;
-    }
-
-    if (stack->id == INVALID_STACK_ID)
-    {
-        err += INVALID_STACK_ID_ERR;
-
-        ON_DEBUG(StackDump(stack, line, file, function));
-
-        ON_THREAD_PROTECTION(pthread_mutex_unlock(&(stack->mutex)));
-
-        StackDtor(StackId);
-
-        return INVALID_STACK_ID;
     }
 
     if (!stack->data)
@@ -706,7 +797,7 @@ StackReturnCode StackIsValid(StackId_t StackId ON_DEBUG(, int line, const char* 
         return STACK_INVALID;
     }
 
-    if (stack->size > MAX_STACK_SIZE * sizeof(StackElem_t))
+    if (stack->size > MaxStackSize * sizeof(StackElem_t))
     {
         err += STACK_UNDERFLOW;
 
@@ -769,9 +860,9 @@ StackReturnCode StackIsDamaged(StackId_t StackId, int line, const char* file, co
 {
     #if defined(DEBUG) || defined(HASH_PROTECTION) || defined(CANARY_PROTECTION)
 
-    Stack_t* stack = STACKS[StackId - 1];
-
     STACK_ASSERT(STACK_IS_VALID(StackId));
+
+    Stack_t* stack = Stacks[StackId - 1];
 
     ON_DEBUG(StackDump(stack, line, file, function));
 

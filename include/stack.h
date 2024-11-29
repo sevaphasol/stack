@@ -4,20 +4,26 @@
 #ifndef STACK_H__
 #define STACK_H__
 
+#ifdef DEBUG
+
+#undef DEBUG
+
+#endif
+
 #if defined(DEBUG) || defined(HASH_PROTECTION) || defined(CANARY_PROTECTION) || defined(THREAD_PROTECTION)
 
 #ifdef  DEBUG
 
 #define INIT(name) CANARY, __FILE__, __LINE__, __PRETTY_FUNCTION__, \
-                   #name, 0, 0, PTHREAD_MUTEX_INITIALIZER,          \
+                   #name, 0, 0,                                     \
                    false,  INVALID_STACK_ID, nullptr, nullptr,      \
                    nullptr, 0, 0, 0, CANARY                         \
 
 #define ON_DEBUG(...)             __VA_ARGS__
 
-#define ON_THREAD_PROTECTION(...) __VA_ARGS__
+#define ON_THREAD_PROTECTION(...)
 
-#define THREAD_PROTECTION
+// #define THREAD_PROTECTION
 
 #define ON_CANARY_PROTECTION(...) __VA_ARGS__
 
@@ -107,29 +113,53 @@ if ((nextPow = code % pow) >= pow / 2) \
 
 #define ALIGNED_TO(val, bytes) bytes + (val - bytes % val) % val
 
-typedef uint64_t StackElem_t;
+typedef int StackElem_t;
 
 typedef uint64_t Canary_t;
 
 typedef int      StackId_t;
 
-const   int      MIN_STACK_SIZE   = 8;
+const   int      MinStackSize   = 1024;
 
-const   int      MAX_STACK_SIZE   = 1024*1024;
+const   int      MaxStackSize   = 1024*1024;
 
-const   int      MAX_STACK_AMOUNT = 16;
+const   int      MaxStackAmount = 16;
 
 const   Canary_t CANARY = DEDHYPEBEAST;
 
 const   int      POISON = 0;
 
-extern  uint64_t err;
+struct Stack_t
+{
+    ON_CANARY_PROTECTION(Canary_t        left_canary);
+
+    ON_DEBUG(            const char *    BornFile);
+    ON_DEBUG(            int             BornLine);
+    ON_DEBUG(            const char *    BornFunc);
+    ON_DEBUG(            const char *    name);
+    ON_HASH_PROTECTION(  uint64_t        DataHash);
+    ON_HASH_PROTECTION(  uint64_t        StructHash);
+    ON_THREAD_PROTECTION(pthread_mutex_t mutex);
+
+                         bool            inited;
+                         StackId_t       id;
+                         StackElem_t*    data;
+    ON_CANARY_PROTECTION(Canary_t*       DataLeftCanary);
+    ON_CANARY_PROTECTION(Canary_t*       DataRightCanary);
+                         uint64_t        MemorySize;
+                         uint64_t        size;
+                         uint64_t        capacity;
+
+    ON_CANARY_PROTECTION(Canary_t        right_canary);
+};
+
+const char* const SpecialDumpFileName = "./logs/special_dump.log";
 
 #ifdef FILE_HTML
 
-const char* const DUMP_FILE       = "dump.html";
+const char* const DumpFileName       = "dump.html";
 
-const char* const MEMORY_LOG_FILE = "memory.html";
+const char* const MemoryLogFileName  = "memory.html";
 
 #define ON_HTML(...) __VA_ARGS__
 
@@ -137,9 +167,9 @@ const char* const MEMORY_LOG_FILE = "memory.html";
 
 #else
 
-const char* const DUMP_FILE       = "dump.log";
+const char* const DumpFileName      = "./logs/dump.log";
 
-const char* const MEMORY_LOG_FILE = "memory.log";
+const char* const MemoryLogFileName = "./logs/memory.log";
 
 #define ON_HTML(...)
 
@@ -176,7 +206,7 @@ typedef enum StackErrorCodes
     INVALID_STACK_ID_ERR  = 4096,
 } StackErrorCode;
 
-StackId_t                StackCtor           (int capacity, int line, const char* file, const char* function);
+StackId_t                StackCtor           (size_t capacity, int line, const char* file, const char* function);
 
 StackId_t                GetStackId          ();
 
@@ -189,5 +219,7 @@ StackReturnCode          StackDtor           (StackId_t StackId);
 StackReturnCode          PrintErr            (FILE* fp, uint64_t code);
 
 StackReturnCode          ParseErr            (FILE* fp, uint64_t code, int line, const char* file, const char* function);
+
+StackReturnCode          SpecialStackDump    (StackId_t StackId);
 
 #endif // STACK_H__
